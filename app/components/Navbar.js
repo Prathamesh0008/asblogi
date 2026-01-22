@@ -1,7 +1,11 @@
+// components/Navbar.jsx
 'use client'
+
 import { useState } from 'react'
-import { FaRoute, FaGlobeAmericas, FaMapMarkerAlt } from 'react-icons/fa'
 import { FiTruck } from 'react-icons/fi'
+import Image from 'next/image'
+// Adjust this path to your actual logo file location
+import logoImage from '../../public/logo/logoinvc.png'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,20 +34,19 @@ export default function Navbar() {
     <nav className="bg-white shadow-xl sticky top-0 z-50 border-b border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo Section */}
-          <div className="flex items-center space-x-4">
-            <div className="relative w-12 h-12 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-xl flex items-center justify-center shadow-lg group">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045] to-[#A0A1A2] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <FaGlobeAmericas className="text-white text-2xl relative z-10 group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-[#FAB045] to-[#A0A1A2] rounded-full"></div>
-              <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-gradient-to-r from-[#A0A1A2] to-[#FAB045] rounded-full"></div>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
-                <span className="text-[#FAB045]">INVICTUS</span><br></br>
-                <span className="text-gray-800">LOGISTICS</span>
-              </h1>
-              <p className="text-sm text-[#A0A1A2] font-medium tracking-wide">Global Supply Chain Excellence</p>
+          {/* Logo Section - Only Image */}
+          <div className="flex items-center">
+            <div className="relative w-40 h-20 rounded-xl flex items-center justify-center group overflow-hidden">
+              {/* Your logo image */}
+              <div className="relative w-full h-full">
+                <Image
+                  src={logoImage}
+                  alt="Invictus Logi Logo"
+                  fill
+                  className="object-cover p-1"
+                  priority
+                />
+              </div>
             </div>
           </div>
           
@@ -100,7 +103,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-6 pl-6 border-l border-gray-200">
               <div className="text-right">
                 <div className="text-sm text-[#A0A1A2]">Need Help?</div>
-                <div className="text-gray-900 font-bold">+918291293651</div>
+                <div className="text-gray-900 font-bold">+1 (800) LOGISTIC</div>
               </div>
               <button className="bg-gradient-to-r from-[#FAB045] to-[#f8c468] hover:from-[#e8a035] hover:to-[#e8a035] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md">
                 Get Quote
@@ -182,7 +185,7 @@ export default function Navbar() {
                   <FiTruck className="text-[#FAB045] text-xl mr-3" />
                   <div className="text-center">
                     <div className="text-sm text-[#A0A1A2]">24/7 Customer Support</div>
-                    <div className="text-gray-900 font-bold text-lg">+918291293651</div>
+                    <div className="text-gray-900 font-bold text-lg">+1 (800) LOGISTIC</div>
                   </div>
                 </div>
                 

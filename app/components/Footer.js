@@ -1,5 +1,8 @@
 'use client'
-import { FaRoute, FaChevronRight, FaMapMarkerAlt, FaPhone, FaEnvelope, FaHeadset } from 'react-icons/fa'
+
+import Image from 'next/image'
+import logoImage from '../../public/logo/Logoinv.png'
+import { FaChevronRight, FaMapMarkerAlt, FaPhone, FaEnvelope, FaHeadset } from 'react-icons/fa'
 
 export default function Footer() {
   const quickLinks = [
@@ -8,7 +11,7 @@ export default function Footer() {
     { title: 'Tracking', href: '/tracking' },
     { title: 'About Us', href: '/about' },
     { title: 'Contact', href: '/contact' },
-    { title: 'Careers', href: '#' }
+    { title: 'Careers', href: '/careers' }
   ]
 
   const serviceLinks = [
@@ -25,19 +28,24 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-4 mb-8">
-              <div className="w-14 h-14 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-2xl flex items-center justify-center">
-                <FaRoute className="text-white text-2xl" />
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold">invictusLogistics</h2>
-                <p className="text-[#A0A1A2] font-medium">Global Delivery Solutions</p>
+            {/* Logo Only */}
+            <div className="mb-8">
+              <div className="relative w-50 h-40 rounded-xl overflow-hidden">
+                <Image
+                  src={logoImage}
+                  alt="Invictus Logi Logo"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
+            
             <p className="text-gray-400 max-w-md leading-relaxed">
               Delivering excellence across borders with precision, speed, and reliability. 
               Your trusted partner for global logistics solutions.
             </p>
+            
             <div className="flex space-x-4 mt-8">
               <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#FAB045] rounded-lg flex items-center justify-center transition-colors duration-300">
                 <span className="font-semibold">F</span>
@@ -103,17 +111,17 @@ export default function Footer() {
               <li className="flex items-start">
                 <FaMapMarkerAlt className="text-[#FAB045] mt-1 mr-4 flex-shrink-0" />
                 <div>
-                  <p className="font-medium"></p>
-                  <p className="text-sm">Leyweg 836, 2545GR The Hague</p>
+                  <p className="font-medium">123 Logistics Street</p>
+                  <p className="text-sm">Global Business District</p>
                 </div>
               </li>
               <li className="flex items-center">
                 <FaPhone className="text-[#FAB045] mr-4" />
-          +9198849514
+                +1 (555) 123-4567
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="text-[#FAB045] mr-4" />
-                info@invictuslogistics.com
+                info@swiftlogistics.com
               </li>
               <li className="flex items-center">
                 <FaHeadset className="text-[#FAB045] mr-4" />
@@ -126,7 +134,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 mb-4 md:mb-0">
-              © 2024 InvictusLogistics. All rights reserved.
+              © 2024 SwiftLogistics. All rights reserved.
             </p>
             <div className="flex space-x-6 text-gray-500 text-sm">
               <a href="#" className="hover:text-[#FAB045] transition-colors duration-300">Privacy Policy</a>
