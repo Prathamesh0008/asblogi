@@ -30,7 +30,7 @@ export default function Footer() {
                 <FaRoute className="text-white text-2xl" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold">SwiftLogistics</h2>
+                <h2 className="text-3xl font-bold">invictusLogistics</h2>
                 <p className="text-[#A0A1A2] font-medium">Global Delivery Solutions</p>
               </div>
             </div>
@@ -103,17 +103,17 @@ export default function Footer() {
               <li className="flex items-start">
                 <FaMapMarkerAlt className="text-[#FAB045] mt-1 mr-4 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">123 Logistics Street</p>
-                  <p className="text-sm">Global Business District</p>
+                  <p className="font-medium"></p>
+                  <p className="text-sm">Leyweg 836, 2545GR The Hague</p>
                 </div>
               </li>
               <li className="flex items-center">
                 <FaPhone className="text-[#FAB045] mr-4" />
-                +1 (555) 123-4567
+          +9198849514
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="text-[#FAB045] mr-4" />
-                info@swiftlogistics.com
+                info@invictuslogistics.com
               </li>
               <li className="flex items-center">
                 <FaHeadset className="text-[#FAB045] mr-4" />
@@ -126,7 +126,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 mb-4 md:mb-0">
-              © 2024 SwiftLogistics. All rights reserved.
+              © 2024 InvictusLogistics. All rights reserved.
             </p>
             <div className="flex space-x-6 text-gray-500 text-sm">
               <a href="#" className="hover:text-[#FAB045] transition-colors duration-300">Privacy Policy</a>

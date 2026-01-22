@@ -1,6 +1,20 @@
 'use client';
 import { useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaUser, FaBuilding, FaClipboard, FaClock, FaHeadset, FaGlobe, FaShieldAlt, FaTruck } from 'react-icons/fa';
+import { 
+  FaPhone, 
+  FaEnvelope, 
+  FaMapMarkerAlt, 
+  FaPaperPlane, 
+  FaUser, 
+  FaBuilding, 
+  FaClipboard, 
+  FaClock, 
+  FaHeadset, 
+  FaGlobe, 
+  FaShieldAlt, 
+  FaTruck,
+  FaWhatsapp 
+} from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -36,7 +50,7 @@ export default function Contact() {
     {
       icon: <FaPhone />,
       title: 'Call Us',
-      details: ['+1 (555) 123-4567', '+1 (555) 987-6543'],
+      details: ['+918291293651'],
       description: 'Available 24/7',
       color: 'from-[#FAB045] to-orange-400',
       bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
@@ -44,10 +58,18 @@ export default function Contact() {
     {
       icon: <FaEnvelope />,
       title: 'Email Us',
-      details: ['info@swiftlogistics.com', 'support@swiftlogistics.com'],
+      details: ['invictus@logistics.com', 'support@invictustlogistics.com'],
       description: 'Response within 2 hours',
       color: 'from-[#A0A1A2] to-gray-400',
       bgColor: 'bg-gradient-to-br from-[#A0A1A2]/10 to-gray-400/10'
+    },
+    {
+      icon: <FaWhatsapp />,
+      title: 'WhatsApp',
+      details: ['+918291293651'],
+      description: 'Instant chat support',
+      color: 'from-green-500 to-green-600',
+      bgColor: 'bg-gradient-to-br from-green-500/10 to-green-600/10'
     },
     {
       icon: <FaMapMarkerAlt />,
@@ -129,6 +151,18 @@ export default function Contact() {
                           <p key={idx} className="text-gray-700 font-medium">{detail}</p>
                         ))}
                       </div>
+                      {info.title === 'WhatsApp' && (
+                        <a 
+                          href={`https://wa.me/${info.details[0].replace(/\D/g, '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center mt-4 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-300 group/wa"
+                        >
+                          <FaWhatsapp className="mr-2" />
+                          Chat on WhatsApp
+                          <span className="ml-2 opacity-0 group-hover/wa:opacity-100 transition-opacity">→</span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -252,7 +286,7 @@ export default function Contact() {
                             value={formData.phone}
                             onChange={handleChange}
                             className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
-                            placeholder="+1 (555) 000-0000"
+                            placeholder="+918291293651"
                           />
                         </div>
                         <div className="group">
@@ -264,7 +298,7 @@ export default function Contact() {
                           </label>
                           <input
                             type="text"
-                            name="company"
+                            name="Invicictus Logistics"
                             value={formData.company}
                             onChange={handleChange}
                             className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"

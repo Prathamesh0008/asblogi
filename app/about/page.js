@@ -1,27 +1,165 @@
-import { FaUsers, FaAward, FaGlobeAmericas, FaChartLine, FaLightbulb, FaHandshake, FaLeaf, FaRocket } from 'react-icons/fa';
+"use client";
+import { useState } from 'react';
+import { FaUsers, FaAward, FaGlobeAmericas, FaChartLine, FaLightbulb, FaHandshake, FaLeaf, FaRocket, FaChevronDown, FaChevronUp, FaDownload, FaTimes } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
 
 export default function About() {
+  const [expandedStats, setExpandedStats] = useState(Array(4).fill(false));
+  const [expandedValues, setExpandedValues] = useState(Array(4).fill(false));
+  const [expandedMilestones, setExpandedMilestones] = useState(Array(4).fill(false));
+
   const stats = [
-    { icon: <FaGlobeAmericas />, value: '150+', label: 'Countries Served', description: 'Global network coverage' },
-    { icon: <FaChartLine />, value: '15K+', label: 'Monthly Shipments', description: 'With 99.8% on-time rate' },
-    { icon: <FaUsers />, value: '500+', label: 'Dedicated Team', description: 'Experts in logistics' },
-    { icon: <FaAward />, value: '25+', label: 'Industry Awards', description: 'Recognized excellence' },
+    { 
+      icon: <FaGlobeAmericas />, 
+      value: '150+', 
+      label: 'Countries Served', 
+      description: 'Global network coverage',
+      moreInfo: [
+        'Network spans across 6 continents',
+        'Local partners in each region for seamless operations',
+        '24/7 multilingual customer support',
+        'Customs clearance expertise in 50+ key markets',
+        'Strategic hubs in Europe, Asia, and North America'
+      ]
+    },
+    { 
+      icon: <FaChartLine />, 
+      value: '15K+', 
+      label: 'Monthly Shipments', 
+      description: 'With 99.8% on-time rate',
+      moreInfo: [
+        'Average delivery time: 2-3 days for domestic, 5-7 days for international',
+        'Real-time GPS tracking for 100% of shipments',
+        'Temperature-controlled shipments available',
+        'Dangerous goods handling certification',
+        'White-glove delivery services'
+      ]
+    },
+    { 
+      icon: <FaUsers />, 
+      value: '500+', 
+      label: 'Dedicated Team', 
+      description: 'Experts in logistics',
+      moreInfo: [
+        'Average team experience: 8+ years in logistics',
+        'Certified specialists in customs, warehousing, and transport',
+        'Continuous training and development programs',
+        '24/7 operations team for round-the-clock support',
+        'Multilingual customer service representatives'
+      ]
+    },
+    { 
+      icon: <FaAward />, 
+      value: '25+', 
+      label: 'Industry Awards', 
+      description: 'Recognized excellence',
+      moreInfo: [
+        'Logistics Excellence Award 2023',
+        'Supply Chain Innovation Award 2022',
+        'Best Customer Service Award 2021-2023',
+        'Sustainable Logistics Champion 2022',
+        'Global Logistics Provider of the Year 2021'
+      ]
+    },
   ];
 
   const values = [
-    { icon: <FaRocket />, title: 'Innovation', description: 'Leveraging cutting-edge technology for smarter logistics solutions.' },
-    { icon: <FaHandshake />, title: 'Reliability', description: 'Consistent, dependable service you can count on every time.' },
-    { icon: <FaLightbulb />, title: 'Excellence', description: 'Striving for perfection in every shipment and interaction.' },
-    { icon: <FaLeaf />, title: 'Sustainability', description: 'Eco-friendly solutions for a greener supply chain.' },
+    { 
+      icon: <FaRocket />, 
+      title: 'Innovation', 
+      description: 'Leveraging cutting-edge technology for smarter logistics solutions.',
+      moreInfo: 'Our innovation lab continuously researches emerging technologies including AI route optimization, blockchain for supply chain transparency, and IoT-enabled tracking. We\'ve invested over $10M in R&D over the past 5 years and hold 15+ technology patents in logistics optimization.'
+    },
+    { 
+      icon: <FaHandshake />, 
+      title: 'Reliability', 
+      description: 'Consistent, dependable service you can count on every time.',
+      moreInfo: 'We maintain redundant systems across all operations with 99.99% uptime. Our quality management system is ISO 9001 certified, and we conduct regular audits and performance reviews. All our drivers and operators undergo rigorous training and certification processes.'
+    },
+    { 
+      icon: <FaLightbulb />, 
+      title: 'Excellence', 
+      description: 'Striving for perfection in every shipment and interaction.',
+      moreInfo: 'We implement Six Sigma methodologies throughout our operations, achieving defect rates below 0.1%. Our customer satisfaction score consistently exceeds 98%, and we conduct quarterly service reviews with clients to identify improvement opportunities.'
+    },
+    { 
+      icon: <FaLeaf />, 
+      title: 'Sustainability', 
+      description: 'Eco-friendly solutions for a greener supply chain.',
+      moreInfo: 'We\'ve reduced our carbon footprint by 40% over 5 years through electric vehicle adoption, optimized routing, and sustainable packaging. Our warehouses are LEED certified, and we offer carbon offset options for all shipments. We aim for carbon neutrality by 2025.'
+    },
   ];
 
   const milestones = [
-    { year: '2010', title: 'Company Founded', description: 'Started with 5 employees' },
-    { year: '2014', title: 'Global Expansion', description: 'Opened offices in Europe' },
-    { year: '2018', title: 'Tech Integration', description: 'Launched AI-powered logistics' },
-    { year: '2023', title: 'Market Leader', description: 'Serving 150+ countries' },
+    { 
+      year: '2010', 
+      title: 'Company Founded', 
+      description: 'Started with 5 employees',
+      moreInfo: 'Founded by logistics industry veterans with a vision to transform global supply chains through technology and exceptional service. Started operations from a single warehouse in Chicago.'
+    },
+    { 
+      year: '2014', 
+      title: 'Global Expansion', 
+      description: 'Opened offices in Europe',
+      moreInfo: 'Expanded operations to Germany, France, and the UK, establishing our international presence. Introduced our proprietary logistics management platform.'
+    },
+    { 
+      year: '2018', 
+      title: 'Tech Integration', 
+      description: 'Launched AI-powered logistics',
+      moreInfo: 'Implemented AI-driven route optimization and predictive analytics, reducing delivery times by 25%. Launched mobile app with real-time tracking for customers.'
+    },
+    { 
+      year: '2023', 
+      title: 'Market Leader', 
+      description: 'Serving 150+ countries',
+      moreInfo: 'Achieved market leadership with operations spanning 150+ countries. Recognized as industry innovator with 25+ awards. Launched sustainable logistics initiative with electric fleet.'
+    },
   ];
+
+  const handleDownloadBrochure = () => {
+    // Create a mock brochure download
+    const brochureContent = `SwiftLogistics Company Brochure\n\n` +
+      `About Us:\n` +
+      `Founded in 2010, SwiftLogistics has grown into a global leader in logistics solutions.\n\n` +
+      `Key Statistics:\n` +
+      `- Operating in 150+ countries\n` +
+      `- 15,000+ monthly shipments\n` +
+      `- 500+ dedicated professionals\n` +
+      `- 25+ industry awards\n\n` +
+      `Services:\n` +
+      `- Road Freight\n- Air Freight\n- Ocean Freight\n- Warehousing\n- Supply Chain Management\n- Cold Chain Logistics\n\n` +
+      `Contact:\n` +
+      `Email: info@swiftlogistics.com\nPhone: +1-800-LOGISTIC\nWebsite: www.swiftlogistics.com`;
+    
+    const blob = new Blob([brochureContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'SwiftLogistics_Company_Brochure.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const toggleStatExpansion = (index) => {
+    const newExpandedStats = [...expandedStats];
+    newExpandedStats[index] = !newExpandedStats[index];
+    setExpandedStats(newExpandedStats);
+  };
+
+  const toggleValueExpansion = (index) => {
+    const newExpandedValues = [...expandedValues];
+    newExpandedValues[index] = !newExpandedValues[index];
+    setExpandedValues(newExpandedValues);
+  };
+
+  const toggleMilestoneExpansion = (index) => {
+    const newExpandedMilestones = [...expandedMilestones];
+    newExpandedMilestones[index] = !newExpandedMilestones[index];
+    setExpandedMilestones(newExpandedMilestones);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -52,15 +190,19 @@ export default function About() {
                 <span>Explore Our Services</span>
                 <FiArrowRight className="text-lg" />
               </button>
-              <button className="px-8 py-4 bg-transparent border-2 border-[#A0A1A2] hover:border-[#FAB045] text-white font-bold rounded-lg transition-all duration-300">
-                Meet Our Team
+              <button 
+                onClick={handleDownloadBrochure}
+                className="px-8 py-4 bg-transparent border-2 border-[#A0A1A2] hover:border-[#FAB045] text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <FaDownload className="text-lg" />
+                <span>Download Brochure</span>
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section with Expandable Information */}
       <section className="py-20 bg-white relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FAB045] via-[#A0A1A2] to-[#FAB045]"></div>
         
@@ -86,9 +228,41 @@ export default function About() {
                     {stat.label}
                   </div>
                   
-                  <div className="text-[#A0A1A2] text-sm">
+                  <div className="text-[#A0A1A2] text-sm mb-4">
                     {stat.description}
                   </div>
+
+                  {/* Expandable More Information */}
+                  {expandedStats[index] && (
+                    <div className="mt-4 mb-4 animate-fadeIn">
+                      <ul className="space-y-2 text-left">
+                        {stat.moreInfo.map((info, idx) => (
+                          <li key={idx} className="flex items-start text-gray-700 text-sm">
+                            <span className="text-[#FAB045] mr-2">•</span>
+                            <span>{info}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  
+                  {/* Learn More Button */}
+                  <button 
+                    onClick={() => toggleStatExpansion(index)}
+                    className="mt-4 text-[#FAB045] font-semibold text-sm hover:text-[#FAB045]/80 transition-colors duration-300 flex items-center justify-center gap-2 mx-auto"
+                  >
+                    {expandedStats[index] ? (
+                      <>
+                        <FaChevronUp className="text-xs" />
+                        <span>Show Less</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Learn More</span>
+                        <FaChevronDown className="text-xs" />
+                      </>
+                    )}
+                  </button>
                 </div>
               </div>
             ))}
@@ -129,8 +303,12 @@ export default function About() {
                     <span>View Case Studies</span>
                     <FiArrowRight />
                   </button>
-                  <button className="px-8 py-4 bg-white border-2 border-[#A0A1A2] hover:border-[#FAB045] text-gray-800 font-bold rounded-lg transition-all duration-300">
-                    Download Brochure
+                  <button 
+                    onClick={handleDownloadBrochure}
+                    className="px-8 py-4 bg-white border-2 border-[#A0A1A2] hover:border-[#FAB045] text-gray-800 font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <FaDownload />
+                    <span>Download Brochure</span>
                   </button>
                 </div>
               </div>
@@ -193,7 +371,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Values Section with Expandable Information */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -210,32 +388,64 @@ export default function About() {
             {values.map((value, index) => (
               <div 
                 key={index} 
-                className="group relative bg-gradient-to-b from-white to-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-[#FAB045]/50 hover:shadow-xl transition-all duration-500 overflow-hidden"
+                className={`group relative bg-gradient-to-b from-white to-gray-50 rounded-2xl p-8 border transition-all duration-500 overflow-hidden ${
+                  expandedValues[index] ? 'border-[#FAB045] shadow-xl' : 'border-gray-200 hover:border-[#FAB045]/50 hover:shadow-xl'
+                }`}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FAB045] to-[#A0A1A2]"></div>
                 
                 <div className="relative mb-6">
-                  <div className="inline-flex p-4 rounded-xl bg-gradient-to-br from-[#FAB045]/10 to-[#A0A1A2]/10 text-[#FAB045] text-3xl group-hover:scale-110 transition-transform duration-300">
-                    {value.icon}
-                  </div>
+                  <button 
+                    onClick={() => toggleValueExpansion(index)}
+                    className="cursor-pointer focus:outline-none"
+                  >
+                    <div className={`inline-flex p-4 rounded-xl transition-all duration-300 ${
+                      expandedValues[index]
+                        ? 'bg-gradient-to-br from-[#FAB045] to-[#FAB045]/80 text-white scale-110'
+                        : 'bg-gradient-to-br from-[#FAB045]/10 to-[#A0A1A2]/10 text-[#FAB045] group-hover:scale-110'
+                    }`}>
+                      <div className="text-3xl">
+                        {value.icon}
+                      </div>
+                    </div>
+                  </button>
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
+                <p className="text-gray-600 mb-4">{value.description}</p>
+
+                {/* Expandable More Information */}
+                {expandedValues[index] && (
+                  <div className="mb-4 animate-fadeIn">
+                    <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      <p className="text-gray-700 text-sm leading-relaxed">{value.moreInfo}</p>
+                    </div>
+                  </div>
+                )}
                 
-                <div className="mt-6">
-                  <span className="inline-flex items-center text-[#FAB045] font-semibold group-hover:gap-2 transition-all duration-300">
-                    Learn More
-                    <FiArrowRight className="ml-0 group-hover:ml-2 transition-all duration-300" />
-                  </span>
-                </div>
+                <button 
+                  onClick={() => toggleValueExpansion(index)}
+                  className="mt-4 inline-flex items-center text-[#FAB045] font-semibold hover:text-[#FAB045]/80 transition-colors duration-300"
+                >
+                  {expandedValues[index] ? (
+                    <>
+                      <FaChevronUp className="mr-2" />
+                      <span>Show Less</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Learn More</span>
+                      <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </>
+                  )}
+                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Timeline Section with Expandable Information */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -257,16 +467,48 @@ export default function About() {
                 }`}
               >
                 <div className="lg:absolute lg:w-1/2 lg:px-8">
-                  <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#FAB045]/50 hover:shadow-xl transition-all duration-300">
+                  <div className={`bg-white rounded-2xl p-8 border transition-all duration-300 ${
+                    expandedMilestones[index] ? 'border-[#FAB045] shadow-xl' : 'border-gray-200 hover:border-[#FAB045]/50 hover:shadow-xl'
+                  }`}>
                     <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#FAB045] to-[#A0A1A2] flex items-center justify-center text-white font-bold text-xl">
+                      <button 
+                        onClick={() => toggleMilestoneExpansion(index)}
+                        className="w-16 h-16 rounded-full bg-gradient-to-br from-[#FAB045] to-[#A0A1A2] flex items-center justify-center text-white font-bold text-xl hover:scale-110 transition-transform duration-300"
+                      >
                         {milestone.year}
-                      </div>
+                      </button>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900">{milestone.title}</h3>
+                        <p className="text-gray-600">{milestone.description}</p>
                       </div>
                     </div>
-                    <p className="text-gray-600">{milestone.description}</p>
+                    
+                    {/* Expandable More Information */}
+                    {expandedMilestones[index] && (
+                      <div className="mt-4 animate-fadeIn">
+                        <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                          <p className="text-gray-700 text-sm leading-relaxed">{milestone.moreInfo}</p>
+                        </div>
+                        
+                        <button 
+                          onClick={() => toggleMilestoneExpansion(index)}
+                          className="mt-4 text-[#FAB045] font-semibold text-sm hover:text-[#FAB045]/80 transition-colors duration-300 flex items-center gap-1"
+                        >
+                          <FaChevronUp className="text-xs" />
+                          <span>Show Less Details</span>
+                        </button>
+                      </div>
+                    )}
+                    
+                    {!expandedMilestones[index] && (
+                      <button 
+                        onClick={() => toggleMilestoneExpansion(index)}
+                        className="mt-4 text-[#FAB045] font-semibold text-sm hover:text-[#FAB045]/80 transition-colors duration-300 flex items-center gap-1"
+                      >
+                        <FaChevronDown className="text-xs" />
+                        <span>Learn More</span>
+                      </button>
+                    )}
                   </div>
                 </div>
                 
@@ -294,8 +536,12 @@ export default function About() {
                 <span>Start Your Journey</span>
                 <FiArrowRight className="ml-3" />
               </button>
-              <button className="px-10 py-4 bg-transparent border-2 border-[#A0A1A2] hover:border-[#FAB045] text-white font-bold rounded-lg transition-all duration-300">
-                Schedule Consultation
+              <button 
+                onClick={handleDownloadBrochure}
+                className="px-10 py-4 bg-transparent border-2 border-[#A0A1A2] hover:border-[#FAB045] text-white font-bold rounded-lg transition-all duration-300 flex items-center gap-2"
+              >
+                <FaDownload />
+                <span>Download Brochure</span>
               </button>
             </div>
             
@@ -307,6 +553,18 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Add animation styles */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

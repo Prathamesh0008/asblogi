@@ -40,8 +40,8 @@ export default function Navbar() {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
-                <span className="text-[#FAB045]">INVICTUS</span>
-                <span className="text-gray-800">LOGI</span>
+                <span className="text-[#FAB045]">INVICTUS</span><br></br>
+                <span className="text-gray-800">LOGISTICS</span>
               </h1>
               <p className="text-sm text-[#A0A1A2] font-medium tracking-wide">Global Supply Chain Excellence</p>
             </div>
@@ -100,7 +100,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-6 pl-6 border-l border-gray-200">
               <div className="text-right">
                 <div className="text-sm text-[#A0A1A2]">Need Help?</div>
-                <div className="text-gray-900 font-bold">+1 (800) LOGISTIC</div>
+                <div className="text-gray-900 font-bold">+918291293651</div>
               </div>
               <button className="bg-gradient-to-r from-[#FAB045] to-[#f8c468] hover:from-[#e8a035] hover:to-[#e8a035] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md">
                 Get Quote
@@ -182,7 +182,7 @@ export default function Navbar() {
                   <FiTruck className="text-[#FAB045] text-xl mr-3" />
                   <div className="text-center">
                     <div className="text-sm text-[#A0A1A2]">24/7 Customer Support</div>
-                    <div className="text-gray-900 font-bold text-lg">+1 (800) LOGISTIC</div>
+                    <div className="text-gray-900 font-bold text-lg">+918291293651</div>
                   </div>
                 </div>
                 
