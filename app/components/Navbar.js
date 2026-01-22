@@ -12,14 +12,14 @@ export default function Navbar() {
     { 
       title: 'Services', 
       href: '/services',
-      dropdown: [
-        { title: 'Air Freight', href: '/services/air-freight' },
-        { title: 'Ocean Freight', href: '/services/ocean-freight' },
-        { title: 'Road Freight', href: '/services/road-freight' },
-        { title: 'Warehousing', href: '/services/warehousing' },
-        { title: 'Supply Chain', href: '/services/supply-chain' },
-        { title: 'Cold Chain', href: '/services/cold-chain' },
-      ]
+      // dropdown: [
+      //   { title: 'Air Freight', href: '/services' },
+      //   { title: 'Ocean Freight', href: '/services' },
+      //   { title: 'Road Freight', href: '/services' },
+      //   { title: 'Warehousing', href: '/services' },
+      //   { title: 'Supply Chain', href: '/services' },
+      //   { title: 'Cold Chain', href: '/services' },
+      // ]
     },
     { title: 'Tracking', href: '/tracking' },
     { title: 'About Us', href: '/about' },
