@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { FaSearch, FaMapMarkerAlt, FaCalendarAlt, FaTruckLoading, FaClipboardList, FaBox, FaShippingFast, FaRoute, FaCheckCircle } from 'react-icons/fa';
+import { FaSearch, FaMapMarkerAlt, FaCalendarAlt, FaTruckLoading, FaClipboardList, FaBox, FaShippingFast, FaRoute, FaCheckCircle, FaChevronRight, FaDownload, FaShare, FaPrint, FaHeadphones, FaGlobe, FaShieldAlt, FaBell } from 'react-icons/fa';
 
 export default function TrackingPage() {
   const [trackingId, setTrackingId] = useState('TRK789012345');
@@ -40,221 +40,297 @@ export default function TrackingPage() {
   const getStatusColor = (status) => {
     const statusLower = status.toLowerCase();
     switch (statusLower) {
-      case 'delivered': return 'bg-green-100 text-green-800 border-green-200';
-      case 'in transit': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'out for delivery': return 'bg-[#FAB045] text-white border-[#FAB045]';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'delivered': return 'from-green-500 to-emerald-400';
+      case 'in transit': return 'from-blue-500 to-cyan-400';
+      case 'out for delivery': return 'from-[#FAB045] to-orange-400';
+      default: return 'from-gray-500 to-gray-400';
+    }
+  };
+
+  const getStatusIcon = (status) => {
+    const statusLower = status.toLowerCase();
+    switch (statusLower) {
+      case 'delivered': return <FaCheckCircle className="text-white animate-pulse" />;
+      case 'in transit': return <FaTruckLoading className="text-white animate-bounce" />;
+      case 'out for delivery': return <FaShippingFast className="text-white animate-pulse" />;
+      default: return <FaBox className="text-white" />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section with New Colors */}
-      <section className="relative bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-[#FAB045] rounded-full mix-blend-overlay filter blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#A0A1A2] rounded-full mix-blend-overlay filter blur-3xl"></div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      {/* Modern Header with Background Pattern */}
+      <header className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-full" 
+            style={{
+              backgroundImage: 'radial-gradient(circle at 25px 25px, #FAB045 2%, transparent 2%), radial-gradient(circle at 75px 75px, #A0A1A2 2%, transparent 2%)',
+              backgroundSize: '100px 100px'
+            }}>
+          </div>
         </div>
         
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Track Your <span className="text-[#FAB045]">Shipment</span>
-          </h1>
-          <p className="text-xl max-w-3xl mx-auto text-gray-300 mb-10">
-            Real-time tracking updates for all your shipments across the globe with precision and reliability.
-          </p>
-          
-          {/* Stats */}
-          <div className="flex justify-center gap-8 mt-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045]">50k+</div>
-              <div className="text-gray-400">Monthly Shipments</div>
+        {/* Animated Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FAB045]/10 rounded-full mix-blend-overlay filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#A0A1A2]/10 rounded-full mix-blend-overlay filter blur-3xl animate-pulse animation-delay-2000"></div>
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-[#FAB045]/20 to-[#A0A1A2]/20 rounded-full backdrop-blur-sm mb-6">
+              <FaGlobe className="mr-2 text-[#FAB045]" />
+              <span className="text-sm font-semibold">GLOBAL TRACKING NETWORK</span>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045]">150+</div>
-              <div className="text-gray-400">Countries Served</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045]">99.8%</div>
-              <div className="text-gray-400">On-Time Delivery</div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              Track <span className="bg-gradient-to-r from-[#FAB045] to-orange-400 bg-clip-text text-transparent">Shipments</span>
+              <br />In Real-Time
+            </h1>
+            
+            <p className="text-xl max-w-2xl mx-auto text-gray-300 mb-12 leading-relaxed">
+              Advanced tracking technology for precise, reliable, and transparent shipment monitoring worldwide.
+            </p>
+            
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
+              <div className="text-center relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="relative bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                  <div className="text-3xl font-bold text-[#FAB045] mb-2">50k+</div>
+                  <div className="text-gray-400 text-sm">Active Shipments</div>
+                </div>
+              </div>
+              <div className="text-center relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="relative bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                  <div className="text-3xl font-bold text-[#FAB045] mb-2">150+</div>
+                  <div className="text-gray-400 text-sm">Countries</div>
+                </div>
+              </div>
+              <div className="text-center relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="relative bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                  <div className="text-3xl font-bold text-[#FAB045] mb-2">99.8%</div>
+                  <div className="text-gray-400 text-sm">Accuracy</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
-      <section className="py-16">
+      <main className="relative -mt-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Tracking Card */}
           <div className="max-w-6xl mx-auto">
-            {/* Enhanced Tracking Input */}
-            <div className="mb-12">
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 border border-gray-200">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-xl flex items-center justify-center mr-4">
-                    <FaSearch className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900">Track Your Package</h2>
-                    <p className="text-gray-600 mt-1">Enter your tracking number below</p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col md:flex-row gap-4">
+            {/* Floating Tracking Input */}
+            <div className="relative mb-16">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045] to-orange-500 rounded-3xl blur-2xl opacity-20"></div>
+              <div className="relative bg-white rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-100">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                   <div className="flex-1">
-                    <div className="relative">
-                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                        <FaBox className="text-[#A0A1A2]" />
+                    <div className="flex items-center mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#FAB045] to-orange-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                        <FaSearch className="text-white text-2xl" />
                       </div>
+                      <div>
+                        <h2 className="text-3xl font-bold text-gray-900">Enter Tracking Number</h2>
+                        <p className="text-gray-600 mt-2 flex items-center">
+                          <FaShieldAlt className="mr-2 text-[#FAB045]" />
+                          Secure & encrypted tracking
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="relative group">
                       <input
                         type="text"
                         value={trackingId}
                         onChange={(e) => setTrackingId(e.target.value)}
-                        placeholder="Enter your tracking number (e.g., TRK789012345)"
-                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FAB045] focus:border-transparent transition-all duration-300 text-lg placeholder-gray-500"
+                        placeholder="Enter tracking number (e.g., TRK789012345)"
+                        className="w-full pl-14 pr-6 py-5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg placeholder-gray-400"
                       />
+                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                        <FaBox className="text-[#FAB045] text-xl" />
+                      </div>
+                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <button 
+                          onClick={handleTrack}
+                          className="text-[#FAB045] hover:text-orange-600 transition-colors"
+                        >
+                          <FaChevronRight />
+                        </button>
+                      </div>
                     </div>
                     
-                    <div className="mt-6">
+                    <div className="mt-8">
                       <p className="text-sm font-medium text-gray-700 mb-3 flex items-center">
-                        <FaShippingFast className="mr-2 text-[#FAB045]" />
-                        Recent tracking numbers:
+                        <FaBell className="mr-2 text-[#FAB045]" />
+                        Quick access tracking numbers:
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-3">
                         {trackingNumbers.map((num) => (
                           <button
                             key={num}
                             onClick={() => setTrackingId(num)}
-                            className="text-sm bg-gray-100 hover:bg-[#FAB045] hover:text-white text-gray-700 px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-200 hover:border-[#FAB045] font-medium"
+                            className="px-4 py-3 bg-gradient-to-r from-gray-50 to-white border border-gray-200 hover:border-[#FAB045] hover:from-[#FAB045]/5 hover:to-white rounded-xl text-gray-700 hover:text-gray-900 font-medium transition-all duration-300 hover:shadow-md group"
                           >
-                            {num}
+                            <span className="group-hover:text-[#FAB045] transition-colors">{num}</span>
                           </button>
                         ))}
                       </div>
                     </div>
                   </div>
+                  
                   <button
                     onClick={handleTrack}
-                    className="bg-gradient-to-r from-[#FAB045] to-[#f8c468] hover:from-[#e8a035] hover:to-[#e8a035] text-white font-semibold py-4 px-8 rounded-xl text-lg transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center"
+                    className="group relative overflow-hidden bg-gradient-to-r from-[#FAB045] to-orange-500 hover:from-orange-500 hover:to-[#FAB045] text-white font-semibold py-5 px-10 rounded-2xl text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 flex items-center justify-center shadow-lg"
                   >
-                    <FaSearch className="mr-2" />
-                    Track Shipment
+                    <span className="relative z-10 flex items-center">
+                      <FaSearch className="mr-3" />
+                      Track Now
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Enhanced Tracking Results */}
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-              {/* Header with Gradient */}
-              <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 p-8 text-white relative overflow-hidden">
-                <div className="absolute right-0 top-0 w-64 h-64 bg-[#FAB045] opacity-10 rounded-full -translate-y-32 translate-x-32"></div>
-                <div className="relative z-10">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+            {/* Enhanced Status Card */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 mb-12">
+              {/* Status Header */}
+              <div className="relative overflow-hidden bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+                <div className="absolute inset-0 opacity-10" style={{
+                  backgroundImage: 'radial-gradient(circle at 30% 50%, #FAB045 0%, transparent 50%), radial-gradient(circle at 70% 50%, #A0A1A2 0%, transparent 50%)'
+                }}></div>
+                <div className="relative p-8 md:p-10">
+                  <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                     <div>
-                      <div className="flex items-center mb-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-lg flex items-center justify-center mr-3">
-                          <FaRoute className="text-white" />
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-[#FAB045] to-orange-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                          {getStatusIcon(trackingInfo.status)}
                         </div>
-                        <h2 className="text-3xl font-bold">Tracking Details</h2>
+                        <div>
+                          <h2 className="text-2xl md:text-3xl font-bold text-white">Shipment Status</h2>
+                          <p className="text-gray-300">Updated in real-time</p>
+                        </div>
                       </div>
-                      <div className="flex items-center mt-2">
-                        <p className="text-gray-300 mr-4">Tracking ID:</p>
-                        <code className="bg-gray-800 px-3 py-1 rounded-lg font-mono text-[#FAB045] font-bold">
+                      <div className="flex items-center space-x-4">
+                        <code className="bg-gray-800/50 backdrop-blur-sm px-4 py-2 rounded-xl font-mono text-[#FAB045] font-bold border border-gray-700">
                           {trackingId}
                         </code>
+                        <span className="text-gray-400 text-sm">| Last updated: 2 hours ago</span>
                       </div>
                     </div>
-                    <div className="mt-4 md:mt-0">
-                      <span className={`inline-flex items-center px-5 py-3 rounded-xl font-bold text-lg border-2 ${getStatusColor(trackingInfo.status)}`}>
-                        {trackingInfo.status === 'In Transit' && <FaTruckLoading className="mr-2 animate-pulse" />}
-                        {trackingInfo.status === 'Delivered' && <FaCheckCircle className="mr-2" />}
-                        {trackingInfo.status}
-                      </span>
+                    
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045] to-orange-500 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                      <div className={`relative px-8 py-4 rounded-2xl font-bold text-xl border-2 border-white/20 bg-gradient-to-r ${getStatusColor(trackingInfo.status)} flex items-center justify-center`}>
+                        <span className="relative z-10 flex items-center">
+                          {getStatusIcon(trackingInfo.status)}
+                          <span className="ml-3">{trackingInfo.status}</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Shipment Details Cards */}
-              <div className="p-8">
+              {/* Key Metrics Grid */}
+              <div className="p-8 md:p-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <FaMapMarkerAlt className="text-white text-xl" />
+                  {[
+                    { 
+                      icon: <FaMapMarkerAlt />, 
+                      title: 'Origin', 
+                      value: trackingInfo.origin,
+                      detail: 'Pickup completed',
+                      color: 'from-blue-500 to-cyan-400'
+                    },
+                    { 
+                      icon: <FaMapMarkerAlt />, 
+                      title: 'Destination', 
+                      value: trackingInfo.destination,
+                      detail: '2,882 km distance',
+                      color: 'from-purple-500 to-pink-400'
+                    },
+                    { 
+                      icon: <FaCalendarAlt />, 
+                      title: 'ETA', 
+                      value: trackingInfo.estimatedDelivery,
+                      detail: 'By 18:00 local time',
+                      color: 'from-emerald-500 to-teal-400'
+                    },
+                    { 
+                      icon: <FaTruckLoading />, 
+                      title: 'Current Location', 
+                      value: trackingInfo.currentLocation,
+                      detail: 'In transit',
+                      color: 'from-[#FAB045] to-orange-400'
+                    },
+                  ].map((item, index) => (
+                    <div key={index} className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 group-hover:border-[#FAB045] transition-all duration-300 shadow-sm"></div>
+                      <div className="relative p-6">
+                        <div className={`w-14 h-14 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                          <div className="text-white text-xl">
+                            {item.icon}
+                          </div>
+                        </div>
+                        <h3 className="font-bold text-lg text-gray-700 mb-2">{item.title}</h3>
+                        <p className="text-gray-900 text-xl font-bold mb-2">{item.value}</p>
+                        <p className="text-sm text-[#A0A1A2]">{item.detail}</p>
+                      </div>
                     </div>
-                    <h3 className="font-bold text-lg mb-2 text-gray-800">Origin</h3>
-                    <p className="text-gray-700 font-medium">{trackingInfo.origin}</p>
-                  </div>
-                  
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <FaMapMarkerAlt className="text-white text-xl" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-2 text-gray-800">Destination</h3>
-                    <p className="text-gray-700 font-medium">{trackingInfo.destination}</p>
-                    <div className="mt-3 text-sm text-[#FAB045] font-semibold flex items-center">
-                      <FaRoute className="mr-1" /> 2,882 km
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <FaCalendarAlt className="text-white text-xl" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-2 text-gray-800">Estimated Delivery</h3>
-                    <p className="text-gray-700 font-medium">{trackingInfo.estimatedDelivery}</p>
-                    <div className="mt-2 text-sm text-[#A0A1A2]">Expected by 18:00</div>
-                  </div>
-                  
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <FaTruckLoading className="text-white text-xl" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-2 text-gray-800">Current Location</h3>
-                    <p className="text-gray-700 font-medium">{trackingInfo.currentLocation}</p>
-                    <div className="mt-2 text-sm text-[#A0A1A2]">Updated 2 hours ago</div>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Enhanced Timeline */}
                 <div className="mb-12">
-                  <div className="flex items-center mb-8">
-                    <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-xl flex items-center justify-center mr-3">
-                      <FaClipboardList className="text-white" />
+                  <div className="flex items-center mb-10">
+                    <div className="w-14 h-14 bg-gradient-to-r from-[#FAB045] to-orange-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                      <FaClipboardList className="text-white text-xl" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Shipment Journey</h3>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Shipment Journey</h3>
+                      <p className="text-gray-600">Step-by-step tracking history</p>
+                    </div>
                   </div>
                   
                   <div className="relative">
-                    {/* Progress Line */}
-                    <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FAB045] via-[#A0A1A2] to-gray-300"></div>
+                    {/* Animated Progress Line */}
+                    <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FAB045] via-orange-300 to-gray-200">
+                      <div className="absolute top-0 left-0 w-full h-2/3 bg-gradient-to-b from-[#FAB045] to-orange-300 animate-pulse"></div>
+                    </div>
                     
-                    <div className="space-y-8 ml-12">
+                    <div className="space-y-6 ml-16">
                       {trackingInfo.history.map((event, index) => (
-                        <div key={index} className="relative">
-                          <div className={`absolute -left-16 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center ${event.completed ? 'bg-gradient-to-r from-[#FAB045] to-[#f8c468]' : 'bg-gray-300'}`}>
+                        <div key={index} className="relative group">
+                          <div className={`absolute -left-20 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ${event.completed ? 'bg-gradient-to-r from-[#FAB045] to-orange-500' : 'bg-gradient-to-r from-gray-300 to-gray-400'}`}>
                             {event.completed ? (
                               <FaCheckCircle className="text-white text-lg" />
                             ) : (
-                              <div className="w-4 h-4 bg-white rounded-full"></div>
+                              <div className="w-3 h-3 bg-white rounded-full"></div>
                             )}
                           </div>
                           
-                          <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 border-2 ${event.completed ? 'border-[#FAB045]/20' : 'border-gray-200'} hover:border-[#FAB045]/40 transition-all duration-300`}>
-                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-3">
+                          <div className={`rounded-2xl p-6 transition-all duration-300 group-hover:-translate-y-1 ${event.completed ? 'bg-gradient-to-br from-white to-gray-50 border-l-4 border-[#FAB045]' : 'bg-gradient-to-br from-gray-50/50 to-white/50'}`}>
+                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
                               <div className="flex items-center">
                                 <span className={`font-bold text-lg ${event.completed ? 'text-gray-900' : 'text-gray-600'}`}>
                                   {event.status}
                                 </span>
                                 {event.completed && (
-                                  <span className="ml-3 bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
-                                    Completed
+                                  <span className="ml-3 bg-gradient-to-r from-emerald-100 to-green-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-semibold">
+                                    ✓ Completed
                                   </span>
                                 )}
                               </div>
-                              <span className="text-gray-600 font-medium mt-1 md:mt-0">{event.date}</span>
+                              <span className="text-gray-600 font-medium mt-1 md:mt-0 bg-gray-100 px-3 py-1 rounded-lg">
+                                {event.date}
+                              </span>
                             </div>
                             <div className="flex items-center text-gray-700">
-                              <FaMapMarkerAlt className="mr-2 text-[#FAB045]" />
+                              <FaMapMarkerAlt className="mr-3 text-[#FAB045]" />
                               <p className="font-medium">{event.location}</p>
                             </div>
                           </div>
@@ -264,58 +340,77 @@ export default function TrackingPage() {
                   </div>
                 </div>
 
-                {/* Enhanced Shipment Information */}
-                <div className="mt-12 pt-8 border-t border-gray-200">
-                  <h3 className="text-2xl font-bold mb-8 text-gray-900">Shipment Details</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group">
-                      <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-lg flex items-center justify-center mr-3">
-                          <FaTruckLoading className="text-white" />
-                        </div>
-                        <h4 className="font-bold text-lg text-gray-900">Carrier Information</h4>
+                {/* Detailed Information Cards */}
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group hover:shadow-lg">
+                    <div className="flex items-center mb-5">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center mr-4">
+                        <FaShippingFast className="text-white" />
                       </div>
+                      <h4 className="font-bold text-lg text-gray-900">Carrier Details</h4>
+                    </div>
+                    <div className="space-y-3">
                       <p className="text-gray-700 font-medium">{trackingInfo.carrier}</p>
-                      <p className="text-sm text-[#A0A1A2] mt-2">24/7 Customer Support</p>
-                    </div>
-                    
-                    <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group">
-                      <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-lg flex items-center justify-center mr-3">
-                          <FaBox className="text-white" />
-                        </div>
-                        <h4 className="font-bold text-lg text-gray-900">Package Details</h4>
-                      </div>
-                      <div className="space-y-2">
-                        <p className="text-gray-700">
-                          <span className="font-medium">Weight:</span> {trackingInfo.weight}
-                        </p>
-                        <p className="text-gray-700">
-                          <span className="font-medium">Dimensions:</span> {trackingInfo.dimensions}
-                        </p>
-                        <p className="text-gray-700">
-                          <span className="font-medium">Items:</span> 3 Packages
-                        </p>
+                      <div className="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <button className="text-[#FAB045] font-semibold hover:text-orange-600 transition-colors flex items-center group">
+                          <FaHeadphones className="mr-2" />
+                          Contact Support
+                        </button>
+                        <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">24/7 Available</span>
                       </div>
                     </div>
-                    
-                    <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group">
-                      <div className="flex items-center mb-4">
-                        <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-lg flex items-center justify-center mr-3">
-                          <FaShippingFast className="text-white" />
-                        </div>
-                        <h4 className="font-bold text-lg text-gray-900">Service & Delivery</h4>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group hover:shadow-lg">
+                    <div className="flex items-center mb-5">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center mr-4">
+                        <FaBox className="text-white" />
                       </div>
-                      <p className="text-gray-700 font-medium">{trackingInfo.serviceType}</p>
-                      <p className="text-sm text-[#A0A1A2] mt-2">
-                        <span className="font-medium text-gray-700">Insurance:</span> $1,500 Coverage
-                      </p>
-                      <div className="mt-4">
-                        <button className="text-[#FAB045] font-semibold hover:text-[#e8a035] transition-colors duration-300 flex items-center">
-                          Download Shipping Label
-                          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
+                      <h4 className="font-bold text-lg text-gray-900">Package Specs</h4>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <p className="text-xs text-gray-500">Weight</p>
+                          <p className="font-bold text-gray-900">{trackingInfo.weight}</p>
+                        </div>
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <p className="text-xs text-gray-500">Dimensions</p>
+                          <p className="font-bold text-gray-900">{trackingInfo.dimensions}</p>
+                        </div>
+                      </div>
+                      <div className="bg-gray-50 rounded-lg p-3">
+                        <p className="text-xs text-gray-500">Service Type</p>
+                        <p className="font-bold text-gray-900 flex items-center">
+                          {trackingInfo.serviceType}
+                          <span className="ml-2 text-xs bg-[#FAB045]/10 text-[#FAB045] px-2 py-1 rounded">Express</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#FAB045] transition-all duration-300 group hover:shadow-lg">
+                    <div className="flex items-center mb-5">
+                      <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-xl flex items-center justify-center mr-4">
+                        <FaShieldAlt className="text-white" />
+                      </div>
+                      <h4 className="font-bold text-lg text-gray-900">Security & Actions</h4>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-4 border border-emerald-100">
+                        <p className="text-sm text-gray-700 mb-2">
+                          <span className="font-bold">Insurance:</span> $1,500 Coverage
+                        </p>
+                        <p className="text-xs text-gray-500">Fully insured shipment</p>
+                      </div>
+                      <div className="flex space-x-3">
+                        <button className="flex-1 bg-gradient-to-r from-gray-100 to-white border border-gray-200 text-gray-700 font-semibold py-3 rounded-xl hover:border-[#FAB045] hover:text-[#FAB045] transition-all duration-300 flex items-center justify-center">
+                          <FaDownload className="mr-2" />
+                          Label
+                        </button>
+                        <button className="flex-1 bg-gradient-to-r from-gray-100 to-white border border-gray-200 text-gray-700 font-semibold py-3 rounded-xl hover:border-[#FAB045] hover:text-[#FAB045] transition-all duration-300 flex items-center justify-center">
+                          <FaShare className="mr-2" />
+                          Share
                         </button>
                       </div>
                     </div>
@@ -324,16 +419,26 @@ export default function TrackingPage() {
               </div>
 
               {/* Footer Actions */}
-              <div className="bg-gray-50 p-6 border-t border-gray-200">
+              <div className="bg-gradient-to-r from-gray-50 to-white p-6 border-t border-gray-200">
                 <div className="flex flex-col md:flex-row justify-between items-center">
-                  <p className="text-gray-600 mb-4 md:mb-0">
-                    Need help? <span className="text-[#FAB045] font-semibold cursor-pointer hover:underline">Contact Support</span>
-                  </p>
-                  <div className="flex gap-4">
-                    <button className="px-6 py-3 border-2 border-[#FAB045] text-[#FAB045] font-semibold rounded-xl hover:bg-[#FAB045] hover:text-white transition-all duration-300">
+                  <div className="flex items-center mb-4 md:mb-0">
+                    <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045] to-orange-500 rounded-xl flex items-center justify-center mr-3">
+                      <FaHeadphones className="text-white" />
+                    </div>
+                    <div>
+                      <p className="text-gray-700 font-medium">Need assistance?</p>
+                      <p className="text-[#FAB045] font-semibold cursor-pointer hover:underline text-sm">
+                        Contact our support team
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex space-x-4">
+                    <button className="px-6 py-3 bg-gradient-to-r from-gray-100 to-white border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#FAB045] hover:text-[#FAB045] hover:shadow-lg transition-all duration-300 flex items-center">
+                      <FaPrint className="mr-2" />
                       Print Details
                     </button>
-                    <button className="px-6 py-3 bg-gradient-to-r from-[#FAB045] to-[#f8c468] text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300">
+                    <button className="px-8 py-3 bg-gradient-to-r from-[#FAB045] to-orange-500 text-white font-semibold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center group">
+                      <FaShare className="mr-2 group-hover:rotate-12 transition-transform" />
                       Share Tracking
                     </button>
                   </div>
@@ -342,7 +447,7 @@ export default function TrackingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
     </div>
   );
 }

@@ -83,13 +83,13 @@ export default function Hero() {
 
             {/* Right side - Feature boxes */}
             <div className="lg:w-1/2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:mt-20">
                 {features.map((feature, index) => (
                   <div 
                     key={index} 
-                    className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-white/20 hover:border-[#FAB045] transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2"
+                    className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-white/20 hover:border-[#FAB045] transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center text-center"
                   >
-                    <div className={`${feature.color} mb-4 text-3xl lg:text-4xl flex justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`${feature.color} mb-4 text-3xl lg:text-4xl group-hover:scale-110 transition-transform duration-300`}>
                       {feature.icon}
                     </div>
                     <h4 className="font-bold text-lg lg:text-xl mb-2 group-hover:text-[#FAB045] transition-colors duration-300">
