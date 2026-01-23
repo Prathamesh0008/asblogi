@@ -60,8 +60,8 @@ export default function Navbar() {
   <Image
     src="/logo/logo2.png"
     alt="Invictus Logistics Logo"
-    width={240}
-    height={80}
+    width={200}
+    height={75}
     className="object-contain"
     priority
   />
