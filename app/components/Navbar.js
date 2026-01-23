@@ -12,6 +12,7 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false) // Add this state
   const pathname = usePathname()
+  const logo = "/logo/logo2.png"
   
   const quickLinks = [
     { title: 'Home', href: '/' },
@@ -58,13 +59,13 @@ export default function Navbar() {
               <div className="relative w-[250px] h-[70px] rounded-xl flex items-center justify-center group overflow-hidden">
                 <div className="flex items-center">
   <Image
-    src="/logo/logo2.png"
+    src={logo}
     alt="Invictus Logistics Logo"
     width={200}
     height={75}
     className="object-contain"
     priority
-    unoptimized={process.env.NODE_ENV !== "production"} // Add this line
+    
   />
 </div>
 
