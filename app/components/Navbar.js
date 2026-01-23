@@ -55,15 +55,17 @@ export default function Navbar() {
           <div className="flex justify-between items-center py-3">
             {/* Logo Section */}
             <div className="flex items-center">
-              <div className="relative w-[250px] h-[80px] rounded-xl flex items-center justify-center group overflow-hidden">
-                <div className="relative w-[250px] h-[85px] flex items-center">
+              <div className="relative w-[250px] h-[70px] rounded-xl flex items-center justify-center group overflow-hidden">
+                <div className="relative w-[200px] ml-15 h-[75px] flex items-center">
                   <Image
-                    src="/logo/logo2.png"
-                    alt="Invictus Logi Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
+  src="/logo/logo2.png"
+  alt="Invictus Logistics Logo"
+  width={240}
+  height={80}
+  className="object-contain"
+  priority
+/>
+
                 </div>
               </div>
             </div>
