@@ -402,14 +402,15 @@ export default function Contact() {
                           <FaMapMarkerAlt className="text-white text-2xl" />
                         </div>
                         <div className="text-center">
-                          <p className="text-xl font-bold text-gray-900 mb-2">New York Headquarters</p>
-                          <p className="text-gray-600">123 Logistics Street, New York, NY 10001</p>
+                          <p className="text-xl font-bold text-gray-900 mb-2">Leyweg 8362545 GR Den Haag, Netherlands</p>
+                          <p className="text-gray-600"> 
+                                      Leyweg 836, 2545GR The Hague</p> 
                           <div className="mt-4">
                             <button className="px-6 py-2 bg-white border-2 border-[#FAB045] text-[#FAB045] font-semibold rounded-lg hover:bg-[#FAB045] hover:text-white transition-all">
                               Get Directions
                             </button>
                           </div>
-                        </div>
+                        </div>  
                       </div>
                     </div>
                     
