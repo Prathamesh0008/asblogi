@@ -58,7 +58,7 @@ export default function Navbar() {
               <div className="relative w-[250px] h-[70px] rounded-xl flex items-center justify-center group overflow-hidden">
                 <div className="flex items-center">
   <Image
-    src="/logo/logo2.png"
+    src="/logo/Logoinv.png"
     alt="Invictus Logistics Logo"
     width={200}
     height={75}
