@@ -55,21 +55,21 @@ export default function Navbar() {
           <div className="flex justify-between items-center py-3">
             {/* Logo Section */}
             <div className="flex items-center">
-  <div className="relative w-[200px] h-[75px]">
-    <Image
-      src="/logo/logo2.png"
-      alt="Invictus Logistics Logo"
-      width={200}
-      height={75}
-      className="object-contain"
-      priority
-      onError={(e) => {
-        e.target.onerror = null;
-        e.target.src = "/logo/logo2.png";
-      }}
-    />
-  </div>
+              <div className="relative w-[250px] h-[70px] rounded-xl flex items-center justify-center group overflow-hidden">
+                <div className="flex items-center">
+  <Image
+    src="/logo/logo2.png"
+    alt="Invictus Logistics Logo"
+    width={200}
+    height={75}
+    className="object-contain"
+    priority
+    
+  />
 </div>
+
+              </div>
+            </div>
             
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
@@ -96,7 +96,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center space-x-4">
               <div className="text-right">
                 <div className="text-xs text-[#A0A1A2]">Need Help?</div>
-                <div className="text-gray-900 font-bold text-sm">+1 (800) LOGISTIC</div>
+                <div className="text-gray-900 font-bold text-sm">+31685865799</div>
               </div>
               <button 
                 onClick={() => setIsQuoteModalOpen(true)} // Update this line

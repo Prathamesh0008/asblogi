@@ -111,7 +111,7 @@ export default function Contact() {
     {
       icon: <FaPhone />,
       title: 'Call Us',
-      details: ['+918291293651'],
+      details: ['+31685865799'],
       description: 'Available 24/7',
       color: 'from-[#FAB045] to-orange-400',
       bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
