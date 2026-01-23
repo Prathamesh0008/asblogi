@@ -12,7 +12,6 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false) // Add this state
   const pathname = usePathname()
-  const logo = "/logo/logo2.png"
   
   const quickLinks = [
     { title: 'Home', href: '/' },
@@ -56,21 +55,21 @@ export default function Navbar() {
           <div className="flex justify-between items-center py-3">
             {/* Logo Section */}
             <div className="flex items-center">
-              <div className="relative w-[250px] h-[70px] rounded-xl flex items-center justify-center group overflow-hidden">
-                <div className="flex items-center">
-  <Image
-    src={logo}
-    alt="Invictus Logistics Logo"
-    width={200}
-    height={75}
-    className="object-contain"
-    priority
-    
-  />
+  <div className="relative w-[200px] h-[75px]">
+    <Image
+      src="/logo/logo2.png"
+      alt="Invictus Logistics Logo"
+      width={200}
+      height={75}
+      className="object-contain"
+      priority
+      onError={(e) => {
+        e.target.onerror = null;
+        e.target.src = "/logo/logo2.png";
+      }}
+    />
+  </div>
 </div>
-
-              </div>
-            </div>
             
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
