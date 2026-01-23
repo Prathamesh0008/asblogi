@@ -2,39 +2,104 @@
 import { useState } from 'react'
 import { FaTruck, FaSearch, FaShippingFast, FaGlobe, FaShieldAlt, FaClock } from 'react-icons/fa'
 import GetStartedModal from './GetStartedModal'
+import Lottie from 'lottie-react'
+import lightningLottie from '@/public/lottie/Loading_car.json'
+import GlobalLottie from '@/public/lottie/Global Network.json'
+import SecuredLottie from '@/public/lottie/Secured.json'
+import DeliveryLottie from '@/public/lottie/Dlivery Map.json'
+//service id: service_c6btjwc 
+//Template ID : template_lbc4wgq
+//public key : xywkeRz6q387pdmhR
+
+
+
 
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const features = [
-    { 
-      icon: <FaShippingFast />, 
-      title: 'Lightning Fast', 
-      desc: 'Same-Day Dispatch',
-      color: 'text-[#FAB045]',
-      gradient: 'from-[#FAB045] to-[#FFD700]'
-    },
-    { 
-      icon: <FaGlobe />, 
-      title: 'Global Network', 
-      desc: '180+ Countries',
-      color: 'text-[#00B4D8]',
-      gradient: 'from-[#00B4D8] to-[#0077B6]'
-    },
-    { 
-      icon: <FaShieldAlt />, 
-      title: 'Armored Security', 
-      desc: 'Advanced Protection',
-      color: 'text-[#FAB045]',
-      gradient: 'from-[#FAB045] to-[#FF6B6B]'
-    },
-    { 
-      icon: <FaClock />, 
-      title: 'Live Tracking', 
-      desc: 'Real-time Updates',
-      color: 'text-[#4CC9F0]',
-      gradient: 'from-[#4CC9F0] to-[#4361EE]'
-    },
+    {
+  icon: (
+    <div className="w-25 h-16">
+      <Lottie
+        animationData={lightningLottie}
+        loop
+        autoplay
+      />
+    </div>
+  ),
+  title: 'Lightning Fast',
+  desc: 'Same-Day Dispatch',
+  color: 'text-[#FAB045]',
+  gradient: 'from-[#FAB045] to-[#FFD700]'
+},
+{
+  icon: (
+    <div className="w-25 h-16">
+      <Lottie
+        animationData={DeliveryLottie}
+        loop
+        autoplay
+      />
+    </div>
+  ),
+  title: 'Live Tracking',
+  desc: 'Real-time Updates',
+  color: 'text-[#FAB045]',
+  gradient: 'from-[#FAB045] to-[#FFD700]'
+},
+{
+  icon: (
+    <div className="w-25 h-16">
+      <Lottie
+        animationData={SecuredLottie}
+        loop
+        autoplay
+      />
+    </div>
+  ),
+  title: 'Armored Security',
+  desc: 'Advanced Protection',
+  color: 'text-[#FAB045]',
+  gradient: 'from-[#FAB045] to-[#FFD700]'
+},
+{
+  icon: (
+    <div className="w-25 h-16">
+      <Lottie
+        animationData={GlobalLottie}
+        loop
+        autoplay
+      />
+    </div>
+  ),
+  title: 'Global Network',
+  desc: '180+ Countries',
+  color: 'text-[#FAB045]',
+  gradient: 'from-[#FAB045] to-[#FFD700]'
+},
+
+    // { 
+    //   icon: <FaGlobe />, 
+    //   title: 'Global Network', 
+    //   desc: '180+ Countries',
+    //   color: 'text-[#00B4D8]',
+    //   gradient: 'from-[#00B4D8] to-[#0077B6]'
+    // },
+    // { 
+    //   icon: <FaShieldAlt />, 
+    //   title: 'Armored Security', 
+    //   desc: 'Advanced Protection',
+    //   color: 'text-[#FAB045]',
+    //   gradient: 'from-[#FAB045] to-[#FF6B6B]'
+    // },
+    // { 
+    //   icon: <FaClock />, 
+    //   title: 'Live Tracking', 
+    //   desc: 'Real-time Updates',
+    //   color: 'text-[#4CC9F0]',
+    //   gradient: 'from-[#4CC9F0] to-[#4361EE]'
+    // },
   ]
 
   const handleTrackShipment = () => {
