@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="mb-8">
               <div className="relative w-50 h-40 rounded-xl overflow-hidden">
                 <Image
-                  src={logoImage}
+                  src="/logo/Logoinv.png"
                   alt="Invictus Logi Logo"
                   fill
                   className="object-cover"
@@ -46,20 +46,7 @@ export default function Footer() {
               Your trusted partner for global logistics solutions.
             </p>
             
-            <div className="flex space-x-4 mt-8">
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#FAB045] rounded-lg flex items-center justify-center transition-colors duration-300">
-                <span className="font-semibold">F</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#FAB045] rounded-lg flex items-center justify-center transition-colors duration-300">
-                <span className="font-semibold">T</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#FAB045] rounded-lg flex items-center justify-center transition-colors duration-300">
-                <span className="font-semibold">L</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#FAB045] rounded-lg flex items-center justify-center transition-colors duration-300">
-                <span className="font-semibold">I</span>
-              </a>
-            </div>
+            
           </div>
           
           <div>
