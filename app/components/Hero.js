@@ -7,9 +7,7 @@ import lightningLottie from '@/public/lottie/Loading_car.json'
 import GlobalLottie from '@/public/lottie/Global Network.json'
 import SecuredLottie from '@/public/lottie/Secured.json'
 import DeliveryLottie from '@/public/lottie/Dlivery Map.json'
-//service id: service_c6btjwc 
-//Template ID : template_lbc4wgq
-//public key : xywkeRz6q387pdmhR
+
 
 
 
@@ -20,7 +18,7 @@ export default function Hero() {
   const features = [
     {
   icon: (
-    <div className="w-25 h-16">
+    <div className="w-25 h-25">
       <Lottie
         animationData={lightningLottie}
         loop
@@ -35,7 +33,7 @@ export default function Hero() {
 },
 {
   icon: (
-    <div className="w-25 h-16">
+    <div className="w-25 h-25">
       <Lottie
         animationData={DeliveryLottie}
         loop
@@ -50,7 +48,7 @@ export default function Hero() {
 },
 {
   icon: (
-    <div className="w-25 h-16">
+    <div className="w-35 h-25">
       <Lottie
         animationData={SecuredLottie}
         loop
@@ -65,7 +63,7 @@ export default function Hero() {
 },
 {
   icon: (
-    <div className="w-25 h-16">
+    <div className="w-35 h-25">
       <Lottie
         animationData={GlobalLottie}
         loop
