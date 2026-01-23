@@ -121,7 +121,7 @@ export default function Hero() {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed'
-        }}
+        }}  
       >
         {/* Enhanced overlay with gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/85"></div>

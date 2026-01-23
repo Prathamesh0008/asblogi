@@ -99,7 +99,7 @@ export default function Services() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Our <span className="text-[#FAB045]">Services</span>
+           <span className="text-[#FAB045]">Our Services</span>
           </h2>
           <p className="text-[#A0A1A2] text-xl max-w-3xl mx-auto">
             Comprehensive logistics solutions designed for modern business needs.
@@ -133,7 +133,7 @@ export default function Services() {
                       }`}></div>
                       {feature}
                     </li>
-                  ))}
+                  ))}  
                 </ul>
               </div>
               

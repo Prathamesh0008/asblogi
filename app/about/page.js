@@ -143,6 +143,35 @@ export default function About() {
     URL.revokeObjectURL(url);
   };
 
+  const handleExploreServices = () => {
+    // Redirect to services page or show services modal
+    // For demo purposes, we'll show an alert and simulate navigation
+    alert('Navigating to Services page...\n\nServices Available:\n1. Road Freight\n2. Air Freight\n3. Ocean Freight\n4. Warehousing\n5. Supply Chain Management\n6. Cold Chain Logistics');
+    
+    // In a real application, you would use:
+    // router.push('/services');
+    // or
+    // window.location.href = '/services';
+  };
+
+  const handleViewCaseStudies = () => {
+    // Redirect to case studies page or show case studies modal
+    // For demo purposes, we'll show an alert with case study info
+    const caseStudies = [
+      'Global Retail Chain: Reduced delivery times by 35%',
+      'Pharmaceutical Company: Achieved 99.9% temperature compliance',
+      'Automotive Manufacturer: Saved $2.5M in logistics costs',
+      'E-commerce Giant: Streamlined cross-border shipping'
+    ];
+    
+    alert('Viewing Case Studies...\n\n' + caseStudies.map((study, i) => `${i+1}. ${study}`).join('\n'));
+    
+    // In a real application, you would use:
+    // router.push('/case-studies');
+    // or
+    // window.location.href = '/case-studies';
+  };
+
   const toggleStatExpansion = (index) => {
     const newExpandedStats = [...expandedStats];
     newExpandedStats[index] = !newExpandedStats[index];
@@ -186,7 +215,10 @@ export default function About() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-[#FAB045] hover:bg-[#FAB045]/90 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+              <button 
+                onClick={handleExploreServices}
+                className="px-8 py-4 bg-[#FAB045] hover:bg-[#FAB045]/90 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+              >
                 <span>Explore Our Services</span>
                 <FiArrowRight className="text-lg" />
               </button>
@@ -299,7 +331,10 @@ export default function About() {
                 </div>
                 
                 <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                  <button className="px-8 py-4 bg-[#FAB045] hover:bg-[#FAB045]/90 text-gray-900 font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                  <button 
+                    onClick={handleViewCaseStudies}
+                    className="px-8 py-4 bg-[#FAB045] hover:bg-[#FAB045]/90 text-gray-900 font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                  >
                     <span>View Case Studies</span>
                     <FiArrowRight />
                   </button>
@@ -532,7 +567,10 @@ export default function About() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="px-10 py-4 bg-[#FAB045] hover:bg-[#FAB045]/90 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center">
+              <button 
+                onClick={handleExploreServices}
+                className="px-10 py-4 bg-[#FAB045] hover:bg-[#FAB045]/90 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center"
+              >
                 <span>Start Your Journey</span>
                 <FiArrowRight className="ml-3" />
               </button>
