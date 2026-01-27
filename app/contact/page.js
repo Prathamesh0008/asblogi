@@ -13,7 +13,10 @@ import {
   FaGlobe, 
   FaShieldAlt, 
   FaTruck,
-  FaWhatsapp 
+  FaWhatsapp,
+  FaSpinner,
+  FaCheckCircle,
+  FaExclamationTriangle
 } from 'react-icons/fa';
 
 export default function Contact() {
@@ -26,31 +29,89 @@ export default function Contact() {
     message: ''
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    if (error) setError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Message sent successfully!');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      subject: '',
-      message: ''
-    });
+    setIsLoading(true);
+    setError('');
+    setIsSuccess(false);
+
+    try {
+      // REPLACE THIS WITH YOUR FORMSPREE FORM ID
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjpdzyb';
+      
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          subject: formData.subject,
+          message: formData.message,
+          // Optional: These help Formspree format the email better
+          _subject: `New Contact Form: ${formData.subject || 'General Inquiry'}`,
+          _replyto: formData.email,
+          _format: 'plain'
+        }),
+      });
+
+      console.log('Formspree response:', response);
+
+      if (response.ok) {
+        setIsSuccess(true);
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          subject: '',
+          message: ''
+        });
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 5000);
+      } else {
+        const errorData = await response.json();
+        console.error('Formspree error:', errorData);
+        
+        if (errorData.errors && errorData.errors.length > 0) {
+          setError(`Error: ${errorData.errors[0].message}`);
+        } else {
+          setError('Failed to send message. Please try again.');
+        }
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactInfo = [
     {
       icon: <FaPhone />,
       title: 'Call Us',
-      details: ['+918291293651'],
+      details: ['+31685865799'],
       description: 'Available 24/7',
       color: 'from-[#FAB045] to-orange-400',
       bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
@@ -298,7 +359,7 @@ export default function Contact() {
                           </label>
                           <input
                             type="text"
-                            name="Invicictus Logistics"
+                            name="company"
                             value={formData.company}
                             onChange={handleChange}
                             className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
@@ -344,6 +405,27 @@ export default function Contact() {
                         />
                       </div>
 
+                      {/* Status Messages */}
+                      {isSuccess && (
+                        <div className="p-4 bg-green-50 border border-green-200 rounded-xl flex items-center animate-fadeIn">
+                          <FaCheckCircle className="text-green-500 mr-3 text-xl flex-shrink-0" />
+                          <div>
+                            <p className="font-semibold text-green-800">Message sent successfully!</p>
+                            <p className="text-green-600 text-sm">We'll get back to you within 2 hours.</p>
+                          </div>
+                        </div>
+                      )}
+
+                      {error && (
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center animate-fadeIn">
+                          <FaExclamationTriangle className="text-red-500 mr-3 text-xl flex-shrink-0" />
+                          <div>
+                            <p className="font-semibold text-red-800">{error}</p>
+                            <p className="text-red-600 text-sm">Please try again or use our phone/email directly.</p>
+                          </div>
+                        </div>
+                      )}
+
                       <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-100">
                         <div className="flex items-center mb-4 sm:mb-0">
                           <div className="w-10 h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-3">
@@ -357,14 +439,35 @@ export default function Contact() {
                         
                         <button
                           type="submit"
-                          className="group relative overflow-hidden bg-gradient-to-r from-[#FAB045] to-orange-400 hover:from-orange-400 hover:to-[#FAB045] text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg"
+                          disabled={isLoading}
+                          className={`group relative overflow-hidden bg-gradient-to-r from-[#FAB045] to-orange-400 hover:from-orange-400 hover:to-[#FAB045] text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg ${isLoading ? 'opacity-80 cursor-not-allowed' : ''}`}
                         >
                           <span className="relative z-10 flex items-center">
-                            <FaPaperPlane className="mr-3" />
-                            Send Message
+                            {isLoading ? (
+                              <>
+                                <FaSpinner className="mr-3 animate-spin" />
+                                Sending...
+                              </>
+                            ) : (
+                              <>
+                                <FaPaperPlane className="mr-3" />
+                                Send Message
+                              </>
+                            )}
                           </span>
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                         </button>
+                      </div>
+
+                      {/* Formspree Setup Instructions (Remove after setup) */}
+                      <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl mt-4">
+                        <p className="text-sm font-semibold text-blue-800 mb-2">⚠️ Setup Required:</p>
+                        <ol className="text-sm text-blue-700 list-decimal pl-5 space-y-1">
+                          <li>Go to <a href="https://formspree.io" target="_blank" className="underline font-bold">Formspree.io</a> and sign up</li>
+                          <li>Create a new form and get your Form ID</li>
+                          <li>Replace <code className="bg-blue-100 px-1 rounded">YOUR_FORM_ID_HERE</code> in line 63 with your actual Form ID</li>
+                          <li>Save and test the form</li>
+                        </ol>
                       </div>
                     </form>
                   </div>
@@ -472,6 +575,34 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* Add CSS for animations */}
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .animate-spin {
+          animation: spin 1s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }
