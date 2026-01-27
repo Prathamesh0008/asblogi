@@ -97,7 +97,7 @@ export default function Testimonials() {
                 <FaArrowLeft />
               </button>
               <button
-                onClick={next}
+                onClick={next}                                                                                                  
                 className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors"
                 aria-label="Next testimonial"
               >
