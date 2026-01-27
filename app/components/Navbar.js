@@ -55,21 +55,17 @@ export default function Navbar() {
           <div className="flex justify-between items-center py-3">
             {/* Logo Section */}
             <div className="flex items-center">
-              <div className="relative w-[250px] h-[70px] rounded-xl flex items-center justify-center group overflow-hidden">
-                <div className="flex items-center">
-  <Image
-    src="/logo/logo2.png"
-    alt="Invictus Logistics Logo"
-    width={200}
-    height={75}
-    className="object-contain"
-    priority
-    
-  />
+  <div className="relative w-[120px] md:w-[180px] lg:w-[250px] h-[90px] sm:h-[90px] rounded-xl flex items-center justify-center group overflow-hidden md:ml-8 lg:ml-12">
+    <Image
+      src="/logo/logo2.png"
+      alt="Invictus Logistics Logo"
+      width={200}
+      height={75}
+      className="object-contain w-full h-auto "
+      priority
+    />
+  </div>
 </div>
-
-              </div>
-            </div>
             
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
