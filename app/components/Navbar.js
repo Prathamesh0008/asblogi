@@ -3,7 +3,9 @@
 
 import { useState, useEffect } from 'react'
 import { FiTruck } from 'react-icons/fi'
-import Image from 'next/image'
+
+import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation'
 import GetQuoteModal from './GetQuoteModal' // Add this import
 
@@ -55,16 +57,18 @@ export default function Navbar() {
           <div className="flex justify-between items-center py-3">
             {/* Logo Section */}
             <div className="flex items-center">
-  <div className="relative w-[150px] md:w-[180px] lg:w-[250px] h-[70px] sm:h-[56px] rounded-xl flex items-center justify-center group overflow-hidden ">
-    <Image
-      src="/logo/logo2.png"
-      alt="Invictus Logistics Logo"
-      width={200}
-      height={75}
-      className="object-contain w-[200px] sm:h-[90px] h-auto "
-      priority
-    />
-  </div>
+  <Link href="/" className="block">
+    <div className="relative w-[150px] md:w-[180px] lg:w-[250px] h-[70px] sm:h-[56px] rounded-xl flex items-center justify-center group overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+      <Image
+        src="/logo/logo2.png"
+        alt="Invictus Logistics Logo"
+        width={200}
+        height={75}
+        className="object-contain w-[200px] sm:h-[90px] h-auto"
+        priority
+      />
+    </div>
+  </Link>
 </div>
             
             {/* Desktop Menu */}
