@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react'
-import { FaTruck, FaSearch, FaShippingFast, FaGlobe, FaShieldAlt, FaClock } from 'react-icons/fa'
+import { useState, useEffect, useRef } from 'react'
+import { FaTruck, FaSearch } from 'react-icons/fa'
 import GetStartedModal from './GetStartedModal'
 import Lottie from 'lottie-react'
 import lightningLottie from '@/public/lottie/Loading_car.json'
@@ -8,96 +8,130 @@ import GlobalLottie from '@/public/lottie/Global Network.json'
 import SecuredLottie from '@/public/lottie/Secured.json'
 import DeliveryLottie from '@/public/lottie/Dlivery Map.json'
 
+// Counter component for animated numbers
+const Counter = ({ end, duration = 2000, suffix = '', prefix = '', decimals = 0, className = '' }) => {
+  const [count, setCount] = useState(0)
+  const countRef = useRef(null)
+  const hasAnimated = useRef(false)
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true
+            animateCounter()
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
 
+    if (countRef.current) {
+      observer.observe(countRef.current)
+    }
 
+    return () => {
+      if (countRef.current) {
+        observer.unobserve(countRef.current)
+      }
+    }
+  }, [])
+
+  const animateCounter = () => {
+    const startTime = Date.now()
+    const startValue = 0
+    
+    const updateCounter = () => {
+      const currentTime = Date.now()
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+      const currentValue = startValue + (end - startValue) * easeOutQuart
+      
+      setCount(parseFloat(currentValue.toFixed(decimals)))
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter)
+      }
+    }
+    
+    requestAnimationFrame(updateCounter)
+  }
+
+  return (
+    <span ref={countRef} className={className}>
+      {prefix}{count.toLocaleString()}{suffix}
+    </span>
+  )
+}
 
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const features = [
     {
-  icon: (
-    <div className="w-25 h-25">
-      <Lottie
-        animationData={lightningLottie}
-        loop
-        autoplay
-      />
-    </div>
-  ),
-  title: 'Lightning Fast',
-  desc: 'Same-Day Dispatch',
-  color: 'text-[#FAB045]',
-  gradient: 'from-[#FAB045] to-[#FFD700]'
-},
-{
-  icon: (
-    <div className="w-25 h-25">
-      <Lottie
-        animationData={DeliveryLottie}
-        loop
-        autoplay
-      />
-    </div>
-  ),
-  title: 'Live Tracking',
-  desc: 'Real-time Updates',
-  color: 'text-[#FAB045]',
-  gradient: 'from-[#FAB045] to-[#FFD700]'
-},
-{
-  icon: (
-    <div className="w-35 h-25">
-      <Lottie
-        animationData={SecuredLottie}
-        loop
-        autoplay
-      />
-    </div>
-  ),
-  title: 'Armored Security',
-  desc: 'Advanced Protection',
-  color: 'text-[#FAB045]',
-  gradient: 'from-[#FAB045] to-[#FFD700]'
-},
-{
-  icon: (
-    <div className="w-35 h-25">
-      <Lottie
-        animationData={GlobalLottie}
-        loop
-        autoplay
-      />
-    </div>
-  ),
-  title: 'Global Network',
-  desc: '180+ Countries',
-  color: 'text-[#FAB045]',
-  gradient: 'from-[#FAB045] to-[#FFD700]'
-},
-
-    // { 
-    //   icon: <FaGlobe />, 
-    //   title: 'Global Network', 
-    //   desc: '180+ Countries',
-    //   color: 'text-[#00B4D8]',
-    //   gradient: 'from-[#00B4D8] to-[#0077B6]'
-    // },
-    // { 
-    //   icon: <FaShieldAlt />, 
-    //   title: 'Armored Security', 
-    //   desc: 'Advanced Protection',
-    //   color: 'text-[#FAB045]',
-    //   gradient: 'from-[#FAB045] to-[#FF6B6B]'
-    // },
-    // { 
-    //   icon: <FaClock />, 
-    //   title: 'Live Tracking', 
-    //   desc: 'Real-time Updates',
-    //   color: 'text-[#4CC9F0]',
-    //   gradient: 'from-[#4CC9F0] to-[#4361EE]'
-    // },
+      icon: (
+        <div className="w-25 h-25">
+          <Lottie
+            animationData={lightningLottie}
+            loop
+            autoplay
+          />
+        </div>
+      ),
+      title: 'Lightning Fast',
+      desc: 'Same-Day Dispatch',
+      color: 'text-[#FAB045]',
+      gradient: 'from-[#FAB045] to-[#FFD700]'
+    },
+    {
+      icon: (
+        <div className="w-25 h-25">
+          <Lottie
+            animationData={DeliveryLottie}
+            loop
+            autoplay
+          />
+        </div>
+      ),
+      title: 'Live Tracking',
+      desc: 'Real-time Updates',
+      color: 'text-[#FAB045]',
+      gradient: 'from-[#FAB045] to-[#FFD700]'
+    },
+    {
+      icon: (
+        <div className="w-35 h-25">
+          <Lottie
+            animationData={SecuredLottie}
+            loop
+            autoplay
+          />
+        </div>
+      ),
+      title: 'Armored Security',
+      desc: 'Advanced Protection',
+      color: 'text-[#FAB045]',
+      gradient: 'from-[#FAB045] to-[#FFD700]'
+    },
+    {
+      icon: (
+        <div className="w-35 h-25">
+          <Lottie
+            animationData={GlobalLottie}
+            loop
+            autoplay
+          />
+        </div>
+      ),
+      title: 'Global Network',
+      desc: '180+ Countries',
+      color: 'text-[#FAB045]',
+      gradient: 'from-[#FAB045] to-[#FFD700]'
+    },
   ]
 
   const handleTrackShipment = () => {
@@ -229,20 +263,48 @@ export default function Hero() {
                   ))}
                 </div>
                 
-                {/* Stats overlay */}
+                {/* Stats overlay with animated counters */}
                 <div className="mt-8 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10">
                   <div className="grid grid-cols-3 gap-6 text-center">
                     <div className="group">
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#FAB045] to-[#FFD700] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">99.8%</div>
-                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300">Delivery Rate</div>
+                      <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
+                        <Counter 
+                          end={99.8} 
+                          duration={2500} 
+                          suffix="%"
+                          decimals={1}
+                          className="bg-gradient-to-r from-[#FAB045] to-[#FFD700] bg-clip-text text-transparent"
+                        />
+                      </div>
+                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300 mt-2">
+                        Delivery Rate
+                      </div>
                     </div>
                     <div className="group">
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#00B4D8] to-[#0077B6] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">180+</div>
-                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300">Countries</div>
+                      <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
+                        <Counter 
+                          end={180} 
+                          duration={1800} 
+                          suffix="+"
+                          className="bg-gradient-to-r from-[#00B4D8] to-[#0077B6] bg-clip-text text-transparent"
+                        />
+                      </div>
+                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300 mt-2">
+                        Countries
+                      </div>
                     </div>
                     <div className="group">
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#4CC9F0] to-[#4361EE] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">24/7</div>
-                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300">Support</div>
+                      <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
+                        <Counter 
+                          end={24} 
+                          duration={1200} 
+                          suffix="/7"
+                          className="bg-gradient-to-r from-[#4CC9F0] to-[#4361EE] bg-clip-text text-transparent"
+                        />
+                      </div>
+                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300 mt-2">
+                        Support
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -261,6 +323,22 @@ export default function Hero() {
         
         .animate-gradient {
           animation: gradient 3s ease infinite;
+        }
+        
+        /* Counter animation styles */
+        @keyframes countUp {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .counter-animate {
+          animation: countUp 0.5s ease-out forwards;
         }
       `}</style>
 
