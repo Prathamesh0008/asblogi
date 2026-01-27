@@ -55,13 +55,13 @@ export default function Navbar() {
           <div className="flex justify-between items-center py-3">
             {/* Logo Section */}
             <div className="flex items-center">
-  <div className="relative w-[120px] md:w-[180px] lg:w-[250px] h-[90px] sm:h-[90px] rounded-xl flex items-center justify-center group overflow-hidden md:ml-8 lg:ml-12">
+  <div className="relative w-[150px] md:w-[180px] lg:w-[250px] h-[70px] sm:h-[56px] rounded-xl flex items-center justify-center group overflow-hidden ">
     <Image
       src="/logo/logo2.png"
       alt="Invictus Logistics Logo"
       width={200}
       height={75}
-      className="object-contain w-full h-auto "
+      className="object-contain w-[200px] sm:h-[90px] h-auto "
       priority
     />
   </div>
@@ -73,10 +73,10 @@ export default function Navbar() {
                 <div key={link.title} className="relative group">
                   <a 
                     href={link.href}
-                    className={`font-medium transition-colors duration-300 relative group text-sm ${
+                    className={`font-semibold transition-colors duration-300 relative group text-sm ${
                       isActive(link.href) 
                         ? 'text-[#FAB045]' 
-                        : 'text-gray-700 hover:text-[#FAB045]'
+                        : 'text-gray-500 hover:text-[#FAB045]'
                     }`}
                   >
                     {link.title}
@@ -147,7 +147,7 @@ export default function Navbar() {
                     <FiTruck className="text-[#FAB045] text-lg mr-3" />
                     <div className="text-center">
                       <div className="text-xs text-[#A0A1A2]">24/7 Customer Support</div>
-                      <div className="text-gray-900 font-bold text-base">+1 (800) LOGISTIC</div>
+                      <div className="text-gray-900 font-bold text-base">+31685865799 LOGISTIC</div>
                     </div>
                   </div>
                   

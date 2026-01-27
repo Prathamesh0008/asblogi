@@ -17,10 +17,10 @@ export default function Footer() {
   const serviceLinks = [
     { title: 'Air Freight', href: '/services' },
     { title: 'Ocean Freight', href: '/services' },
-    { title: 'Road Transport', href: '/services' },
+    { title: 'Road Freight', href: '/services' },
     { title: 'Warehousing', href: '/services' },
     { title: 'Supply Chain', href: '/services' },
-    { title: 'Customs Clearance', href: '/services' }
+    { title: 'Cold Chain ', href: '/services' }
   ]
 
   return (
