@@ -108,7 +108,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="text-[#FAB045] mr-4" />
-                info@invictuslogistics.com
+                info@swiftlogistics.com
               </li>
               <li className="flex items-center">
                 <FaHeadset className="text-[#FAB045] mr-4" />

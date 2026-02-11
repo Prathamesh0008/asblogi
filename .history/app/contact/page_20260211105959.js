@@ -119,7 +119,7 @@ export default function Contact() {
     {
       icon: <FaEnvelope />,
       title: 'Email Us',
-      details: ['info@invictuslogistics.com'],
+      details: ['invictus@logistics.com', 'support@invictustlogistics.com'],
       description: 'Response within 2 hours',
       color: 'from-[#A0A1A2] to-gray-400',
       bgColor: 'bg-gradient-to-br from-[#A0A1A2]/10 to-gray-400/10'
@@ -132,14 +132,14 @@ export default function Contact() {
       color: 'from-green-500 to-green-600',
       bgColor: 'bg-gradient-to-br from-green-500/10 to-green-600/10'
     },
-    // {
-    //   icon: <FaMapMarkerAlt />,
-    //   title: 'Visit Us',
-    //   details: ['123 Logistics Street', 'New York, NY 10001, USA'],
-    //   description: 'Head Office - Mon-Fri 9AM-6PM',
-    //   color: 'from-[#FAB045] to-orange-400',
-    //   bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
-    // }
+    {
+      icon: <FaMapMarkerAlt />,
+      title: 'Visit Us',
+      details: ['123 Logistics Street', 'New York, NY 10001, USA'],
+      description: 'Head Office - Mon-Fri 9AM-6PM',
+      color: 'from-[#FAB045] to-orange-400',
+      bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
+    }
   ];
 
   return (
@@ -460,7 +460,7 @@ export default function Contact() {
                       </div>
 
                       {/* Formspree Setup Instructions (Remove after setup) */}
-                      {/* <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl mt-4">
+                      <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl mt-4">
                         <p className="text-sm font-semibold text-blue-800 mb-2">⚠️ Setup Required:</p>
                         <ol className="text-sm text-blue-700 list-decimal pl-5 space-y-1">
                           <li>Go to <a href="https://formspree.io" target="_blank" className="underline font-bold">Formspree.io</a> and sign up</li>
@@ -468,7 +468,7 @@ export default function Contact() {
                           <li>Replace <code className="bg-blue-100 px-1 rounded">YOUR_FORM_ID_HERE</code> in line 63 with your actual Form ID</li>
                           <li>Save and test the form</li>
                         </ol>
-                      </div> */}
+                      </div>
                     </form>
                   </div>
                 </div>

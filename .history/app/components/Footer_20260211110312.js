@@ -98,8 +98,8 @@ export default function Footer() {
               <li className="flex items-start">
                 <FaMapMarkerAlt className="text-[#FAB045] mt-1 mr-4 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">Leyweg 836,</p>
-                  <p className="text-sm">2545GR 's-Gravenhage</p>
+                  <p className="font-medium">Leyweg 836, 2545GR e</p>
+                  <p className="text-sm">'s-Gravenhag</p>
                 </div>
               </li>
               <li className="flex items-center">
@@ -108,7 +108,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="text-[#FAB045] mr-4" />
-                info@invictuslogistics.com
+                info@swiftlogistics.com
               </li>
               <li className="flex items-center">
                 <FaHeadset className="text-[#FAB045] mr-4" />

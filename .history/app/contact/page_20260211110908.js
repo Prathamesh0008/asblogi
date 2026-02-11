@@ -119,7 +119,7 @@ export default function Contact() {
     {
       icon: <FaEnvelope />,
       title: 'Email Us',
-      details: ['info@invictuslogistics.com'],
+      details: ['invictus@logistics.com', 'support@invictustlogistics.com'],
       description: 'Response within 2 hours',
       color: 'from-[#A0A1A2] to-gray-400',
       bgColor: 'bg-gradient-to-br from-[#A0A1A2]/10 to-gray-400/10'

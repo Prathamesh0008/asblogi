@@ -119,7 +119,7 @@ export default function Contact() {
     {
       icon: <FaEnvelope />,
       title: 'Email Us',
-      details: ['info@invictuslogistics.com'],
+      details: ['invictus@logistics.com', 'support@invictustlogistics.com'],
       description: 'Response within 2 hours',
       color: 'from-[#A0A1A2] to-gray-400',
       bgColor: 'bg-gradient-to-br from-[#A0A1A2]/10 to-gray-400/10'
@@ -132,14 +132,14 @@ export default function Contact() {
       color: 'from-green-500 to-green-600',
       bgColor: 'bg-gradient-to-br from-green-500/10 to-green-600/10'
     },
-    // {
-    //   icon: <FaMapMarkerAlt />,
-    //   title: 'Visit Us',
-    //   details: ['123 Logistics Street', 'New York, NY 10001, USA'],
-    //   description: 'Head Office - Mon-Fri 9AM-6PM',
-    //   color: 'from-[#FAB045] to-orange-400',
-    //   bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
-    // }
+    {
+      icon: <FaMapMarkerAlt />,
+      title: 'Visit Us',
+      details: ['123 Logistics Street', 'New York, NY 10001, USA'],
+      description: 'Head Office - Mon-Fri 9AM-6PM',
+      color: 'from-[#FAB045] to-orange-400',
+      bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
+    }
   ];
 
   return (
