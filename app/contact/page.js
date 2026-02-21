@@ -289,7 +289,7 @@ export default function Contact() {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
+                            className="w-full px-5 py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
                             placeholder="John Doe"
                           />
                         </div>
@@ -306,7 +306,7 @@ export default function Contact() {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
+                            className="w-full px-5 py-4 bg-white border-2 text-gray-600 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
                             placeholder="john@example.com"
                           />
                         </div>
@@ -325,7 +325,7 @@ export default function Contact() {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
+                            className="w-full px-5 py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
                             placeholder="+918291293651"
                           />
                         </div>
@@ -341,7 +341,7 @@ export default function Contact() {
                             name="company"
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
+                            className="w-full px-5 py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
                             placeholder="Your Company"
                           />
                         </div>
@@ -349,7 +349,7 @@ export default function Contact() {
 
                       <div className="group">
                         <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center">
-                          <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3">
+                          <div className="w-10 h-10 bg-gradient-to-r  from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3">
                             <FaClipboard className="text-[#FAB045]" />
                           </div>
                           Subject
@@ -358,7 +358,7 @@ export default function Contact() {
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
-                          className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg appearance-none cursor-pointer"
+                          className="w-full px-5 py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg appearance-none cursor-pointer"
                         >
                           <option value="">Select a subject</option>
                           <option value="quote">Get a Quote</option>
@@ -379,7 +379,7 @@ export default function Contact() {
                           onChange={handleChange}
                           required
                           rows="6"
-                          className="w-full px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg resize-none"
+                          className="w-full text-gray-600 px-5 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg resize-none"
                           placeholder="Tell us about your logistics needs, challenges, and how we can help streamline your supply chain..."
                         />
                       </div>
