@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { 
   FaPhone, 
   FaEnvelope, 
-  FaMapMarkerAlt, 
+  FaMapMarkerAlt,
   FaPaperPlane, 
   FaUser, 
-  FaBuilding, 
-  FaClipboard, 
+  FaBuilding,
+  FaClipboard,
   FaClock, 
   FaHeadset, 
   FaGlobe, 
@@ -42,70 +42,49 @@ export default function Contact() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
-    setIsSuccess(false);
+  e.preventDefault();
+  setIsLoading(true);
+  setError('');
+  setIsSuccess(false);
 
-    try {
-      // REPLACE THIS WITH YOUR FORMSPREE FORM ID
-      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjpdzyb';
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setIsSuccess(true);
       
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          subject: formData.subject,
-          message: formData.message,
-          // Optional: These help Formspree format the email better
-          _subject: `New Contact Form: ${formData.subject || 'General Inquiry'}`,
-          _replyto: formData.email,
-          _format: 'plain'
-        }),
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        subject: '',
+        message: ''
       });
 
-      console.log('Formspree response:', response);
-
-      if (response.ok) {
-        setIsSuccess(true);
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          subject: '',
-          message: ''
-        });
-
-        // Auto-hide success message after 5 seconds
-        setTimeout(() => {
-          setIsSuccess(false);
-        }, 5000);
-      } else {
-        const errorData = await response.json();
-        console.error('Formspree error:', errorData);
-        
-        if (errorData.errors && errorData.errors.length > 0) {
-          setError(`Error: ${errorData.errors[0].message}`);
-        } else {
-          setError('Failed to send message. Please try again.');
-        }
-      }
-    } catch (err) {
-      console.error('Network error:', err);
-      setError('Network error. Please check your connection and try again.');
-    } finally {
-      setIsLoading(false);
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 5000);
+    } else {
+      setError(data.error || 'Failed to send message. Please try again.');
     }
-  };
+  } catch (err) {
+    console.error('Network error:', err);
+    setError('Network error. Please check your connection and try again.');
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const contactInfo = [
     {

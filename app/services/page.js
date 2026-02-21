@@ -334,7 +334,7 @@ export default function ServicesPage() {
                 <div className="flex justify-between items-center">
                   <button
                     onClick={() => handleServiceClick(service.id)}
-                    className="py-3 px-6  bg-yellow-200 hover:bg-[#FAB045] rounded-lg flex items-center"
+                    className="py-3 px-6  bg-yellow-200 hover:bg-[#FAB045] text-black rounded-lg flex items-center"
                   >
                     {expandedService === service.id ? 'Show Less' : 'Learn More'}
                     {expandedService === service.id ? (
@@ -344,11 +344,7 @@ export default function ServicesPage() {
                     )}
                   </button>
 
-                  {expandedService === service.id && (
-                    <button className="py-3 px-6 bg-[#FAB045] rounded-lg font-semibold">
-                      Get Quote
-                    </button>
-                  )}
+                  
                 </div>
               </div>
             ))}
