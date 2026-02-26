@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { 
   FaPhone, 
   FaEnvelope, 
@@ -20,6 +21,8 @@ import {
 } from 'react-icons/fa';
 
 export default function Contact() {
+  const formRef = useRef();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,6 +36,14 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
 
+  // EmailJS configuration
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: 'service_jvtp4f4',
+    TEAM_TEMPLATE_ID: 'template_zid2k7k',    // For team notifications
+    AUTO_REPLY_TEMPLATE_ID: 'template_94mdjgo', // For auto-reply to customers
+    PUBLIC_KEY: 'ZL-_rPtdPsPFhDvrP'
+  };
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -41,50 +52,112 @@ export default function Contact() {
     if (error) setError('');
   };
 
+  const generateReferenceNumber = () => {
+    return 'INV-' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+  };
+
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
-  setError('');
-  setIsSuccess(false);
+    e.preventDefault();
+    setIsLoading(true);
+    setError('');
+    setIsSuccess(false);
 
-  try {
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      // Initialize EmailJS with your public key
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
-    const data = await response.json();
-
-    if (response.ok) {
-      setIsSuccess(true);
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: '',
-        message: ''
+      const referenceNumber = generateReferenceNumber();
+      const submissionTime = new Date().toLocaleString('en-US', { 
+        dateStyle: 'full', 
+        timeStyle: 'long' 
       });
 
-      // Auto-hide success message after 5 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-    } else {
-      setError(data.error || 'Failed to send message. Please try again.');
+      // Prepare template parameters for team notification
+      const teamParams = {
+        to_name: 'Invictus Logistics Team',
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Not provided',
+        company: formData.company || 'Not provided',
+        subject: formData.subject || 'General Inquiry',
+        title: formData.subject || 'General Inquiry', // For {{title}} in template
+        message: formData.message,
+        reply_to: formData.email,
+        
+        // Additional fields
+        user_email: formData.email,
+        user_phone: formData.phone,
+        user_company: formData.company,
+        
+        // For the auto-reply to user
+        user_name: formData.name,
+        user_message: formData.message,
+        
+        // Metadata
+        submitted_at: submissionTime,
+        reference_number: referenceNumber,
+        
+        // For insights
+        email_domain: formData.email.split('@')[1] || 'personal',
+        phone_provided: formData.phone ? 'Yes' : 'No',
+        subject_priority: formData.subject === 'urgent' ? 'High' : 'Normal'
+      };
+
+      // Send email to your team (info@invictuslogi.com)
+      const teamResponse = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEAM_TEMPLATE_ID,  // Fixed: using TEAM_TEMPLATE_ID
+        teamParams
+      );
+
+      if (teamResponse.status === 200) {
+        // Prepare template parameters for auto-reply to customer
+        const autoReplyParams = {
+          to_email: formData.email,
+          to_name: formData.name,
+          from_name: 'Invictus Logistics',
+          from_email: 'info@invictuslogi.com',
+          reply_to: 'info@invictuslogi.com',
+          subject: formData.subject || 'General Inquiry',
+          title: formData.subject || 'General Inquiry',
+          message: formData.message,
+          submitted_at: submissionTime,
+          reference_number: referenceNumber
+        };
+
+        // Send auto-reply to customer
+        await emailjs.send(
+          EMAILJS_CONFIG.SERVICE_ID,
+          EMAILJS_CONFIG.AUTO_REPLY_TEMPLATE_ID,  // Fixed: using AUTO_REPLY_TEMPLATE_ID
+          autoReplyParams
+        );
+
+        setIsSuccess(true);
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          subject: '',
+          message: ''
+        });
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 5000);
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setError('Failed to send message. Please try again or contact us directly via phone.');
+    } finally {
+      setIsLoading(false);
     }
-  } catch (err) {
-    console.error('Network error:', err);
-    setError('Network error. Please check your connection and try again.');
-  } finally {
-    setIsLoading(false);
-  }
-};
+  };
 
   const contactInfo = [
     {
@@ -93,15 +166,17 @@ export default function Contact() {
       details: ['+31685865799'],
       description: 'Available 24/7',
       color: 'from-[#FAB045] to-orange-400',
-      bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
+      bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10',
+      action: 'tel:+31685865799'
     },
     {
       icon: <FaEnvelope />,
       title: 'Email Us',
-      details: ['info@invictuslogistics.com'],
+      details: ['info@invictuslogi.com'],
       description: 'Response within 2 hours',
       color: 'from-[#A0A1A2] to-gray-400',
-      bgColor: 'bg-gradient-to-br from-[#A0A1A2]/10 to-gray-400/10'
+      bgColor: 'bg-gradient-to-br from-[#A0A1A2]/10 to-gray-400/10',
+      action: 'mailto:info@invictuslogi.com'
     },
     {
       icon: <FaWhatsapp />,
@@ -109,21 +184,14 @@ export default function Contact() {
       details: ['+918291293651'],
       description: 'Instant chat support',
       color: 'from-green-500 to-green-600',
-      bgColor: 'bg-gradient-to-br from-green-500/10 to-green-600/10'
-    },
-    // {
-    //   icon: <FaMapMarkerAlt />,
-    //   title: 'Visit Us',
-    //   details: ['123 Logistics Street', 'New York, NY 10001, USA'],
-    //   description: 'Head Office - Mon-Fri 9AM-6PM',
-    //   color: 'from-[#FAB045] to-orange-400',
-    //   bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10'
-    // }
+      bgColor: 'bg-gradient-to-br from-green-500/10 to-green-600/10',
+      action: 'https://wa.me/918291293651'
+    }
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section with Gradient Background */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full">
@@ -133,13 +201,16 @@ export default function Contact() {
         </div>
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-[#FAB045]/20 to-[#A0A1A2]/20 rounded-full backdrop-blur-sm mb-6">
-            <FaTruck className="mr-2 text-[#FAB045]" />
-            <span className="text-sm font-semibold">CONNECT WITH EXPERTS</span>
+          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#FAB045]/20 to-[#A0A1A2]/20 rounded-full backdrop-blur-sm mb-6 border border-white/10">
+            <FaTruck className="mr-2 text-[#FAB045] animate-pulse" />
+            <span className="text-sm font-semibold tracking-wider">CONNECT WITH LOGISTICS EXPERTS</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Get In <span className="bg-gradient-to-r from-[#FAB045] to-orange-400 bg-clip-text text-transparent">Touch</span>
+            Get In{' '}
+            <span className="bg-gradient-to-r from-[#FAB045] via-orange-400 to-[#FAB045] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              Touch
+            </span>
           </h1>
           
           <p className="text-xl max-w-3xl mx-auto text-gray-300 mb-8 leading-relaxed">
@@ -147,64 +218,76 @@ export default function Contact() {
           </p>
           
           {/* Stats */}
-          <div className="flex justify-center gap-12 mt-16">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045] mb-2">24/7</div>
-              <div className="text-gray-400">Support Available</div>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 mt-16">
+            <div className="text-center group">
+              <div className="text-4xl font-bold text-[#FAB045] mb-2 group-hover:scale-110 transition-transform">24/7</div>
+              <div className="text-gray-400 flex items-center justify-center gap-2">
+                <FaClock className="text-[#FAB045]" />
+                <span>Support Available</span>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045] mb-2">2h</div>
-              <div className="text-gray-400">Avg. Response Time</div>
+            <div className="text-center group">
+              <div className="text-4xl font-bold text-[#FAB045] mb-2 group-hover:scale-110 transition-transform">2h</div>
+              <div className="text-gray-400 flex items-center justify-center gap-2">
+                <FaHeadset className="text-[#FAB045]" />
+                <span>Avg. Response Time</span>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045] mb-2">150+</div>
-              <div className="text-gray-400">Countries Supported</div>
+            <div className="text-center group">
+              <div className="text-4xl font-bold text-[#FAB045] mb-2 group-hover:scale-110 transition-transform">150+</div>
+              <div className="text-gray-400 flex items-center justify-center gap-2">
+                <FaGlobe className="text-[#FAB045]" />
+                <span>Countries Supported</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="relative -mt-16">
+      <section className="relative -mt-16 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Contact Information Cards */}
               <div className="space-y-8">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="group relative overflow-hidden">
+                  <a
+                    key={index}
+                    href={info.action}
+                    target={info.action.startsWith('http') ? '_blank' : undefined}
+                    rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="group relative overflow-hidden block transform hover:-translate-y-1 transition-all duration-300"
+                  >
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div className="relative bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:border-[#FAB045]/30 transition-all duration-300">
+                    <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-100 hover:border-[#FAB045]/30 transition-all duration-300 hover:shadow-2xl">
                       <div className="flex items-start mb-6">
-                        <div className={`w-16 h-16 bg-gradient-to-r ${info.color} rounded-2xl flex items-center justify-center mr-5 shadow-lg`}>
+                        <div className={`w-16 h-16 bg-gradient-to-r ${info.color} rounded-2xl flex items-center justify-center mr-5 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
                           <div className="text-white text-2xl">
                             {info.icon}
                           </div>
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">{info.title}</h3>
+                          <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#FAB045] transition-colors">
+                            {info.title}
+                          </h3>
                           <p className="text-gray-500 text-sm">{info.description}</p>
                         </div>
                       </div>
                       <div className="space-y-2">
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-gray-700 font-medium">{detail}</p>
+                          <p key={idx} className="text-gray-700 font-medium text-lg">{detail}</p>
                         ))}
                       </div>
                       {info.title === 'WhatsApp' && (
-                        <a 
-                          href={`https://wa.me/${info.details[0].replace(/\D/g, '')}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center mt-4 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-300 group/wa"
-                        >
+                        <div className="mt-4 inline-flex items-center px-4 py-2 bg-green-500 text-white font-semibold rounded-lg group-hover/wa:bg-green-600 transition-all">
                           <FaWhatsapp className="mr-2" />
                           Chat on WhatsApp
                           <span className="ml-2 opacity-0 group-hover/wa:opacity-100 transition-opacity">→</span>
-                        </a>
+                        </div>
                       )}
                     </div>
-                  </div>
+                  </a>
                 ))}
 
                 {/* Office Hours Card */}
@@ -212,7 +295,7 @@ export default function Contact() {
                   <div className="absolute inset-0 bg-gradient-to-r from-[#A0A1A2]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                   <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-2xl shadow-xl p-8 border border-gray-800">
                     <div className="flex items-center mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-2xl flex items-center justify-center mr-5 shadow-lg">
+                      <div className="w-16 h-16 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-2xl flex items-center justify-center mr-5 shadow-lg group-hover:scale-110 transition-transform">
                         <FaClock className="text-white text-2xl" />
                       </div>
                       <div>
@@ -245,16 +328,16 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-bold text-lg text-gray-900">Emergency Support</h4>
-                      <p className="text-sm text-gray-600">Critical shipments</p>
+                      <p className="text-sm text-gray-600">Critical shipments only</p>
                     </div>
                   </div>
                   <p className="text-gray-700 mb-3">
                     For urgent shipment issues requiring immediate attention
                   </p>
-                  <div className="flex items-center">
-                    <FaPhone className="text-[#FAB045] mr-2" />
-                    <span className="font-bold text-gray-900">+1 (555) 911-2233</span>
-                  </div>
+                  <a href="tel:+31685865799" className="flex items-center group">
+                    <FaPhone className="text-[#FAB045] mr-2 group-hover:animate-bounce" />
+                    <span className="font-bold text-gray-900 group-hover:text-[#FAB045] transition-colors">+31685865799</span>
+                  </a>
                 </div>
               </div>
 
@@ -274,11 +357,11 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-8">
+                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center">
-                            <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3">
+                            <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
                               <FaUser className="text-[#FAB045]" />
                             </div>
                             Full Name *
@@ -295,7 +378,7 @@ export default function Contact() {
                         </div>
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center">
-                            <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3">
+                            <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
                               <FaEnvelope className="text-[#FAB045]" />
                             </div>
                             Email Address *
@@ -315,7 +398,7 @@ export default function Contact() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center">
-                            <div className="w-10 h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-3">
+                            <div className="w-10 h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
                               <FaPhone className="text-[#A0A1A2]" />
                             </div>
                             Phone Number
@@ -326,12 +409,12 @@ export default function Contact() {
                             value={formData.phone}
                             onChange={handleChange}
                             className="w-full px-5 py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
-                            placeholder="+918291293651"
+                            placeholder="+31 6 85865799"
                           />
                         </div>
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center">
-                            <div className="w-10 h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-3">
+                            <div className="w-10 h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
                               <FaBuilding className="text-[#A0A1A2]" />
                             </div>
                             Company
@@ -342,14 +425,14 @@ export default function Contact() {
                             value={formData.company}
                             onChange={handleChange}
                             className="w-full px-5 py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg"
-                            placeholder="Your Company"
+                            placeholder="Your Company Name"
                           />
                         </div>
                       </div>
 
                       <div className="group">
                         <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center">
-                          <div className="w-10 h-10 bg-gradient-to-r  from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3">
+                          <div className="w-10 h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
                             <FaClipboard className="text-[#FAB045]" />
                           </div>
                           Subject
@@ -361,11 +444,12 @@ export default function Contact() {
                           className="w-full px-5 py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-lg appearance-none cursor-pointer"
                         >
                           <option value="">Select a subject</option>
-                          <option value="quote">Get a Quote</option>
-                          <option value="tracking">Tracking Issue</option>
-                          <option value="service">Service Inquiry</option>
-                          <option value="partnership">Partnership</option>
-                          <option value="other">Other</option>
+                          <option value="quote">📋 Get a Quote</option>
+                          <option value="tracking">📍 Tracking Issue</option>
+                          <option value="service">⚡ Service Inquiry</option>
+                          <option value="partnership">🤝 Partnership Opportunity</option>
+                          <option value="urgent">🚨 Urgent Shipment</option>
+                          <option value="other">💬 Other</option>
                         </select>
                       </div>
 
@@ -386,21 +470,26 @@ export default function Contact() {
 
                       {/* Status Messages */}
                       {isSuccess && (
-                        <div className="p-4 bg-green-50 border border-green-200 rounded-xl flex items-center animate-fadeIn">
-                          <FaCheckCircle className="text-green-500 mr-3 text-xl flex-shrink-0" />
+                        <div className="p-6 bg-green-50 border border-green-200 rounded-xl flex items-start animate-fadeIn">
+                          <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <FaCheckCircle className="text-white text-xl" />
+                          </div>
                           <div>
-                            <p className="font-semibold text-green-800">Message sent successfully!</p>
-                            <p className="text-green-600 text-sm">We'll get back to you within 2 hours.</p>
+                            <p className="font-semibold text-green-800 text-lg mb-1">Message sent successfully!</p>
+                            <p className="text-green-600">We'll get back to you within 2 hours. A confirmation has been sent to your email.</p>
+                            <p className="text-green-500 text-sm mt-2">Reference: {generateReferenceNumber()}</p>
                           </div>
                         </div>
                       )}
 
                       {error && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center animate-fadeIn">
-                          <FaExclamationTriangle className="text-red-500 mr-3 text-xl flex-shrink-0" />
+                        <div className="p-6 bg-red-50 border border-red-200 rounded-xl flex items-start animate-fadeIn">
+                          <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <FaExclamationTriangle className="text-white text-xl" />
+                          </div>
                           <div>
-                            <p className="font-semibold text-red-800">{error}</p>
-                            <p className="text-red-600 text-sm">Please try again or use our phone/email directly.</p>
+                            <p className="font-semibold text-red-800 text-lg mb-1">{error}</p>
+                            <p className="text-red-600">Please try again or use our phone/email directly.</p>
                           </div>
                         </div>
                       )}
@@ -419,7 +508,9 @@ export default function Contact() {
                         <button
                           type="submit"
                           disabled={isLoading}
-                          className={`group relative overflow-hidden bg-gradient-to-r from-[#FAB045] to-orange-400 hover:from-orange-400 hover:to-[#FAB045] text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg ${isLoading ? 'opacity-80 cursor-not-allowed' : ''}`}
+                          className={`group relative overflow-hidden bg-gradient-to-r from-[#FAB045] to-orange-400 hover:from-orange-400 hover:to-[#FAB045] text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg ${
+                            isLoading ? 'opacity-80 cursor-not-allowed' : ''
+                          }`}
                         >
                           <span className="relative z-10 flex items-center">
                             {isLoading ? (
@@ -429,7 +520,7 @@ export default function Contact() {
                               </>
                             ) : (
                               <>
-                                <FaPaperPlane className="mr-3" />
+                                <FaPaperPlane className="mr-3 group-hover:translate-x-1 transition-transform" />
                                 Send Message
                               </>
                             )}
@@ -437,17 +528,6 @@ export default function Contact() {
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                         </button>
                       </div>
-
-                      {/* Formspree Setup Instructions (Remove after setup) */}
-                      {/* <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl mt-4">
-                        <p className="text-sm font-semibold text-blue-800 mb-2">⚠️ Setup Required:</p>
-                        <ol className="text-sm text-blue-700 list-decimal pl-5 space-y-1">
-                          <li>Go to <a href="https://formspree.io" target="_blank" className="underline font-bold">Formspree.io</a> and sign up</li>
-                          <li>Create a new form and get your Form ID</li>
-                          <li>Replace <code className="bg-blue-100 px-1 rounded">YOUR_FORM_ID_HERE</code> in line 63 with your actual Form ID</li>
-                          <li>Save and test the form</li>
-                        </ol>
-                      </div> */}
                     </form>
                   </div>
                 </div>
@@ -464,52 +544,70 @@ export default function Contact() {
                     </div>
                   </div>
                   
-                  {/* Enhanced Map Placeholder */}
+                  {/* Map Placeholder */}
                   <div className="relative overflow-hidden rounded-2xl border-2 border-gray-200">
-                    <div className="bg-gradient-to-br from-gray-100 to-gray-200 h-72 flex flex-col items-center justify-center relative">
-                      {/* Map Pattern Background */}
+                    <div className="bg-gradient-to-br from-gray-100 to-gray-200 h-80 flex flex-col items-center justify-center relative">
                       <div className="absolute inset-0 opacity-20">
                         <div className="absolute inset-0" style={{
                           backgroundImage: `
-                            radial-gradient(circle at 20% 30%, #FAB045 1px, transparent 1px),
-                            radial-gradient(circle at 80% 70%, #A0A1A2 1px, transparent 1px)
+                            radial-gradient(circle at 20% 30%, #FAB045 2px, transparent 2px),
+                            radial-gradient(circle at 80% 70%, #A0A1A2 2px, transparent 2px)
                           `,
-                          backgroundSize: '50px 50px'
+                          backgroundSize: '60px 60px'
                         }}></div>
                       </div>
                       
-                      {/* Location Pin */}
-                      <div className="relative z-10">
-                        <div className="w-16 h-16 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-full flex items-center justify-center mb-4 shadow-xl">
-                          <FaMapMarkerAlt className="text-white text-2xl" />
+                      <div className="relative z-10 group cursor-pointer">
+                        <div className="w-20 h-20 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-full flex items-center justify-center mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 animate-bounce-slow">
+                          <FaMapMarkerAlt className="text-white text-3xl" />
                         </div>
-                        <div className="text-center">
-                          <p className="text-xl font-bold text-gray-900 mb-2">Leyweg 8362545 GR Den Haag, Netherlands</p>
-                          <p className="text-gray-600"> 
-                                      Leyweg 836, 2545GR The Hague</p> 
-                          <div className="mt-4">
-                            <button className="px-6 py-2 bg-white border-2 border-[#FAB045] text-[#FAB045] font-semibold rounded-lg hover:bg-[#FAB045] hover:text-white transition-all">
-                              Get Directions
-                            </button>
+                        <div className="text-center transform group-hover:scale-105 transition-transform">
+                          <p className="text-xl font-bold text-gray-900 mb-2">Leyweg 836</p>
+                          <p className="text-gray-600 text-lg">2545GR The Hague, Netherlands</p>
+                          <div className="mt-6">
+                            <a 
+                              href="https://maps.google.com/?q=Leyweg+836+2545GR+The+Hague+Netherlands" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center px-6 py-3 bg-white border-2 border-[#FAB045] text-[#FAB045] font-semibold rounded-lg hover:bg-[#FAB045] hover:text-white transition-all group/btn"
+                            >
+                              <span>Get Directions</span>
+                              <span className="ml-2 group-hover/btn:translate-x-1 transition-transform">→</span>
+                            </a>
                           </div>
-                        </div>  
+                        </div>
                       </div>
                     </div>
                     
-                    {/* Map Info */}
+                    {/* Location Details */}
                     <div className="bg-white p-6 border-t border-gray-200">
                       <div className="grid md:grid-cols-3 gap-6">
-                        <div>
-                          <p className="text-sm text-gray-500 mb-1">Parking</p>
-                          <p className="font-semibold text-gray-900">Available</p>
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                            <span className="text-green-600 text-sm">✓</span>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-500 mb-1">Parking</p>
+                            <p className="font-semibold text-gray-900">Available</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm text-gray-500 mb-1">Nearest Airport</p>
-                          <p className="font-semibold text-gray-900">JFK - 15 miles</p>
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <span className="text-blue-600 text-sm">✈️</span>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-500 mb-1">Nearest Airport</p>
+                            <p className="font-semibold text-gray-900">RTM - 15 min</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm text-gray-500 mb-1">Meeting Rooms</p>
-                          <p className="font-semibold text-gray-900">Available upon request</p>
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                            <span className="text-purple-600 text-sm">🏢</span>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-500 mb-1">Meeting Rooms</p>
+                            <p className="font-semibold text-gray-900">Available</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -522,28 +620,28 @@ export default function Contact() {
                     <FaShieldAlt className="text-[#FAB045] mr-2" />
                     Quick Tips for Faster Response
                   </h4>
-                  <ul className="grid md:grid-cols-2 gap-3">
-                    <li className="flex items-center text-sm text-gray-700">
-                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-[#FAB045] text-xs">1</span>
+                  <ul className="grid md:grid-cols-2 gap-4">
+                    <li className="flex items-center text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
+                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
+                        <span className="text-[#FAB045] text-xs group-hover:text-white">1</span>
                       </div>
                       Include tracking numbers if applicable
                     </li>
-                    <li className="flex items-center text-sm text-gray-700">
-                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-[#FAB045] text-xs">2</span>
+                    <li className="flex items-center text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
+                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
+                        <span className="text-[#FAB045] text-xs group-hover:text-white">2</span>
                       </div>
                       Specify shipment urgency level
                     </li>
-                    <li className="flex items-center text-sm text-gray-700">
-                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-[#FAB045] text-xs">3</span>
+                    <li className="flex items-center text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
+                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
+                        <span className="text-[#FAB045] text-xs group-hover:text-white">3</span>
                       </div>
                       Mention preferred contact method
                     </li>
-                    <li className="flex items-center text-sm text-gray-700">
-                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-[#FAB045] text-xs">4</span>
+                    <li className="flex items-center text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
+                      <div className="w-6 h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
+                        <span className="text-[#FAB045] text-xs group-hover:text-white">4</span>
                       </div>
                       Provide company VAT if for quotes
                     </li>
@@ -555,7 +653,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Add CSS for animations */}
+      {/* CSS for animations */}
       <style jsx global>{`
         @keyframes fadeIn {
           from {
@@ -567,19 +665,38 @@ export default function Contact() {
             transform: translateY(0);
           }
         }
+        
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
         }
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
+        
+        .animate-gradient {
+          animation: gradient 3s ease infinite;
+          background-size: 200% auto;
         }
+        
+        .animate-bounce-slow {
+          animation: bounce-slow 2s ease-in-out infinite;
+        }
+        
         .animate-spin {
           animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </div>
