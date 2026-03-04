@@ -91,7 +91,7 @@ export default function Careers() {
       type: 'Full-time',
       experience: '3+ years',
       salary: '$110,000 - $140,000',
-      description: 'Develop logistics and tracking software solutions.',
+      description: 'Develop logistics and tracking software .',
       requirements: ['React/Next.js experience', 'Node.js proficiency', 'API development'],
       color: 'from-[#A0A1A2] to-gray-400'
     },

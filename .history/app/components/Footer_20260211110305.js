@@ -43,7 +43,7 @@ export default function Footer() {
             
             <p className="text-gray-400 max-w-md leading-relaxed">
               Delivering excellence across borders with precision, speed, and reliability. 
-              Your trusted partner for global logistics solutions.
+              Your trusted partner for global logistics .
             </p>
             
             

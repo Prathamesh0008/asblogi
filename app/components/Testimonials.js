@@ -24,7 +24,7 @@ export default function Testimonials() {
       name: 'James Wilson',
       company: 'PharmaPlus',
       role: 'Operations Head',
-      content: 'The cold chain solutions for our pharmaceutical products are outstanding. Temperature monitoring gives us peace of mind.',
+      content: 'The cold chain  for our pharmaceutical products are outstanding. Temperature monitoring gives us peace of mind.',
       rating: 5,
     },
     {

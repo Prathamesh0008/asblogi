@@ -32,7 +32,7 @@ export default function ServicesPage() {
       id: 'road-freight',
       icon: <FaTruck />,
       title: 'Road Freight',
-      description: 'Comprehensive road transportation solutions for domestic and cross-border shipments.',
+      description: 'Comprehensive road transportation  for domestic and cross-border shipments.',
       detailedDescription: 'Our road freight services offer reliable and efficient transportation across local and international routes. We ensure timely delivery with real-time tracking and comprehensive insurance coverage.',
       features: [
         { 
@@ -68,7 +68,7 @@ export default function ServicesPage() {
       icon: <FaPlane />,
       title: 'Air Freight',
       description: 'Fast and reliable air cargo services for time-sensitive shipments.',
-      detailedDescription: 'Accelerate your supply chain with our premium air freight solutions. Partnering with major airlines worldwide for maximum coverage and reliability.',
+      detailedDescription: 'Accelerate your supply chain with our premium air freight . Partnering with major airlines worldwide for maximum coverage and reliability.',
       features: [
         { 
           title: 'Same Day Service', 
@@ -88,7 +88,7 @@ export default function ServicesPage() {
         { 
           title: 'Dangerous Goods', 
           description: 'Certified handling of hazardous air cargo.',
-          details: 'IATA certified staff and compliant packaging solutions.'
+          details: 'IATA certified staff and compliant packaging .'
         },
         { 
           title: 'Perishables Handling', 
@@ -102,7 +102,7 @@ export default function ServicesPage() {
       id: 'ocean-freight',
       icon: <FaShip />,
       title: 'Ocean Freight',
-      description: 'Cost-effective sea freight solutions with global coverage.',
+      description: 'Cost-effective sea freight  with global coverage.',
       detailedDescription: 'Optimize your shipping costs with our comprehensive ocean freight services. We handle everything from port-to-port to door-to-door delivery.',
       features: [
         { 
@@ -118,7 +118,7 @@ export default function ServicesPage() {
         { 
           title: 'Bulk Shipping', 
           description: 'Specialized vessels for bulk commodities.',
-          details: 'Dry bulk, liquid bulk, and breakbulk shipping solutions.'
+          details: 'Dry bulk, liquid bulk, and breakbulk shipping .'
         },
         { 
           title: 'Reefer Containers', 
@@ -127,7 +127,7 @@ export default function ServicesPage() {
         },
         { 
           title: 'Project Cargo', 
-          description: 'Heavy-lift and oversized cargo solutions.',
+          description: 'Heavy-lift and oversized cargo .',
           details: 'Specialized equipment for machinery, equipment, and construction materials.'
         }
       ],
@@ -138,7 +138,7 @@ export default function ServicesPage() {
       icon: <FaWarehouse />,
       title: 'Warehousing',
       description: 'Modern warehousing facilities with advanced inventory management.',
-      detailedDescription: 'State-of-the-art warehousing solutions with advanced technology for inventory management and distribution.',
+      detailedDescription: 'State-of-the-art warehousing  with advanced technology for inventory management and distribution.',
       features: [
         { 
           title: 'Bonded Warehouses', 
@@ -173,7 +173,7 @@ export default function ServicesPage() {
       icon: <FaBoxes />,
       title: 'Supply Chain',
       description: 'End-to-end supply chain optimization and management.',
-      detailedDescription: 'Transform your supply chain with our comprehensive management solutions. We integrate all aspects of your logistics for maximum efficiency.',
+      detailedDescription: 'Transform your supply chain with our comprehensive management . We integrate all aspects of your logistics for maximum efficiency.',
       features: [
         { 
           title: 'Order Fulfillment', 
@@ -207,12 +207,12 @@ export default function ServicesPage() {
       id: 'cold-chain',
       icon: <FaTemperatureLow />,
       title: 'Cold Chain',
-      description: 'Specialized temperature-controlled logistics solutions.',
-      detailedDescription: 'Maintain product integrity with our advanced cold chain solutions. From pharmaceuticals to food products, we ensure perfect temperature conditions.',
+      description: 'Specialized temperature-controlled logistics .',
+      detailedDescription: 'Maintain product integrity with our advanced cold chain . From pharmaceuticals to food products, we ensure perfect temperature conditions.',
       features: [
         { 
           title: 'Pharmaceutical Grade', 
-          description: 'GDP compliant solutions for healthcare products.',
+          description: 'GDP compliant  for healthcare products.',
           details: 'Validated cold chain for vaccines, biologics, and temperature-sensitive pharmaceuticals.'
         },
         { 
@@ -232,7 +232,7 @@ export default function ServicesPage() {
         },
         { 
           title: 'Validated Packaging', 
-          description: 'Certified packaging solutions.',
+          description: 'Certified packaging .',
           details: 'Tested and validated packaging for specific temperature ranges and durations.'
         }
       ],
@@ -252,7 +252,7 @@ export default function ServicesPage() {
               <span className="text-[#FAB045]">Our Logistics Services</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide end-to-end logistics solutions designed to optimize your supply chain efficiency and reduce operational costs.
+              We provide end-to-end logistics  designed to optimize your supply chain efficiency and reduce operational costs.
             </p>
           </div>
 

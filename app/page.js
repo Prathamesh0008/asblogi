@@ -68,7 +68,7 @@ export default function Home() {
 //     {
 //       icon: <FaPlane className="text-4xl" />,
 //       title: 'Air Freight',
-//       description: 'Express air cargo solutions with real-time tracking across 150+ countries.',
+//       description: 'Express air cargo  with real-time tracking across 150+ countries.',
 //       features: ['Same Day Delivery', 'Global Coverage', 'Temperature Control'],
 //       gradient: 'from-[#FAB045] to-[#f8c468]'
 //     },
@@ -89,7 +89,7 @@ export default function Home() {
 //     {
 //       icon: <FaWarehouse className="text-4xl" />,
 //       title: 'Warehousing',
-//       description: 'Secure storage solutions with advanced inventory management.',
+//       description: 'Secure storage  with advanced inventory management.',
 //       features: ['Secure Storage', 'Inventory Management', 'Order Fulfillment'],
 //       gradient: 'from-[#A0A1A2] to-[#c0c1c2]'
 //     }
@@ -179,7 +179,7 @@ export default function Home() {
 //               </div>
 //               <div>
 //                 <h1 className="text-2xl font-bold text-gray-900">SwiftLogistics</h1>
-//                 <p className="text-sm text-[#A0A1A2] font-medium">Global Delivery Solutions</p>
+//                 <p className="text-sm text-[#A0A1A2] font-medium">Global Delivery </p>
 //               </div>
 //             </div>
             
@@ -250,7 +250,7 @@ export default function Home() {
 //                 Trusted Worldwide Logistics Partner
 //               </span>
 //               <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-//                 Precision <span className="text-[#FAB045]">Logistics</span> Solutions
+//                 Precision <span className="text-[#FAB045]">Logistics</span> 
 //               </h1>
 //               <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
 //                 Delivering excellence across borders with advanced tracking, 
@@ -296,7 +296,7 @@ export default function Home() {
 //               Our <span className="text-[#FAB045]">Services</span>
 //             </h2>
 //             <p className="text-[#A0A1A2] text-xl max-w-3xl mx-auto">
-//               Comprehensive logistics solutions designed for modern business needs.
+//               Comprehensive logistics  designed for modern business needs.
 //             </p>
 //           </div>
 
@@ -452,12 +452,12 @@ export default function Home() {
 //                 </div>
 //                 <div>
 //                   <h2 className="text-3xl font-bold">SwiftLogistics</h2>
-//                   <p className="text-[#A0A1A2] font-medium">Global Delivery Solutions</p>
+//                   <p className="text-[#A0A1A2] font-medium">Global Delivery </p>
 //                 </div>
 //               </div>
 //               <p className="text-gray-400 max-w-md leading-relaxed">
 //                 Delivering excellence across borders with precision, speed, and reliability. 
-//                 Your trusted partner for global logistics solutions.
+//                 Your trusted partner for global logistics .
 //               </p>
 //               <div className="flex space-x-4 mt-8">
 //                 <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-[#FAB045] rounded-lg flex items-center justify-center transition-colors duration-300">

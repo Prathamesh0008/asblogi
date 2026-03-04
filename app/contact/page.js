@@ -214,7 +214,7 @@ export default function Contact() {
           </h1>
           
           <p className="text-xl max-w-3xl mx-auto text-gray-300 mb-8 leading-relaxed">
-            Connect with our logistics experts for tailored solutions that streamline your supply chain
+            Connect with our logistics experts for tailored  that streamline your supply chain
           </p>
           
           {/* Stats */}

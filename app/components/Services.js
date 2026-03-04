@@ -17,7 +17,7 @@ export default function Services() {
       icon: <FaPlane className="text-4xl" />,
       title: 'Air Freight',
       description:
-        'Express air cargo solutions with real-time tracking across 150+ countries.',
+        'Express air cargo  with real-time tracking across 150+ countries.',
       features: ['Same Day Delivery', 'Global Coverage', 'Temperature Control'],
       gradient: 'from-[#FAB045] to-[#f8c468]',
       details: {
@@ -72,7 +72,7 @@ export default function Services() {
       icon: <FaWarehouse className="text-4xl" />,
       title: 'Warehousing',
       description:
-        'Secure storage solutions with advanced inventory management.',
+        'Secure storage  with advanced inventory management.',
       features: ['Secure Storage', 'Inventory Management', 'Order Fulfillment'],
       gradient: 'from-[#A0A1A2] to-[#c0c1c2]',
       details: {
@@ -101,7 +101,7 @@ export default function Services() {
             <span className="text-[#FAB045]">Our Services</span>
           </h2>
           <p className="text-[#A0A1A2] text-xl max-w-3xl mx-auto">
-            Comprehensive logistics solutions designed for modern business needs.
+            Comprehensive logistics  designed for modern business needs.
           </p>
         </div>
 

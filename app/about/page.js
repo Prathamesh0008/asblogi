@@ -23,7 +23,7 @@ export default function About() {
       icon: <FaRocket />,
       title: "Innovation",
       description:
-        "Leveraging cutting-edge technology for smarter logistics solutions.",
+        "Leveraging cutting-edge technology for smarter logistics .",
       moreInfo:
         "Our innovation lab continuously researches emerging technologies including AI route optimization, blockchain for supply chain transparency, and IoT-enabled tracking. We've invested over $10M in R&D and hold 15+ logistics patents.",
     },
@@ -47,7 +47,7 @@ export default function About() {
       icon: <FaLeaf />,
       title: "Sustainability",
       description:
-        "Eco-friendly solutions for a greener supply chain.",
+        "Eco-friendly  for a greener supply chain.",
       moreInfo:
         "40% carbon reduction through EV fleets, optimized routing, and LEED-certified warehouses. Carbon-neutral goal by 2025.",
     },

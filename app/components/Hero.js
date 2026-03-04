@@ -199,7 +199,7 @@ export default function Hero() {
                     Logistics
                   </span>
                   <span className="block text-white mt-2 text-4xl lg:text-5xl">
-                    Solutions
+                    
                   </span>
                 </h1>
                 

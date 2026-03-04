@@ -15,7 +15,7 @@
 // });
 
 // export const metadata = {
-//   title: "SwiftLogistics - Global Shipping Solutions",
+//   title: "SwiftLogistics - Global Shipping ",
 //   description: "Premium logistics and shipping services worldwide",
 // };
 
@@ -55,7 +55,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Invictus Logistics Solutions",
+  title: "Invictus Logistics",
   description: " Revolutionizing global supply chains with cutting-edge technology, real-time visibility, and unparalleled security for your shipments.",
 };
 
