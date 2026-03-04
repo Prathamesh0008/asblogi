@@ -108,8 +108,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="text-[#FAB045] mr-4" />
-                info@invictuslogistics.com
-              </li>
+                info@invictuslogi.com              </li>
               <li className="flex items-center">
                 <FaHeadset className="text-[#FAB045] mr-4" />
                 24/7 Customer Support
