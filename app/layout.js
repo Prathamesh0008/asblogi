@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -6,15 +6,19 @@ import WhatsAppSticky from "./components/WhatsAppSticky";
 import CallSticky from "./components/CallSticky";
 import Script from "next/script";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const invictusFont = localFont({
+  src: [
+    {
+      path: "./fonts/InvictusFont-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-sans",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata = {
   title: "Invictus Logistics",
@@ -189,7 +193,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${invictusFont.variable} antialiased min-h-screen flex flex-col`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -395,7 +399,7 @@ export default function RootLayout({ children }) {
 //         />
 //       </head>
 //       <body
-//         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+//         className={`${invictusFont.variable} antialiased min-h-screen flex flex-col`}
 //       >
 //         {/* Google Tag Manager (noscript) */}
 //         <noscript>
