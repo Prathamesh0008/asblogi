@@ -10,15 +10,13 @@ const invictusFont = localFont({
   src: [
     {
       path: "./fonts/InvictusFont-Regular.woff2",
-      weight: "400",
+      weight: "200",
       style: "normal",
     },
   ],
   variable: "--font-sans",
   display: "swap",
 });
-
-
 
 export const metadata = {
   title: "Invictus Logistics",

@@ -216,11 +216,16 @@ export default function Careers() {
             <span className="text-sm font-semibold">JOIN OUR TEAM</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Build Your <span className="bg-gradient-to-r from-[#FAB045] to-orange-400 bg-clip-text text-transparent">Career</span>
-            <br />With Us
-          </h1>
-          
+     <h1 className="text-3xl md:text-5xl font-light mb-6 leading-snug tracking-wide text-white/70">
+  Build Your{" "}
+  <span className="relative bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-orange-300/70 bg-clip-text text-transparent animate-shine">
+    Career
+  </span>
+  <br />
+  <span className="text-white/60 font-light">
+    With Us
+  </span>
+</h1>
           <p className="text-xl max-w-3xl mx-auto text-gray-300 mb-8 leading-relaxed">
             Join a team that's revolutionizing global logistics through innovation,
             technology, and exceptional service delivery.
@@ -241,8 +246,13 @@ export default function Careers() {
               <div className="text-gray-400">Employee Satisfaction</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045] mb-2">15</div>
-              <div className="text-gray-400">Open Positions</div>
+            <div className="text-2xl font-light mb-1 tracking-wide bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-[#FAB045]/70 bg-clip-text text-transparent animate-shine">
+  15
+</div>
+
+  <div className="text-gray-400/80 font-light text-sm">
+    Open Positions
+  </div>
             </div>
           </div>
         </div>
@@ -251,14 +261,21 @@ export default function Careers() {
       {/* Why Join Us */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why <span className="text-[#FAB045]">SwiftLogistics</span>?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're building the future of logistics, and we need talented people to help us get there.
-            </p>
-          </div>
+         <div className="text-center mb-14">
+  
+  <h2 className="text-3xl md:text-4xl font-light text-gray-700/80 mb-4 tracking-wide">
+    Why{" "}
+    <span className="bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-orange-300/70 bg-clip-text text-transparent animate-shine">
+      SwiftLogistics
+    </span>
+    ?
+  </h2>
+
+  <p className="text-lg text-gray-500/80 max-w-2xl mx-auto font-light leading-relaxed">
+    We're building the future of logistics, and we need talented people to help us get there.
+  </p>
+
+</div>
 
           {/* Values Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
@@ -280,10 +297,19 @@ export default function Careers() {
 
           {/* Benefits Section */}
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 text-white">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Employee Benefits</h2>
-              <p className="text-gray-300 text-xl">We take care of our team with comprehensive benefits</p>
-            </div>
+           <div className="text-center mb-10">
+
+  <h2 className="text-3xl md:text-4xl font-light mb-3 tracking-wide text-white/70">
+    <span className="bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-orange-300/70 bg-clip-text text-transparent animate-shine">
+      Employee Benefits
+    </span>
+  </h2>
+
+  <p className="text-gray-400/80 text-lg font-light max-w-2xl mx-auto leading-relaxed">
+    We take care of our team with comprehensive benefits
+  </p>
+
+</div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
@@ -344,15 +370,17 @@ export default function Careers() {
             {jobOpenings.map((job) => (
               <div key={job.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#FAB045]/30 transition-all duration-300 hover:-translate-y-2">
                 <div className="p-8">
-                  <div className={`inline-block ${job.color.replace('from-', 'bg-gradient-to-r ')} text-white px-4 py-1 rounded-full text-sm font-semibold mb-4`}>
-                    {job.department}
-                  </div>
+                 <div className="inline-block bg-gray-900 text-white/90 px-4 py-1 rounded-full text-xs font-light tracking-wide mb-4">
+    {job.department}
+  </div>
+                
+  <h3 className="text-2xl font-light text-gray-800 mb-4 group-hover:text-[#FAB045] transition-colors">
+    {job.title}
+  </h3>
+
                   
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#FAB045] transition-colors">
-                    {job.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6">{job.description}</p>
+                 <p className="text-gray-600/80 font-light mb-6">{job.description}</p>
+
                   
                   <div className="space-y-4 mb-8">
                     <div className="flex items-center text-gray-700">
@@ -592,19 +620,25 @@ export default function Careers() {
       <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to <span className="text-[#FAB045]">Transform</span> Global Logistics?
-            </h2>
-            <p className="text-xl text-gray-300 mb-10">
-              Join a team that's making shipping smarter, faster, and more reliable worldwide.
-            </p>
+           <h2 className="text-3xl md:text-4xl font-light mb-5 tracking-wide text-white/70">
+  Ready to{" "}
+  <span className="bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-[#FAB045]/70 bg-clip-text text-transparent">
+    Transform
+  </span>{" "}
+  Global Logistics?
+</h2>
+
+<p className="text-lg text-gray-300/80 mb-8 font-light leading-relaxed max-w-2xl mx-auto">
+  Join a team that's making shipping smarter, faster, and more reliable worldwide.
+</p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#FAB045] to-orange-400 text-white font-bold rounded-2xl hover:shadow-xl hover:scale-105 transition-all duration-300">
-                Browse Open Positions
-              </button>
-              <button className="px-8 py-4 bg-white text-gray-900 font-bold rounded-2xl hover:bg-gray-100 hover:shadow-xl transition-all">
-                Schedule a Chat
-              </button>
+           <button className="px-7 py-3 bg-gradient-to-r from-[#FAB045]/90 to-orange-300/90 text-white/90 font-medium tracking-wide rounded-xl text-sm transition-all duration-300 hover:shadow-lg hover:scale-105">
+  Browse Open Positions
+</button>
+
+<button className="px-7 py-3 bg-white/80 backdrop-blur-md text-gray-700/80 font-light tracking-wide rounded-xl text-sm border border-gray-200/60 hover:bg-white/90 hover:shadow-md transition-all duration-300">
+  Schedule a Chat
+</button>
             </div>
           </div>
         </div>

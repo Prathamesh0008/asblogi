@@ -27,12 +27,12 @@ export default function ServicesPage() {
     setActiveFeature(activeFeature === featureIndex ? null : featureIndex);
   };
 
- const allServices = [
+  const allServices = [
     {
       id: 'road-freight',
       icon: <FaTruck />,
       title: 'Road Freight',
-      description: 'Comprehensive road transportation  for domestic and cross-border shipments.',
+      description: 'Comprehensive road transportation for domestic and cross-border shipments.',
       detailedDescription: 'Our road freight services offer reliable and efficient transportation across local and international routes. We ensure timely delivery with real-time tracking and comprehensive insurance coverage.',
       features: [
         { 
@@ -68,7 +68,7 @@ export default function ServicesPage() {
       icon: <FaPlane />,
       title: 'Air Freight',
       description: 'Fast and reliable air cargo services for time-sensitive shipments.',
-      detailedDescription: 'Accelerate your supply chain with our premium air freight . Partnering with major airlines worldwide for maximum coverage and reliability.',
+      detailedDescription: 'Accelerate your supply chain with our premium air freight. Partnering with major airlines worldwide for maximum coverage and reliability.',
       features: [
         { 
           title: 'Same Day Service', 
@@ -88,7 +88,7 @@ export default function ServicesPage() {
         { 
           title: 'Dangerous Goods', 
           description: 'Certified handling of hazardous air cargo.',
-          details: 'IATA certified staff and compliant packaging .'
+          details: 'IATA certified staff and compliant packaging.'
         },
         { 
           title: 'Perishables Handling', 
@@ -102,7 +102,7 @@ export default function ServicesPage() {
       id: 'ocean-freight',
       icon: <FaShip />,
       title: 'Ocean Freight',
-      description: 'Cost-effective sea freight  with global coverage.',
+      description: 'Cost-effective sea freight with global coverage.',
       detailedDescription: 'Optimize your shipping costs with our comprehensive ocean freight services. We handle everything from port-to-port to door-to-door delivery.',
       features: [
         { 
@@ -118,7 +118,7 @@ export default function ServicesPage() {
         { 
           title: 'Bulk Shipping', 
           description: 'Specialized vessels for bulk commodities.',
-          details: 'Dry bulk, liquid bulk, and breakbulk shipping .'
+          details: 'Dry bulk, liquid bulk, and breakbulk shipping.'
         },
         { 
           title: 'Reefer Containers', 
@@ -127,7 +127,7 @@ export default function ServicesPage() {
         },
         { 
           title: 'Project Cargo', 
-          description: 'Heavy-lift and oversized cargo .',
+          description: 'Heavy-lift and oversized cargo.',
           details: 'Specialized equipment for machinery, equipment, and construction materials.'
         }
       ],
@@ -138,7 +138,7 @@ export default function ServicesPage() {
       icon: <FaWarehouse />,
       title: 'Warehousing',
       description: 'Modern warehousing facilities with advanced inventory management.',
-      detailedDescription: 'State-of-the-art warehousing  with advanced technology for inventory management and distribution.',
+      detailedDescription: 'State-of-the-art warehousing with advanced technology for inventory management and distribution.',
       features: [
         { 
           title: 'Bonded Warehouses', 
@@ -173,7 +173,7 @@ export default function ServicesPage() {
       icon: <FaBoxes />,
       title: 'Supply Chain',
       description: 'End-to-end supply chain optimization and management.',
-      detailedDescription: 'Transform your supply chain with our comprehensive management . We integrate all aspects of your logistics for maximum efficiency.',
+      detailedDescription: 'Transform your supply chain with our comprehensive management. We integrate all aspects of your logistics for maximum efficiency.',
       features: [
         { 
           title: 'Order Fulfillment', 
@@ -207,12 +207,12 @@ export default function ServicesPage() {
       id: 'cold-chain',
       icon: <FaTemperatureLow />,
       title: 'Cold Chain',
-      description: 'Specialized temperature-controlled logistics .',
-      detailedDescription: 'Maintain product integrity with our advanced cold chain . From pharmaceuticals to food products, we ensure perfect temperature conditions.',
+      description: 'Specialized temperature-controlled logistics.',
+      detailedDescription: 'Maintain product integrity with our advanced cold chain. From pharmaceuticals to food products, we ensure perfect temperature conditions.',
       features: [
         { 
           title: 'Pharmaceutical Grade', 
-          description: 'GDP compliant  for healthcare products.',
+          description: 'GDP compliant for healthcare products.',
           details: 'Validated cold chain for vaccines, biologics, and temperature-sensitive pharmaceuticals.'
         },
         { 
@@ -232,7 +232,7 @@ export default function ServicesPage() {
         },
         { 
           title: 'Validated Packaging', 
-          description: 'Certified packaging .',
+          description: 'Certified packaging.',
           details: 'Tested and validated packaging for specific temperature ranges and durations.'
         }
       ],
@@ -241,50 +241,57 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+<div className="bg-gray-50">
 
       {/* SERVICES GRID */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-12md:py-20  bg-white ">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-[#FAB045]">Our Logistics Services</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide end-to-end logistics  designed to optimize your supply chain efficiency and reduce operational costs.
+          <div className="text-center mb-10">
+       <h2 className="relative text-4xl md:text-5xl font-light mb-4 tracking-wide inline-block">
+  <span className="relative bg-gradient-to-r from-[#9B6E2C] via-[#FAB045] to-[#9B6E2C] bg-clip-text text-transparent animate-gradient">
+    Our Logistics Services
+  </span>
+  {/* Shiny overlay */}
+  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent bg-clip-text text-transparent animate-shine pointer-events-none" 
+        style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)', backgroundSize: '200% 100%' }}>
+    Our Logistics Services
+  </span>
+</h2>
+            <p className="text-lg text-gray-600/70 max-w-3xl mx-auto font-light">
+              We provide end-to-end logistics designed to optimize your supply chain efficiency and reduce operational costs.
             </p>
           </div>
 
-          {/* ✅ FIXED GRID */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {allServices.map((service) => (
               <div
                 key={service.id}
-                className={`self-start group relative bg-white rounded-2xl p-8 border transition-all duration-500 overflow-hidden ${
+                className={`self-start group relative bg-white rounded-2xl p-6 border transition-all duration-500 overflow-hidden ${
                   expandedService === service.id
                     ? 'border-[#FAB045] shadow-2xl'
                     : 'border-gray-200 hover:border-[#FAB045]/30 hover:shadow-xl'
                 }`}
               >
                 {/* Accent bar */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FAB045] to-[#A0A1A2]" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FAB045] to-[#FF8C00]" />
 
-                {/* ICON */}
+                {/* ICON CONTAINER */}
                 <button
                   onClick={() => handleServiceClick(service.id)}
                   className="relative mb-6 w-full text-left"
                 >
-                  <div className={`inline-flex p-4 rounded-xl ${
-                    expandedService === service.id
-                      ? 'bg-[#FAB045] text-white scale-110'
-                      : 'bg-[#FAB045]/10 text-[#FAB045]'
-                  } transition-all`}>
+                  <div
+                    className={`inline-flex p-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+                      expandedService === service.id
+                        ? 'bg-gradient-to-br from-[#FAB045] to-[#FF8C00] text-white shadow-md'
+                        : 'bg-gradient-to-br from-[#FAB045]/20 to-[#FF8C00]/20 text-[#FAB045] hover:from-[#FAB045]/30 hover:to-[#FF8C00]/30'
+                    }`}
+                  >
                     <div className="text-3xl">{service.icon}</div>
                   </div>
                 </button>
 
-                <h3 className="text-2xl text-black font-bold mb-4">{service.title}</h3>
+                <h3 className="text-2xl font-medium text-black/80 mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
 
                 {/* EXPANDED CONTENT */}
@@ -295,31 +302,29 @@ export default function ServicesPage() {
                     </p>
 
                     <div className="space-y-3">
-                      <h4 className="font-bold text-black">Key Features:</h4>
+                      <h4 className="font-semibold text-black/80">Key Features:</h4>
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="border-l-2 border-[#FAB045] pl-3">
                           <button
                             onClick={() => handleFeatureClick(idx)}
                             className="w-full text-left"
                           >
-                            <div className="flex justify-between items-center ">
+                            <div className="flex justify-between items-center">
                               <div className="flex items-center">
-                                <FaCheckCircle className="text-black mr-2" />
-                                <span className='text-black'>{feature.title }</span>
+                                <FaCheckCircle className="text-[#FAB045] mr-2" />
+                                <span className="text-black/80">{feature.title}</span>
                               </div>
-                              { activeFeature === idx ? (
-                                <FaChevronUp className='text-black' />
+                              {activeFeature === idx ? (
+                                <FaChevronUp className="text-[#FAB045]" />
                               ) : (
-                                <FaChevronDown className='text-black'/>
+                                <FaChevronDown className="text-[#FAB045]" />
                               )}
                             </div>
-
-                            <p className="text-sm text-black ml-6">
+                            <p className="text-sm text-gray-600 ml-6">
                               {feature.description}
                             </p>
-
                             {activeFeature === idx && (
-                              <div className="mt-3 ml-6 p-3 text-black bg-gray rounded border">
+                              <div className="mt-3 ml-6 p-3 bg-gray-50 rounded-lg border border-gray-200 text-gray-700">
                                 {feature.details}
                               </div>
                             )}
@@ -334,7 +339,7 @@ export default function ServicesPage() {
                 <div className="flex justify-between items-center">
                   <button
                     onClick={() => handleServiceClick(service.id)}
-                    className="py-3 px-6  bg-yellow-200 hover:bg-[#FAB045] text-black rounded-lg flex items-center"
+                    className="py-3 px-6 bg-yellow-200 hover:bg-[#FAB045] text-black rounded-lg flex items-center transition-colors"
                   >
                     {expandedService === service.id ? 'Show Less' : 'Learn More'}
                     {expandedService === service.id ? (
@@ -343,8 +348,6 @@ export default function ServicesPage() {
                       <FaArrowRight className="ml-2" />
                     )}
                   </button>
-
-                  
                 </div>
               </div>
             ))}
@@ -354,12 +357,12 @@ export default function ServicesPage() {
 
       {/* Animations */}
       <style jsx>{`
-        @keyframes tefadeIn {
-          from { opacity: 0 }
-          to { opacity: 1 }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
         }
         .animate-fadeIn {
-          animation: fadeIn 0.25s ease-out;
+          animation: fadeIn 0.3s ease-out;
         }
       `}</style>
     </div>

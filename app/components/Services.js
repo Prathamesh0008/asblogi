@@ -14,7 +14,7 @@ export default function Services() {
 
   const services = [
     {
-      icon: <FaPlane className="text-4xl" />,
+      icon: <FaPlane className="text-3xl" />,
       title: 'Air Freight',
       description:
         'Express air cargo  with real-time tracking across 150+ countries.',
@@ -96,14 +96,43 @@ export default function Services() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* HEADER */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            <span className="text-[#FAB045]">Our Services</span>
-          </h2>
-          <p className="text-[#A0A1A2] text-xl max-w-3xl mx-auto">
-            Comprehensive logistics  designed for modern business needs.
-          </p>
-        </div>
+    <div
+  style={{
+    textAlign: "center",
+    marginBottom: "80px",
+    padding: "40px 20px",
+    borderRadius: "16px",
+
+    // Transparent dark orange gradient
+    background: "linear-gradient(135deg, rgba(230,81,0,0.25), rgba(255,140,0,0.20), rgba(255,179,71,0.15))",
+
+    backdropFilter: "blur(12px)",
+    border: "1px solid rgba(255,140,0,0.3)",
+  }}
+>
+<h2
+  style={{
+    fontSize: "42px",
+    fontWeight: "300",
+    marginBottom: "16px",
+    color: "rgba(0,0,0,0.7)", // black with transparency
+  }}
+>
+  Our Services
+</h2>
+
+<p
+  style={{
+    color: "rgba(0,0,0,0.7)", // softer black (transparent feel)
+    fontSize: "20px",
+    maxWidth: "700px",
+    margin: "0 auto",
+    fontWeight: "100", // lighter font
+  }}
+>
+  Comprehensive logistics designed for modern business needs.
+</p>
+</div>
 
         {/* GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
@@ -156,31 +185,52 @@ export default function Services() {
               </div>
 
               {/* EXPANDED DETAILS (OVERLAY – NO BLANK SPACE) */}
-              {expandedService === index && (
-                <div className="absolute left-0 top-full w-full bg-white shadow-2xl rounded-b-2xl border-t border-gray-100 animate-fadeIn">
-                  <div className="p-8">
-                    <h4 className="text-lg font-bold mb-4 text-gray-900">
-                      Service Details
-                    </h4>
+           {expandedService === index && (
+  <div
+    className="absolute left-0 top-full w-full shadow-2xl rounded-b-2xl border-t animate-fadeIn"
+    style={{
+      background: "linear-gradient(135deg, rgba(230,81,0,0.25), rgba(255,140,0,0.20), rgba(255,179,71,0.15))",
+      backdropFilter: "blur(12px)",
+      borderColor: "rgba(255,140,0,0.3)",
+    }}
+  >
+    <div className="p-8">
+      <h4
+        className="text-lg font-bold mb-4"
+        style={{ color: "#E65100" }}
+      >
+        Service Details
+      </h4>
 
-                    <ul className="space-y-2">
-                      {service.details.specialFeatures.map((f, i) => (
-                        <li key={i} className="flex items-start">
-                          <FaChevronRight className="mt-1 mr-2 text-[#FAB045]" />
-                          <span className="text-gray-700">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
+      <ul className="space-y-2">
+        {service.details.specialFeatures.map((f, i) => (
+          <li key={i} className="flex items-start">
+            <FaChevronRight className="mt-1 mr-2 text-[#FF8C00]" />
+            <span style={{ color: "#5a5a5a" }}>{f}</span>
+          </li>
+        ))}
+      </ul>
 
-                    <button
-                      onClick={() => setExpandedService(null)}
-                      className="mt-6 w-full py-3 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-800 font-semibold rounded-lg"
-                    >
-                      Close Details
-                    </button>
-                  </div>
-                </div>
-              )}
+      <button
+        onClick={() => setExpandedService(null)}
+        className="mt-6 w-full py-3 font-semibold rounded-lg transition-all duration-300"
+        style={{
+          background: "rgba(255,140,0,0.2)",
+          border: "1px solid rgba(255,140,0,0.4)",
+          color: "#E65100",
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.background = "rgba(255,140,0,0.35)";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.background = "rgba(255,140,0,0.2)";
+        }}
+      >
+        Close Details
+      </button>
+    </div>
+  </div>
+)}
 
               {/* LEARN MORE */}
               <div className="px-8 pb-8">
@@ -224,3 +274,4 @@ export default function Services() {
     </section>
   )
 }
+

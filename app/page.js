@@ -34,7 +34,7 @@ export default function Home() {
         handleTrack={handleTrack}
       />
       
-      <Stats />
+      
       
       <Testimonials />
       

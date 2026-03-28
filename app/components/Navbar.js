@@ -3,52 +3,45 @@
 
 import { useState, useEffect } from 'react'
 import { FiTruck } from 'react-icons/fi'
-
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import GetQuoteModal from './GetQuoteModal' // Add this import
+import GetQuoteModal from './GetQuoteModal'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false) // Add this state
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const pathname = usePathname()
   
   const quickLinks = [
     { title: 'Home', href: '/' },
-    { 
-      title: 'Services', 
-      href: '/services',
-    },
+    { title: 'Services', href: '/services' },
     { title: 'Tracking', href: '/tracking' },
     { title: 'About Us', href: '/about' },
     { title: 'Contact', href: '/contact' },
   ]
 
   const isActive = (href) => {
-    if (href === '/') {
-      return pathname === href;
-    }
-    return pathname.startsWith(href);
+    if (href === '/') return pathname === href
+    return pathname.startsWith(href)
   }
 
   useEffect(() => {
-    setIsMenuOpen(false);
-    setIsServicesOpen(false);
-  }, [pathname]);
+    setIsMenuOpen(false)
+    setIsServicesOpen(false)
+  }, [pathname])
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isQuoteModalOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'unset'
     }
     return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isQuoteModalOpen]);
+      document.body.style.overflow = 'unset'
+    }
+  }, [isQuoteModalOpen])
 
   return (
     <>
@@ -57,21 +50,21 @@ export default function Navbar() {
           <div className="flex justify-between items-center py-3">
             {/* Logo Section */}
             <div className="flex items-center">
-  <Link href="/" className="block">
-    <div className="relative w-[150px] md:w-[180px] lg:w-[250px] h-[70px] sm:h-[56px] rounded-xl flex items-center justify-center group overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-      <Image
-        src="/logo/logo2.png"
-        alt="Invictus Logistics Logo"
-        width={200}
-        height={75}
-        className="object-contain w-[200px] sm:h-[90px] h-auto"
-        priority
-      />
-    </div>
-  </Link>
-</div>
+              <Link href="/" className="block">
+                <div className="relative w-[150px] md:w-[180px] lg:w-[250px] h-[70px] sm:h-[56px] rounded-xl flex items-center justify-center group overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
+                  <Image
+                    src="/logo/logo2.png"
+                    alt="Invictus Logistics Logo"
+                    width={200}
+                    height={75}
+                    className="object-contain w-[200px] sm:h-[90px] h-auto"
+                    priority
+                  />
+                </div>
+              </Link>
+            </div>
             
-            {/* Desktop Menu */}
+            {/* Desktop Menu - hidden on mobile */}
             <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
               {quickLinks.map((link) => (
                 <div key={link.title} className="relative group">
@@ -92,35 +85,38 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Contact Info and Quote Button */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <div className="text-right">
+            {/* Right side: Contact info and Quote button - visible on all screen sizes */}
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              {/* Contact info - hidden on small mobile, visible on sm+ */}
+              <div className="hidden sm:block text-right">
                 <div className="text-xs text-[#A0A1A2]">Need Help?</div>
                 <div className="text-gray-900 font-bold text-sm">+31685865799</div>
               </div>
+              
+              {/* Quote button - always visible */}
               <button 
-                onClick={() => setIsQuoteModalOpen(true)} // Update this line
-                className="bg-gradient-to-r from-[#FAB045] to-[#f8c468] hover:from-[#e8a035] hover:to-[#e8a035] text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:shadow-md hover:scale-105 shadow-sm text-sm"
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="bg-gradient-to-r from-[#FAB045] to-[#f8c468] hover:from-[#e8a035] hover:to-[#e8a035] text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-all duration-300 hover:shadow-md hover:scale-105 shadow-sm text-xs sm:text-sm whitespace-nowrap"
               >
                 Get Quote
               </button>
-            </div>
 
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-gray-700 hover:text-[#FAB045] transition-colors duration-300"
-            >
-              {isMenuOpen ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-8 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
+              {/* Mobile Menu Button */}
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden text-gray-700 hover:text-[#FAB045] transition-colors duration-300"
+              >
+                {isMenuOpen ? (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-8 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -151,14 +147,15 @@ export default function Navbar() {
                     <FiTruck className="text-[#FAB045] text-lg mr-3" />
                     <div className="text-center">
                       <div className="text-xs text-[#A0A1A2]">24/7 Customer Support</div>
-                      <div className="text-gray-900 font-bold text-base">+31685865799 LOGISTIC</div>
+                      <div className="text-gray-900 font-bold text-base">+31685865799</div>
                     </div>
                   </div>
                   
+                  {/* Quote button already present in navbar, but we keep it in menu for convenience */}
                   <button 
                     onClick={() => {
-                      setIsMenuOpen(false);
-                      setIsQuoteModalOpen(true);
+                      setIsMenuOpen(false)
+                      setIsQuoteModalOpen(true)
                     }}
                     className="w-full bg-gradient-to-r from-[#FAB045] to-[#f8c468] text-white font-semibold py-3 px-6 rounded-lg text-base shadow-md hover:shadow-lg transition-all duration-300"
                   >
@@ -174,7 +171,6 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Styles for animations */}
         <style jsx>{`
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
@@ -196,7 +192,6 @@ export default function Navbar() {
         `}</style>
       </nav>
 
-      {/* Add the Get Quote Modal */}
       <GetQuoteModal 
         isOpen={isQuoteModalOpen} 
         onClose={() => setIsQuoteModalOpen(false)} 

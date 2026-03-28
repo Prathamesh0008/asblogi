@@ -13,12 +13,15 @@ export default function CTA() {
   return (
     <section className="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Ready to Ship?
-        </h2>
-        <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-          Join thousands of satisfied clients worldwide. Get a quote today!
-        </p>
+    <h2 className="text-3xl md:text-4xl font-light mb-5 tracking-wide">
+  <span className="bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-[#FAB045]/70 bg-clip-text text-transparent animate-shine">
+    Ready to Ship?
+  </span>
+</h2>
+
+<p className="text-lg text-gray-300/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+  Join thousands of satisfied clients worldwide. Get a quote today!
+</p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <button 
             onClick={openModal}

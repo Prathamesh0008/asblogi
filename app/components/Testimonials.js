@@ -47,45 +47,65 @@ export default function Testimonials() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-orange-300 md:text-5xl font-bold mb-4">What Our Clients Say</h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            Trusted by industry leaders worldwide for our reliability and exceptional service.
-          </p>
+          <div className="text-center mb-16">
+      
+  {/* Heading */}
+<h2 className="md:text-5xl font-light mb-4 relative tracking-wide">
+
+  {/* 🔶 Transparent Glow */}
+  <span className="absolute inset-0 bg-gradient-to-r from-[#FF8C00]/10 via-[#FF8C00]/5 to-transparent blur-xl"></span>
+
+  {/* 🔶 Golden Gradient Text (More Transparent) */}
+  <span className="relative bg-gradient-to-r from-[#FF8C00]/70 via-[#FF8C00]/60 to-[#FF8C00]/60 bg-clip-text text-transparent opacity-80">
+    What Our Clients Say
+  </span>
+
+</h2>
+
+{/* Subtext */}
+<p className="text-gray-500 text-lg max-w-3xl mx-auto opacity-80 font-light text-[#FF8C00]">
+  Trusted by industry leaders worldwide for our reliability and exceptional service.
+</p>
+
+</div>
+
+<div className="max-w-4xl mx-auto">
+  <div className="relative">
+    {/* Testimonial Card */}
+    <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 transition-all duration-500 cursor-pointer">
+
+      <FaQuoteLeft className="text-blue-300 text-4xl mb-6 opacity-70" />
+      
+      <p className="text-gray-600 text-xl mb-8 leading-relaxed font-light opacity-90">
+        "{testimonials[current].content}"
+      </p>
+      
+      <div className="flex flex-col md:flex-row items-center justify-between">
+        
+        <div className="flex items-center mb-6 md:mb-0">
+          
+          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white font-light text-xl mr-6 opacity-90">
+            {testimonials[current].name.charAt(0)}
+          </div>
+
+          <div>
+            <h4 className="text-xl font-medium text-gray-800 opacity-90">
+              {testimonials[current].name}
+            </h4>
+            <p className="text-gray-500 font-light opacity-80">
+              {testimonials[current].role}, {testimonials[current].company}
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex">
+          {[...Array(testimonials[current].rating)].map((_, i) => (
+            <FaStar key={i} className="text-yellow-400 ml-1 text-xl opacity-80" />
+          ))}
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Testimonial Card */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transition-all duration-500">
-              <FaQuoteLeft className="text-blue-300 text-4xl mb-6" />
-              
-              <p className="text-gray-700 text-xl mb-8 leading-relaxed">
-                "{testimonials[current].content}"
-              </p>
-              
-              <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="flex items-center mb-6 md:mb-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-xl mr-6">
-                    {testimonials[current].name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900">
-                      {testimonials[current].name}
-                    </h4>
-                    <p className="text-gray-600">
-                      {testimonials[current].role}, {testimonials[current].company}
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex">
-                  {[...Array(testimonials[current].rating)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-400 ml-1 text-xl" />
-                  ))}
-                </div>
-              </div>
-            </div>
+      </div>
+    </div>
 
             {/* Navigation Buttons */}
             <div className="flex justify-center mt-8 space-x-4">

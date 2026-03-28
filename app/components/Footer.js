@@ -120,7 +120,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 mb-4 md:mb-0">
-              © 2024 SwiftLogistics. All rights reserved.
+              © 2024 Invictus Logistics. All rights reserved.
             </p>
             <div className="flex space-x-6 text-gray-500 text-sm">
               <a href="#" className="hover:text-[#FAB045] transition-colors duration-300">Privacy Policy</a>
