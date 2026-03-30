@@ -58,23 +58,18 @@ export default function About() {
   };
 
   return (
-   <div className="bg-white py-12">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+    <div className="bg-white py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-10 -mt-4">
         {/* HEADER */}
-       {/* HEADER */}
-      <div className="text-center mb-10">
-        <div className="text-[#FAB045] font-light mb-3 uppercase tracking-wider">
-          OUR FOUNDATION
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-gray-900/70 font-medium">
+            Core <span className="text-[#FF8F00]">Values</span> That Drive Us
+          </h2>
+
+          <p className="text-gray-600/70 text-lg max-w-3xl mx-auto font-light font-medium">
+            These principles guide every decision we make and every service we deliver.
+          </p>
         </div>
-
-        <h2 className="text-4xl md:text-5xl font-light mb-4 text-gray-900/70">
-          Core <span className="text-[#FAB045]/80">Values</span> That Drive Us
-        </h2>
-
-        <p className="text-gray-600/70 text-lg max-w-3xl mx-auto font-light">
-          These principles guide every decision we make and every service we deliver.
-        </p>
-      </div>
 
         {/* VALUES GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
@@ -86,12 +81,12 @@ export default function About() {
                 key={index}
                 className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "border-[#FAB045] shadow-xl"
-                    : "border-gray-200 hover:border-[#FAB045]/50 hover:shadow-xl"
+                    ? "border-[#E65100] shadow-xl"
+                    : "border-gray-200 hover:border-[#E65100]/50 hover:shadow-xl"
                 }`}
               >
                 {/* TOP BAR */}
-                <div className="h-1 bg-gradient-to-r from-[#FAB045] to-[#FF8C00]" />
+                <div className="h-1 bg-gradient-to-r from-[#E65100] to-[#FFD700]" />
 
                 <div className="p-8 flex flex-col h-full">
                   {/* ICON - Enhanced with gradient, hover effects, and scaling */}
@@ -102,8 +97,8 @@ export default function About() {
                     <div
                       className={`inline-flex p-4 rounded-xl text-3xl transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${
                         isOpen
-                          ? "bg-gradient-to-br from-[#FAB045] to-[#FF8C00] text-white shadow-md"
-                          : "bg-gradient-to-br from-[#FAB045]/20 to-[#FF8C00]/20 text-[#FAB045] hover:from-[#FAB045]/30 hover:to-[#FF8C00]/30"
+                          ? "bg-gradient-to-br from-[#E65100] to-[#FFD700] text-white shadow-md"
+                          : "bg-gradient-to-br from-[#E65100]/20 to-[#FFD700]/20 text-[#E65100] hover:from-[#E65100]/30 hover:to-[#FFD700]/30"
                       }`}
                     >
                       {value.icon}
@@ -134,7 +129,7 @@ export default function About() {
                   {/* ACTION */}
                   <button
                     onClick={() => toggleValue(index)}
-                    className="mt-4 inline-flex items-center text-[#FAB045] font-semibold transition-colors hover:text-[#FF8C00]"
+                    className="mt-4 inline-flex items-center text-[#E65100] font-semibold transition-colors hover:text-[#FF8F00]"
                   >
                     {isOpen ? (
                       <>

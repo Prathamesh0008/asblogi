@@ -124,7 +124,7 @@ export default function GetQuoteModal({ isOpen, onClose }) {
             <div className="p-6 md:p-8">
               {/* Header */}
               <div className="flex items-center mb-8">
-                <div className="w-16 h-16 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#FAB045] to-orange-700 rounded-2xl flex items-center justify-center mr-6 shadow-lg">
                   <FaPaperPlane className="text-white text-2xl" />
                 </div>
                 <div className="flex-1">
@@ -290,7 +290,7 @@ export default function GetQuoteModal({ isOpen, onClose }) {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className={`group relative overflow-hidden bg-gradient-to-r from-[#FAB045] to-orange-400 hover:from-orange-400 hover:to-[#FAB045] text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-lg flex items-center ${isLoading ? 'opacity-80 cursor-not-allowed' : ''}`}
+                      className={`group relative overflow-hidden bg-gradient-to-r from-[#FF8F00] to-orange-400 hover:from-orange-400 hover:to-[] text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-lg flex items-center ${isLoading ? 'opacity-80 cursor-not-allowed' : ''}`}
                     >
                       <span className="relative z-10 flex items-center">
                         {isLoading ? (

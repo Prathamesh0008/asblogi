@@ -28,6 +28,7 @@ export default function ServicesPage() {
   };
 
   const allServices = [
+    // ... (same service data as before)
     {
       id: 'road-freight',
       icon: <FaTruck />,
@@ -241,23 +242,21 @@ export default function ServicesPage() {
   ];
 
   return (
-<div className="bg-gray-50">
-
+    <div className="bg-white">
       {/* SERVICES GRID */}
-      <section className="py-12 sm:py-12md:py-20  bg-white ">
+      <section className="py-12 sm:py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-       <h2 className="relative text-4xl md:text-5xl font-light mb-4 tracking-wide inline-block">
-  <span className="relative bg-gradient-to-r from-[#9B6E2C] via-[#FAB045] to-[#9B6E2C] bg-clip-text text-transparent animate-gradient">
-    Our Logistics Services
-  </span>
-  {/* Shiny overlay */}
-  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent bg-clip-text text-transparent animate-shine pointer-events-none" 
-        style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)', backgroundSize: '200% 100%' }}>
-    Our Logistics Services
-  </span>
-</h2>
-            <p className="text-lg text-gray-600/70 max-w-3xl mx-auto font-light">
+            <h2 className="relative text-4xl md:text-5xl font-light mb-4 tracking-wide inline-block">
+              <span className="relative bg-gradient-to-r from-[#E65100] via-[#FFD700] to-[#FF8F00] bg-clip-text text-transparent font-medium">
+                Our Logistics Services
+              </span>
+              <span 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent bg-clip-text text-transparent animate-shine pointer-events-none" 
+                style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)', backgroundSize: '200% 100%' }}
+              ></span>
+            </h2>
+            <p className="text-lg text-gray-600/70 max-w-3xl mx-auto font-medium">
               We provide end-to-end logistics designed to optimize your supply chain efficiency and reduce operational costs.
             </p>
           </div>
@@ -268,14 +267,14 @@ export default function ServicesPage() {
                 key={service.id}
                 className={`self-start group relative bg-white rounded-2xl p-6 border transition-all duration-500 overflow-hidden ${
                   expandedService === service.id
-                    ? 'border-[#FAB045] shadow-2xl'
-                    : 'border-gray-200 hover:border-[#FAB045]/30 hover:shadow-xl'
+                    ? 'border-[#E65100] shadow-2xl'
+                    : 'border-gray-200 hover:border-[#E65100]/30 hover:shadow-xl'
                 }`}
               >
                 {/* Accent bar */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FAB045] to-[#FF8C00]" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E65100] to-[#FFD700]" />
 
-                {/* ICON CONTAINER */}
+                {/* ICON CONTAINER - now uses gradient */}
                 <button
                   onClick={() => handleServiceClick(service.id)}
                   className="relative mb-6 w-full text-left"
@@ -283,8 +282,8 @@ export default function ServicesPage() {
                   <div
                     className={`inline-flex p-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
                       expandedService === service.id
-                        ? 'bg-gradient-to-br from-[#FAB045] to-[#FF8C00] text-white shadow-md'
-                        : 'bg-gradient-to-br from-[#FAB045]/20 to-[#FF8C00]/20 text-[#FAB045] hover:from-[#FAB045]/30 hover:to-[#FF8C00]/30'
+                        ? 'bg-gradient-to-br from-[#E65100] to-[#FFD700] text-white shadow-md'
+                        : 'bg-gradient-to-br from-[#E65100]/20 to-[#FFD700]/20 text-[#E65100] hover:from-[#E65100]/30 hover:to-[#FFD700]/30'
                     }`}
                   >
                     <div className="text-3xl">{service.icon}</div>
@@ -304,20 +303,21 @@ export default function ServicesPage() {
                     <div className="space-y-3">
                       <h4 className="font-semibold text-black/80">Key Features:</h4>
                       {service.features.map((feature, idx) => (
-                        <div key={idx} className="border-l-2 border-[#FAB045] pl-3">
+                        <div key={idx} className="border-l-2 border-[#E65100] pl-3">
                           <button
                             onClick={() => handleFeatureClick(idx)}
                             className="w-full text-left"
                           >
                             <div className="flex justify-between items-center">
                               <div className="flex items-center">
-                                <FaCheckCircle className="text-[#FAB045] mr-2" />
+                                {/* Feature icons now use gold (#FFD700) */}
+                                <FaCheckCircle className="text-[#FFD700] mr-2" />
                                 <span className="text-black/80">{feature.title}</span>
                               </div>
                               {activeFeature === idx ? (
-                                <FaChevronUp className="text-[#FAB045]" />
+                                <FaChevronUp className="text-[#FFD700]" />
                               ) : (
-                                <FaChevronDown className="text-[#FAB045]" />
+                                <FaChevronDown className="text-[#FFD700]" />
                               )}
                             </div>
                             <p className="text-sm text-gray-600 ml-6">
@@ -335,17 +335,17 @@ export default function ServicesPage() {
                   </div>
                 )}
 
-                {/* ACTIONS */}
+                {/* ACTIONS - button with gradient using #FF8F00 and #FFD700 */}
                 <div className="flex justify-between items-center">
                   <button
                     onClick={() => handleServiceClick(service.id)}
-                    className="py-3 px-6 bg-yellow-200 hover:bg-[#FAB045] text-black rounded-lg flex items-center transition-colors"
+                    className="py-3 px-6 bg-gradient-to-r from-[#E65100] to-[#FF8F00] hover:from-[#FF8F00] hover:to-[#FFD700] text-white rounded-lg flex items-center transition-all duration-300"
                   >
                     {expandedService === service.id ? 'Show Less' : 'Learn More'}
                     {expandedService === service.id ? (
-                      <FaTimes className="ml-2" />
+                      <FaTimes className="ml-2 text-white" />
                     ) : (
-                      <FaArrowRight className="ml-2" />
+                      <FaArrowRight className="ml-2 text-white" />
                     )}
                   </button>
                 </div>
@@ -363,6 +363,13 @@ export default function ServicesPage() {
         }
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes shine {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        .animate-shine {
+          animation: shine 3s infinite;
         }
       `}</style>
     </div>

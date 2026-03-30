@@ -24,7 +24,7 @@ export default function Testimonials() {
       name: 'James Wilson',
       company: 'PharmaPlus',
       role: 'Operations Head',
-      content: 'The cold chain  for our pharmaceutical products are outstanding. Temperature monitoring gives us peace of mind.',
+      content: 'The cold chain solutions for our pharmaceutical products are outstanding. Temperature monitoring gives us peace of mind.',
       rating: 5,
     },
     {
@@ -45,80 +45,74 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-      
-  {/* Heading */}
-<h2 className="md:text-5xl font-light mb-4 relative tracking-wide">
+        <div className="text-center mb-16">
+          {/* Heading */}
+          <h2 className="md:text-5xl font-light mb-4 relative tracking-wide">
+            {/* 🔶 Transparent Glow */}
+            <span className="absolute inset-0 bg-gradient-to-r from-[#E65100]/10 via-[#FFD700]/5 to-transparent blur-xl"></span>
 
-  {/* 🔶 Transparent Glow */}
-  <span className="absolute inset-0 bg-gradient-to-r from-[#FF8C00]/10 via-[#FF8C00]/5 to-transparent blur-xl"></span>
+            {/* 🔶 Gradient Text */}
+            <span className="relative bg-gradient-to-r from-[#E65100] via-[#FFD700] to-[#FF8F00] bg-clip-text text-transparent font-medium tracking-wide">
+              What Our Clients Say
+            </span>
+          </h2>
 
-  {/* 🔶 Golden Gradient Text (More Transparent) */}
-  <span className="relative bg-gradient-to-r from-[#FF8C00]/70 via-[#FF8C00]/60 to-[#FF8C00]/60 bg-clip-text text-transparent opacity-80">
-    What Our Clients Say
-  </span>
-
-</h2>
-
-{/* Subtext */}
-<p className="text-gray-500 text-lg max-w-3xl mx-auto opacity-80 font-light text-[#FF8C00]">
-  Trusted by industry leaders worldwide for our reliability and exceptional service.
-</p>
-
-</div>
-
-<div className="max-w-4xl mx-auto">
-  <div className="relative">
-    {/* Testimonial Card */}
-    <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 transition-all duration-500 cursor-pointer">
-
-      <FaQuoteLeft className="text-blue-300 text-4xl mb-6 opacity-70" />
-      
-      <p className="text-gray-600 text-xl mb-8 leading-relaxed font-light opacity-90">
-        "{testimonials[current].content}"
-      </p>
-      
-      <div className="flex flex-col md:flex-row items-center justify-between">
-        
-        <div className="flex items-center mb-6 md:mb-0">
-          
-          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white font-light text-xl mr-6 opacity-90">
-            {testimonials[current].name.charAt(0)}
-          </div>
-
-          <div>
-            <h4 className="text-xl font-medium text-gray-800 opacity-90">
-              {testimonials[current].name}
-            </h4>
-            <p className="text-gray-500 font-light opacity-80">
-              {testimonials[current].role}, {testimonials[current].company}
-            </p>
-          </div>
-        </div>
-        
-        <div className="flex">
-          {[...Array(testimonials[current].rating)].map((_, i) => (
-            <FaStar key={i} className="text-yellow-400 ml-1 text-xl opacity-80" />
-          ))}
+          {/* Subtext */}
+          <p className="text-lg max-w-3xl mx-auto font-medium leading-relaxed 
+            bg-gradient-to-r from-[#E65100]/80 via-[#FF8F00]/70 to-[#FFD700]/80 
+            bg-clip-text text-transparent">
+            Trusted by industry leaders worldwide for our reliability and exceptional service.
+          </p>
         </div>
 
-      </div>
-    </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Testimonial Card */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 transition-all duration-500 cursor-pointer border border-gray-100">
+              <FaQuoteLeft className="text-[#FF8F00]/50 text-4xl mb-6" />
+              
+              <p className="text-gray-700 text-xl mb-8 leading-relaxed font-light">
+                "{testimonials[current].content}"
+              </p>
+              
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="flex items-center mb-6 md:mb-0">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#E65100] to-[#FFD700] flex items-center justify-center text-white font-light text-xl mr-6">
+                    {testimonials[current].name.charAt(0)}
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-800">
+                      {testimonials[current].name}
+                    </h4>
+                    <p className="text-gray-500 font-light">
+                      {testimonials[current].role}, {testimonials[current].company}
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex">
+                  {[...Array(testimonials[current].rating)].map((_, i) => (
+                    <FaStar key={i} className="text-[#FFD700] ml-1 text-xl" />
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Navigation Buttons */}
             <div className="flex justify-center mt-8 space-x-4">
               <button
                 onClick={prev}
-                className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition-colors"
+                className="w-12 h-12 rounded-full bg-[#FF8F00]/10 text-[#E65100] flex items-center justify-center hover:bg-[#FF8F00]/20 transition-colors"
                 aria-label="Previous testimonial"
               >
                 <FaArrowLeft />
               </button>
               <button
-                onClick={next}                                                                                                  
-                className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors"
+                onClick={next}
+                className="w-12 h-12 rounded-full bg-gradient-to-r from-[#E65100] to-[#FFD700] text-white flex items-center justify-center hover:from-[#FF8F00] hover:to-[#E65100] transition-all"
                 aria-label="Next testimonial"
               >
                 <FaArrowRight />
@@ -131,10 +125,10 @@ export default function Testimonials() {
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
+                  className={`h-2 rounded-full transition-all ${
                     index === current 
-                      ? 'bg-blue-600 w-8' 
-                      : 'bg-gray-300 hover:bg-gray-400'
+                      ? 'bg-gradient-to-r from-[#E65100] to-[#FFD700] w-8' 
+                      : 'bg-gray-300 hover:bg-gray-400 w-2'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -144,36 +138,36 @@ export default function Testimonials() {
 
           {/* Additional Mini Testimonials */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className="text-yellow-400 mr-1" />
+                  <FaStar key={i} className="text-[#FFD700] mr-1" />
                 ))}
               </div>
               <p className="text-gray-600 mb-4">"Outstanding service! Our international shipments have never been smoother."</p>
-              <p className="font-semibold">David Miller</p>
+              <p className="font-semibold text-gray-800">David Miller</p>
               <p className="text-sm text-gray-500">Export Manager</p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className="text-yellow-400 mr-1" />
+                  <FaStar key={i} className="text-[#FFD700] mr-1" />
                 ))}
               </div>
               <p className="text-gray-600 mb-4">"Professional team, transparent pricing, and reliable delivery every time."</p>
-              <p className="font-semibold">Lisa Wong</p>
+              <p className="font-semibold text-gray-800">Lisa Wong</p>
               <p className="text-sm text-gray-500">Operations Director</p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className="text-yellow-400 mr-1" />
+                  <FaStar key={i} className="text-[#FFD700] mr-1" />
                 ))}
               </div>
               <p className="text-gray-600 mb-4">"Their technology platform makes tracking and management a breeze."</p>
-              <p className="font-semibold">Robert Kim</p>
+              <p className="font-semibold text-gray-800">Robert Kim</p>
               <p className="text-sm text-gray-500">IT Logistics</p>
             </div>
           </div>

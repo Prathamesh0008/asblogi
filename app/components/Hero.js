@@ -183,25 +183,28 @@ export default function Hero() {
               <div className="lg:w-1/2 lg:pr-8">
                 <div className="mb-10 lg:mb-12">
                   <span className="relative inline-block bg-gradient-to-r from-[#E65100] to-[#f8c468] text-white px-8 py-3 rounded-full text-sm font-bold tracking-wide shadow-2xl overflow-hidden group">
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#FF8C00] to-[#E65100] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-[#FF8F00] to-[#E65100] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                     <span className="relative flex items-center">
                       <span className="mr-2 animate-pulse">⚡</span>
                       Elite Global Logistics
                     </span>
-                  </span>
+                  </span> 
                 </div>
                 
-             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-light mb-6 lg:mb-8 leading-tight tracking-tight">
-  
-  <span className="block bg-gradient-to-r from-white/80 via-white/60 to-[#E65100]/70 bg-clip-text text-transparent">
+<h1 className="text-5xl sm:text-6xl md:text-xl lg:text-7xl mb-6 lg:mb-8 leading-tight tracking-tight font-medium">
+
+  {/* Precision */}
+  <span className="block bg-gradient-to-r from-white/40 via-white/60 to-[#E65100]/70 bg-clip-text text-transparent">
     Precision
   </span>
 
-  <span className="block bg-gradient-to-r from-[#E65100]/80 via-[#FFD700]/70 to-[#E65100]/80 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] font-light">
+  {/* Logistics */}
+  <span className="block bg-gradient-to-r from-[#FF8F00]/80 via-[#FF8F00]/70 to-[#FF8F00]/80 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] font-medium">
     Logistics
   </span>
 
-  <span className="block text-white/70 mt-2 text-4xl lg:text-3xl font-light">
+  {/* Sub text (optional) */}
+  <span className="block text-white/60 mt-2 text-4xl lg:text-3xl font-light">
     
   </span>
 
@@ -215,7 +218,7 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row gap-6 mb-12 lg:mb-0">
                   <button 
                     onClick={handleGetStarted}
-                    className="group relative bg-gradient-to-r from-[#FFD700] to-[#f8c468] hover:from-[Golden Orange] hover:to-[#E65100] text-white font-bold py-5 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
+                    className="group relative bg-gradient-to-r from-[#E65100]/100 to-[#FFD700] hover:from-[Golden Orange] hover:to-[#FF8F00]/80 text-white font-bold py-5 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     <span className="relative flex items-center justify-center">

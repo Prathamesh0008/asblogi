@@ -140,15 +140,15 @@ export default function Contact() {
     }
   };
 
-  // Contact info cards data
+  // Contact info cards data – updated colors
   const contactInfo = [
     {
       icon: <FaPhone />,
       title: 'Call Us',
       details: ['+31685865799'],
       description: 'Available 24/7',
-      color: 'from-[#FAB045] to-orange-300',
-      bgColor: 'bg-gradient-to-br from-[#FAB045]/10 to-orange-400/10',
+      color: 'from-[#E65100] to-[#FFD700]',
+      bgColor: 'bg-gradient-to-br from-[#E65100]/10 to-[#FFD700]/10',
       action: 'tel:+31685865799'
     },
     {
@@ -156,8 +156,8 @@ export default function Contact() {
       title: 'Email Us',
       details: ['info@invictuslogi.com'],
       description: 'Response within 2 hours',
-      color: 'from-[#A0A1A2] to-gray-400',
-      bgColor: 'bg-gradient-to-br from-[#A0A1A2]/10 to-gray-400/10',
+      color: 'from-[#FF8F00] to-[#FFD700]',
+      bgColor: 'bg-gradient-to-br from-[#FF8F00]/10 to-[#FFD700]/10',
       action: 'mailto:info@invictuslogi.com'
     },
     {
@@ -172,57 +172,49 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white overflow-x-hidden -mt-10">
       {/* Hero Section - Mobile Optimized */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white/80 py-12 sm:py-16 md:py-20">
-        {/* Background Glow */}
+        {/* Background Glow – using new colors */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-[#FAB045]/70 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-[#A0A1A2]/70 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-[#E65100]/70 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-[#FFD700]/70 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* TOP BADGE */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/5 rounded-full backdrop-blur-sm mb-4 sm:mb-6 border border-white/10">
-            <FaTruck className="mr-2 text-[#FAB045]/80 text-xs sm:text-sm" />
-            <span className="text-xs font-light tracking-wide text-white/70">
-              CONNECT WITH LOGISTICS EXPERTS
-            </span>
-          </div>
-
           {/* HEADING */}
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-light mb-4 sm:mb-6 leading-snug tracking-wide text-white/70">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-light mb-4 sm:mb-6 leading-snug tracking-wide text-white/70 font-medium">
             Get In{" "}
-            <span className="bg-gradient-to-r from-[#FAB045]/80 via-orange-300/80 to-[#FAB045]/80 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-[#E65100] via-[#FFD700] to-[#FF8F00] bg-clip-text text-transparent font-medium">
               Touch
             </span>
           </h1>
 
           {/* SUBTEXT */}
-          <p className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto text-gray-400/80 mb-8 sm:mb-10 leading-relaxed font-light px-4">
+          <p className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto text-gray-400/80 mb-8 sm:mb-10 leading-relaxed font-medium px-7">
             Connect with our logistics experts for tailored solutions that streamline your supply chain
           </p>
 
           {/* STATS - Responsive Grid */}
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-14 mt-8 sm:mt-12">
             <div className="text-center group">
-              <div className="text-xl sm:text-2xl font-light text-[#FAB045]/90 mb-1">24/7</div>
-              <div className="text-gray-400/80 flex items-center justify-center gap-2 text-xs sm:text-sm font-light">
-                <FaClock className="text-[#FAB045]/80 text-xs sm:text-sm" />
+              <div className="text-xl sm:text-3xl font-light text-[#FFD700]/90 mb-1">24/7</div>
+              <div className="text-gray-400/80 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium">
+                <FaClock className="text-[#FFD700]/80 text-xs sm:text-sm" />
                 <span>Support Available</span>
               </div>
             </div>
             <div className="text-center group">
-              <div className="text-xl sm:text-2xl font-light text-[#FAB045]/90 mb-1">2h</div>
-              <div className="text-gray-400/80 flex items-center justify-center gap-2 text-xs sm:text-sm font-light">
-                <FaHeadset className="text-[#FAB045]/80 text-xs sm:text-sm" />
+              <div className="text-xl sm:text-3xl font-light text-[#FFD700]/90 mb-1">2h</div>
+              <div className="text-gray-400/80 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium">
+                <FaHeadset className="text-[#FFD700]/80 text-xs sm:text-sm" />
                 <span>Avg. Response Time</span>
               </div>
             </div>
             <div className="text-center group">
-              <div className="text-xl sm:text-2xl font-light text-[#FAB045]/90 mb-1">150+</div>
-              <div className="text-gray-400/80 flex items-center justify-center gap-2 text-xs sm:text-sm font-light">
-                <FaGlobe className="text-[#FAB045]/80 text-xs sm:text-sm" />
+              <div className="text-xl sm:text-3xl font-light text-[#FFD700]/90 mb-1">150+</div>
+              <div className="text-gray-400/80 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium">
+                <FaGlobe className="text-[#FFD700]/80 text-xs sm:text-sm" />
                 <span>Countries Supported</span>
               </div>
             </div>
@@ -245,14 +237,14 @@ export default function Contact() {
                     rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="group relative overflow-hidden block transform hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 border border-gray-100 hover:border-[#FAB045]/30 transition-all duration-300 hover:shadow-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#E65100]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 border border-gray-100 hover:border-[#E65100]/30 transition-all duration-300 hover:shadow-2xl">
                       <div className="flex items-start mb-4 sm:mb-6">
                         <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${info.color} rounded-xl sm:rounded-2xl flex items-center justify-center mr-4 sm:mr-5 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
                           <div className="text-white text-lg sm:text-2xl">{info.icon}</div>
                         </div>
                         <div>
-                          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 group-hover:text-[#FAB045] transition-colors">{info.title}</h3>
+                          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 group-hover:text-[#E65100] transition-colors">{info.title}</h3>
                           <p className="text-gray-500 text-xs sm:text-sm">{info.description}</p>
                         </div>
                       </div>
@@ -274,10 +266,10 @@ export default function Contact() {
 
                 {/* Office Hours Card */}
                 <div className="group relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#A0A1A2]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/5 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                   <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 border border-gray-800">
                     <div className="flex items-center mb-4 sm:mb-6">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-xl sm:rounded-2xl flex items-center justify-center mr-4 sm:mr-5 shadow-lg group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-[#E65100] to-[#FFD700] rounded-xl sm:rounded-2xl flex items-center justify-center mr-4 sm:mr-5 shadow-lg group-hover:scale-110 transition-transform">
                         <FaClock className="text-white text-lg sm:text-2xl" />
                       </div>
                       <div>
@@ -288,24 +280,24 @@ export default function Contact() {
                     <div className="space-y-3 sm:space-y-4">
                       <div className="flex justify-between items-center pb-2 sm:pb-3 border-b border-gray-700 text-sm sm:text-base">
                         <span className="text-gray-300">Monday - Friday</span>
-                        <span className="font-bold text-[#FAB045]">9:00 AM - 6:00 PM</span>
+                        <span className="font-bold text-[#FFD700]">9:00 AM - 6:00 PM</span>
                       </div>
                       <div className="flex justify-between items-center pb-2 sm:pb-3 border-b border-gray-700 text-sm sm:text-base">
                         <span className="text-gray-300">Saturday</span>
-                        <span className="font-bold text-[#FAB045]">10:00 AM - 4:00 PM</span>
+                        <span className="font-bold text-[#FFD700]">10:00 AM - 4:00 PM</span>
                       </div>
                       <div className="flex justify-between items-center text-sm sm:text-base">
                         <span className="text-gray-300">Sunday</span>
-                        <span className="font-bold text-[#FAB045]">Emergency Only</span>
+                        <span className="font-bold text-[#FFD700]">Emergency Only</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Emergency Support */}
-                <div className="bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-2xl p-5 sm:p-6 border border-[#FAB045]/20">
+                <div className="bg-gradient-to-r from-[#E65100]/10 to-[#FFD700]/10 rounded-2xl p-5 sm:p-6 border border-[#E65100]/20">
                   <div className="flex items-center mb-3 sm:mb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#E65100] to-[#FFD700] rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4">
                       <FaHeadset className="text-white text-base sm:text-xl" />
                     </div>
                     <div>
@@ -317,8 +309,8 @@ export default function Contact() {
                     For urgent shipment issues requiring immediate attention
                   </p>
                   <a href="tel:+31685865799" className="flex items-center group">
-                    <FaPhone className="text-[#FAB045] mr-2 group-hover:animate-bounce text-sm" />
-                    <span className="font-bold text-gray-900 group-hover:text-[#FAB045] transition-colors text-sm sm:text-base">+31685865799</span>
+                    <FaPhone className="text-[#E65100] mr-2 group-hover:animate-bounce text-sm" />
+                    <span className="font-bold text-gray-900 group-hover:text-[#E65100] transition-colors text-sm sm:text-base">+31685865799</span>
                   </a>
                 </div>
               </div>
@@ -329,11 +321,11 @@ export default function Contact() {
                   <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50"></div>
                   <div className="relative p-5 sm:p-8 md:p-12">
                     <div className="flex items-center mb-6 sm:mb-8 md:mb-10">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-xl sm:rounded-2xl flex items-center justify-center mr-4 sm:mr-6 shadow-lg">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-[#E65100] to-[#FFD700] rounded-xl sm:rounded-2xl flex items-center justify-center mr-4 sm:mr-6 shadow-lg">
                         <FaPaperPlane className="text-white text-lg sm:text-2xl" />
                       </div>
                       <div>
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-700/80 mb-1 tracking-wide">
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-700/80 mb-1 tracking-wide font-medium">
                           Send Us a Message
                         </h2>
                         <p className="text-gray-500/80 font-light text-xs sm:text-sm leading-relaxed">
@@ -347,8 +339,8 @@ export default function Contact() {
                         {/* Name Field */}
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3 flex items-center">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
-                              <FaUser className="text-[#FAB045] text-xs sm:text-sm" />
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#E65100]/10 to-[#FFD700]/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
+                              <FaUser className="text-[#E65100] text-xs sm:text-sm" />
                             </div>
                             Full Name *
                           </label>
@@ -360,7 +352,7 @@ export default function Contact() {
                             required
                             className={`w-full px-4 sm:px-5 py-3 sm:py-4 text-gray-600 bg-white border-2 ${
                               validationErrors.name ? 'border-red-500' : 'border-gray-200'
-                            } rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-sm sm:text-base`}
+                            } rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 text-sm sm:text-base`}
                             placeholder="John Doe"
                           />
                           {validationErrors.name && <p className="mt-1 text-xs sm:text-sm text-red-600">{validationErrors.name}</p>}
@@ -369,8 +361,8 @@ export default function Contact() {
                         {/* Email Field */}
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3 flex items-center">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
-                              <FaEnvelope className="text-[#FAB045] text-xs sm:text-sm" />
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#E65100]/10 to-[#FFD700]/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
+                              <FaEnvelope className="text-[#E65100] text-xs sm:text-sm" />
                             </div>
                             Email Address *
                           </label>
@@ -382,7 +374,7 @@ export default function Contact() {
                             required
                             className={`w-full px-4 sm:px-5 py-3 sm:py-4 text-gray-600 bg-white border-2 ${
                               validationErrors.email ? 'border-red-500' : 'border-gray-200'
-                            } rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-sm sm:text-base`}
+                            } rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 text-sm sm:text-base`}
                             placeholder="john@example.com"
                           />
                           {validationErrors.email && <p className="mt-1 text-xs sm:text-sm text-red-600">{validationErrors.email}</p>}
@@ -393,8 +385,8 @@ export default function Contact() {
                         {/* Phone Field */}
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3 flex items-center">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
-                              <FaPhone className="text-[#A0A1A2] text-xs sm:text-sm" />
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#FF8F00]/10 to-[#FFD700]/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
+                              <FaPhone className="text-[#FF8F00] text-xs sm:text-sm" />
                             </div>
                             Phone Number
                           </label>
@@ -405,7 +397,7 @@ export default function Contact() {
                             onChange={handleChange}
                             className={`w-full px-4 sm:px-5 py-3 sm:py-4 text-gray-600 bg-white border-2 ${
                               validationErrors.phone ? 'border-red-500' : 'border-gray-200'
-                            } rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-sm sm:text-base`}
+                            } rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 text-sm sm:text-base`}
                             placeholder="+31 6 85865799"
                           />
                           {validationErrors.phone && <p className="mt-1 text-xs sm:text-sm text-red-600">{validationErrors.phone}</p>}
@@ -414,8 +406,8 @@ export default function Contact() {
                         {/* Company Field */}
                         <div className="group">
                           <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3 flex items-center">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
-                              <FaBuilding className="text-[#A0A1A2] text-xs sm:text-sm" />
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#FF8F00]/10 to-[#FFD700]/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
+                              <FaBuilding className="text-[#FF8F00] text-xs sm:text-sm" />
                             </div>
                             Company
                           </label>
@@ -424,7 +416,7 @@ export default function Contact() {
                             name="company"
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full px-4 sm:px-5 py-3 sm:py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-sm sm:text-base"
+                            className="w-full px-4 sm:px-5 py-3 sm:py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 text-sm sm:text-base"
                             placeholder="Your Company Name"
                           />
                         </div>
@@ -433,8 +425,8 @@ export default function Contact() {
                       {/* Subject Select */}
                       <div className="group">
                         <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3 flex items-center">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#FAB045]/10 to-orange-400/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
-                            <FaClipboard className="text-[#FAB045] text-xs sm:text-sm" />
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#E65100]/10 to-[#FFD700]/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:scale-110 transition-transform">
+                            <FaClipboard className="text-[#E65100] text-xs sm:text-sm" />
                           </div>
                           Subject
                         </label>
@@ -442,7 +434,7 @@ export default function Contact() {
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
-                          className="w-full px-4 sm:px-5 py-3 sm:py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-sm sm:text-base appearance-none cursor-pointer"
+                          className="w-full px-4 sm:px-5 py-3 sm:py-4 text-gray-600 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 text-sm sm:text-base appearance-none cursor-pointer"
                         >
                           <option value="">Select a subject</option>
                           <option value="quote">📋 Get a Quote</option>
@@ -465,7 +457,7 @@ export default function Contact() {
                           rows="5"
                           className={`w-full text-gray-600 px-4 sm:px-5 py-3 sm:py-4 bg-white border-2 ${
                             validationErrors.message ? 'border-red-500' : 'border-gray-200'
-                          } rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 text-sm sm:text-base resize-none`}
+                          } rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 text-sm sm:text-base resize-none`}
                           placeholder="Tell us about your logistics needs, challenges, and how we can help streamline your supply chain..."
                         />
                         {validationErrors.message && <p className="mt-1 text-xs sm:text-sm text-red-600">{validationErrors.message}</p>}
@@ -499,8 +491,8 @@ export default function Contact() {
 
                       <div className="flex flex-col sm:flex-row items-center justify-between pt-4 sm:pt-6 border-t border-gray-100 gap-4">
                         <div className="flex items-center">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#A0A1A2]/10 to-gray-400/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
-                            <FaShieldAlt className="text-[#A0A1A2] text-xs sm:text-sm" />
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#FF8F00]/10 to-[#FFD700]/10 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
+                            <FaShieldAlt className="text-[#FF8F00] text-xs sm:text-sm" />
                           </div>
                           <div>
                             <p className="text-xs sm:text-sm text-gray-600">Secure & encrypted form</p>
@@ -511,7 +503,7 @@ export default function Contact() {
                         <button
                           type="submit"
                           disabled={isLoading}
-                          className={`group relative overflow-hidden bg-gradient-to-r from-[#FAB045] to-orange-400 hover:from-orange-400 hover:to-[#FAB045] text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-xl sm:rounded-2xl text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg w-full sm:w-auto justify-center ${
+                          className={`group relative overflow-hidden bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#E65100] text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-xl sm:rounded-2xl text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg w-full sm:w-auto justify-center ${
                             isLoading ? 'opacity-80 cursor-not-allowed' : ''
                           }`}
                         >
@@ -538,7 +530,7 @@ export default function Contact() {
                 {/* Location Section */}
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl sm:rounded-3xl shadow-xl p-5 sm:p-8 border border-gray-100">
                   <div className="flex items-center mb-5 sm:mb-8">
-                    <div className="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-r from-[#A0A1A2] to-gray-400 rounded-xl sm:rounded-2xl flex items-center justify-center mr-4 sm:mr-5">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-r from-[#FF8F00] to-[#FFD700] rounded-xl sm:rounded-2xl flex items-center justify-center mr-4 sm:mr-5">
                       <FaGlobe className="text-white text-base sm:text-xl" />
                     </div>
                     <div>
@@ -552,15 +544,15 @@ export default function Contact() {
                       <div className="absolute inset-0 opacity-20">
                         <div className="absolute inset-0" style={{
                           backgroundImage: `
-                            radial-gradient(circle at 20% 30%, #FAB045 2px, transparent 2px),
-                            radial-gradient(circle at 80% 70%, #A0A1A2 2px, transparent 2px)
+                            radial-gradient(circle at 20% 30%, #E65100 2px, transparent 2px),
+                            radial-gradient(circle at 80% 70%, #FFD700 2px, transparent 2px)
                           `,
                           backgroundSize: '60px 60px'
                         }}></div>
                       </div>
                       
                       <div className="relative z-10 group cursor-pointer text-center px-4">
-                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-gradient-to-r from-[#FAB045] to-orange-400 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 animate-bounce-slow mx-auto">
+                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-gradient-to-r from-[#E65100] to-[#FFD700] rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 animate-bounce-slow mx-auto">
                           <FaMapMarkerAlt className="text-white text-xl sm:text-3xl" />
                         </div>
                         <div className="transform group-hover:scale-105 transition-transform">
@@ -571,7 +563,7 @@ export default function Contact() {
                               href="https://maps.google.com/?q=Leyweg+836+2545GR+The+Hague+Netherlands" 
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white border-2 border-[#FAB045] text-[#FAB045] font-semibold rounded-lg text-xs sm:text-sm hover:bg-[#FAB045] hover:text-white transition-all group/btn"
+                              className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white border-2 border-[#E65100] text-[#E65100] font-semibold rounded-lg text-xs sm:text-sm hover:bg-[#E65100] hover:text-white transition-all group/btn"
                             >
                               <span>Get Directions</span>
                               <span className="ml-2 group-hover/btn:translate-x-1 transition-transform">→</span>
@@ -616,33 +608,33 @@ export default function Contact() {
                 </div>
 
                 {/* Quick Contact Tips */}
-                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-r from-[#FAB045]/5 to-orange-400/5 rounded-xl sm:rounded-2xl border border-[#FAB045]/20">
+                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-r from-[#E65100]/5 to-[#FFD700]/5 rounded-xl sm:rounded-2xl border border-[#E65100]/20">
                   <h4 className="font-bold text-base sm:text-lg text-gray-700 mb-3 sm:mb-4 flex items-center">
-                    <FaShieldAlt className="text-[#FAB045] mr-2 text-sm sm:text-base" />
+                    <FaShieldAlt className="text-[#E65100] mr-2 text-sm sm:text-base" />
                     Quick Tips for Faster Response
                   </h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
-                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
-                        <span className="text-[#FAB045] text-[10px] sm:text-xs group-hover:text-white">1</span>
+                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#E65100] transition-colors">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#E65100]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#E65100] group-hover:text-white transition-all">
+                        <span className="text-[#E65100] text-[10px] sm:text-xs group-hover:text-white">1</span>
                       </div>
                       Include tracking numbers if applicable
                     </li>
-                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
-                        <span className="text-[#FAB045] text-[10px] sm:text-xs group-hover:text-white">2</span>
+                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#E65100] transition-colors">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#E65100]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#E65100] group-hover:text-white transition-all">
+                        <span className="text-[#E65100] text-[10px] sm:text-xs group-hover:text-white">2</span>
                       </div>
                       Specify shipment urgency level
                     </li>
-                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
-                        <span className="text-[#FAB045] text-[10px] sm:text-xs group-hover:text-white">3</span>
+                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#E65100] transition-colors">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#E65100]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#E65100] group-hover:text-white transition-all">
+                        <span className="text-[#E65100] text-[10px] sm:text-xs group-hover:text-white">3</span>
                       </div>
                       Mention preferred contact method
                     </li>
-                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#FAB045] transition-colors">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#FAB045]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#FAB045] group-hover:text-white transition-all">
-                        <span className="text-[#FAB045] text-[10px] sm:text-xs group-hover:text-white">4</span>
+                    <li className="flex items-center text-xs sm:text-sm text-gray-700 group hover:text-[#E65100] transition-colors">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#E65100]/20 rounded-full flex items-center justify-center mr-2 group-hover:bg-[#E65100] group-hover:text-white transition-all">
+                        <span className="text-[#E65100] text-[10px] sm:text-xs group-hover:text-white">4</span>
                       </div>
                       Provide company VAT if for quotes
                     </li>

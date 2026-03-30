@@ -6,15 +6,15 @@ import WhatsAppSticky from "./components/WhatsAppSticky";
 import CallSticky from "./components/CallSticky";
 import Script from "next/script";
 
-const invictusFont = localFont({
+const orbitron = localFont({
   src: [
     {
-      path: "./fonts/InvictusFont-Regular.woff2",
-      weight: "200",
+      path: "./fonts/orbitron-black.otf",
+      weight: "900", // black = heavy
       style: "normal",
     },
   ],
-  variable: "--font-sans",
+  variable: "--font-orbitron",
   display: "swap",
 });
 
@@ -190,9 +190,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body
-        className={`${invictusFont.variable} antialiased min-h-screen flex flex-col`}
-      >
+     <body className={`${orbitron.variable} antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 

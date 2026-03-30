@@ -28,13 +28,13 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
 
   return (
     <>
-      <section className="py-20 bg-gradient-to-br from-[#fff7ed] via-white to-[#fff7ed] relative overflow-hidden">
-        {/* 🔶 Orange Glow Effects */}
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] bg-[#FAB045]/30 rounded-full blur-[120px]"></div>
-        <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-[#f8c468]/20 rounded-full blur-[120px]"></div>
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* 🔶 Orange Glow Effects with new shades */}
+        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] bg-[#E65100]/30 rounded-full blur-[120px]"></div>
+        <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-[#FF8F00]/20 rounded-full blur-[120px]"></div>
 
-        {/* 🔶 Orange Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAB045]/20 via-[#FAB045]/10 to-transparent"></div>
+        {/* 🔶 Orange Gradient Overlay with new shades */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#E65100]/20 via-[#FFD700]/10 to-transparent"></div>
 
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -44,12 +44,12 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
             <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl p-8 md:p-12 border border-gray-200/50">
               {/* Heading */}
               <div className="text-center mb-12">
-                <div className="w-20 h-20 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-r from-[#E65100] to-[#FFD700] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <FaSearch className="text-white text-3xl" />
                 </div>
 
-                <h2 className="text-4xl md:text-5xl font-light mb-6 text-gray-900/50">
-                  Track Your <span className="text-[#FF8C00]/60">Shipment</span>
+                <h2 className="text-4xl md:text-5xl font-medium mb-6 text-gray-900/50 font-medium">
+                  Track Your <span className="text-[#FF8F00]/80">Shipment</span>
                 </h2>
 
                 <p className="text-gray-500/60 text-lg font-light">
@@ -64,7 +64,7 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
                   <div className="flex-1">
                     <div className="relative">
                       <div className="absolute left-6 top-1/2 transform -translate-y-1/2">
-                        <FaBoxOpen className="text-[#FAB045] text-xl" />
+                        <FaBoxOpen className="text-[#FFD700] text-xl" />
                       </div>
 
                       <input
@@ -73,7 +73,7 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
                         onChange={(e) => setTrackingId(e.target.value)}
                         onKeyPress={handleKeyPress}
                         placeholder="Enter tracking number (e.g., TRK123456789)"
-                        className="w-full pl-16 pr-6 py-5 rounded-xl bg-white/5 border border-white/20 text-white/70 placeholder-white/30 focus:outline-none focus:border-[#FAB045] text-lg font-light transition-all duration-300"
+                        className="w-full pl-16 pr-6 py-5 rounded-xl bg-white/5 border border-white/20 text-white/70 placeholder-white/30 focus:outline-none focus:border-[#FFD700] text-lg font-light transition-all duration-300"
                       />
                     </div>
 
@@ -85,7 +85,7 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
                   {/* Button */}
                   <button
                     onClick={handleTrackWithPopup}
-                    className="bg-gradient-to-r from-[#FF8C00] to-[#f8c468] hover:from-[#FF8C00] hover:to-[#FF8C00] text-white font-medium py-5 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center whitespace-nowrap"
+                    className="bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#E65100] text-white font-medium py-5 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center whitespace-nowrap"
                   >
                     <FaSearch className="mr-3" />
                     Track Now
@@ -102,7 +102,7 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
           <div className="bg-white/95 rounded-3xl shadow-2xl max-w-md w-full overflow-hidden animate-fadeIn">
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#FAB045] to-[#f8c468] p-6 text-white">
+            <div className="bg-gradient-to-r from-[#E65100] to-[#FFD700] p-6 text-white">
               <div className="flex justify-between items-center">
                 <h3 className="text-2xl font-light text-white/80">We're Working On It</h3>
                 <button
@@ -117,7 +117,7 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
             {/* Content */}
             <div className="p-8">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-[#FAB045] to-[#f8c468] rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#E65100] to-[#FFD700] rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                   <FaSearch className="text-white text-2xl" />
                 </div>
                 <p className="text-gray-700/70 text-lg font-light mb-6">
@@ -132,8 +132,8 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
               {/* Contact Information */}
               <div className="space-y-4">
                 <div className="flex items-center p-4 bg-gray-50/80 rounded-xl">
-                  <div className="w-12 h-12 bg-[#FAB045]/10 rounded-lg flex items-center justify-center mr-4">
-                    <FaPhone className="text-[#FAB045] text-lg" />
+                  <div className="w-12 h-12 bg-[#E65100]/10 rounded-lg flex items-center justify-center mr-4">
+                    <FaPhone className="text-[#E65100] text-lg" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500/60 font-light">Call Us</p>
@@ -142,8 +142,8 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
                 </div>
 
                 <div className="flex items-center p-4 bg-gray-50/80 rounded-xl">
-                  <div className="w-12 h-12 bg-[#FAB045]/10 rounded-lg flex items-center justify-center mr-4">
-                    <FaEnvelope className="text-[#FAB045] text-lg" />
+                  <div className="w-12 h-12 bg-[#E65100]/10 rounded-lg flex items-center justify-center mr-4">
+                    <FaEnvelope className="text-[#E65100] text-lg" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500/60 font-light">Email Us</p>
@@ -157,7 +157,7 @@ export default function Tracking({ trackingId, setTrackingId, handleTrack }) {
             <div className="px-8 pb-8">
               <button
                 onClick={closePopup}
-                className="w-full bg-gradient-to-r from-[#FAB045] to-[#f8c468] hover:from-[#e8a035] hover:to-[#e8a035] text-white font-medium py-4 rounded-xl transition-all duration-300 hover:shadow-lg"
+                className="w-full bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#E65100] text-white font-medium py-4 rounded-xl transition-all duration-300 hover:shadow-lg"
               >
                 Close
               </button>

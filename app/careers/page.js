@@ -57,7 +57,7 @@ export default function Careers() {
       salary: '$90,000 - $120,000',
       description: 'Lead logistics operations and optimize supply chain processes.',
       requirements: ['5+ years logistics experience', 'Strong leadership skills', 'Supply chain certification preferred'],
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       id: 2,
@@ -69,7 +69,7 @@ export default function Careers() {
       salary: '$70,000 - $90,000',
       description: 'Analyze supply chain data and optimize distribution networks.',
       requirements: ['Strong analytical skills', 'SQL/Python experience', 'Supply chain background'],
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     },
     {
       id: 3,
@@ -81,7 +81,7 @@ export default function Careers() {
       salary: '$75,000 - $95,000',
       description: 'Build and maintain strong client relationships.',
       requirements: ['Excellent communication', 'Logistics industry experience', 'Customer service background'],
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       id: 4,
@@ -91,9 +91,9 @@ export default function Careers() {
       type: 'Full-time',
       experience: '3+ years',
       salary: '$110,000 - $140,000',
-      description: 'Develop logistics and tracking software .',
+      description: 'Develop logistics and tracking software solutions.',
       requirements: ['React/Next.js experience', 'Node.js proficiency', 'API development'],
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     },
     {
       id: 5,
@@ -105,7 +105,7 @@ export default function Careers() {
       salary: '$65,000 - $85,000',
       description: 'Oversee warehouse operations and inventory management.',
       requirements: ['Warehouse management', 'Team leadership', 'Inventory systems'],
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       id: 6,
@@ -117,7 +117,7 @@ export default function Careers() {
       salary: '$60,000 - $80,000',
       description: 'Coordinate international shipments and customs clearance.',
       requirements: ['International shipping knowledge', 'Customs experience', 'Bilingual preferred'],
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     }
   ];
 
@@ -126,37 +126,37 @@ export default function Careers() {
       icon: <FaDollarSign />,
       title: 'Competitive Salary',
       description: 'Industry-leading compensation packages with bonuses',
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       icon: <FaHeartbeat />,
       title: 'Health & Wellness',
       description: 'Comprehensive medical, dental, and vision insurance',
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     },
     {
       icon: <FaGraduationCap />,
       title: 'Learning & Development',
       description: 'Professional development and certification programs',
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       icon: <FaChartLine />,
       title: 'Career Growth',
       description: 'Clear promotion paths and growth opportunities',
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     },
     {
       icon: <FaUsers />,
       title: 'Team Culture',
       description: 'Collaborative environment with regular team events',
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       icon: <FaClock />,
       title: 'Flexible Hours',
       description: 'Flexible scheduling and remote work options',
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     }
   ];
 
@@ -165,37 +165,37 @@ export default function Careers() {
       icon: <FaTruck />,
       title: 'Excellence in Delivery',
       description: 'We never compromise on quality and timeliness',
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       icon: <FaGlobe />,
       title: 'Global Mindset',
       description: 'Thinking globally while acting locally',
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     },
     {
       icon: <FaShieldAlt />,
       title: 'Integrity First',
       description: 'Honest, transparent, and ethical in all we do',
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       icon: <FaLightbulb />,
       title: 'Innovation Driven',
       description: 'Constantly improving through technology and ideas',
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     },
     {
       icon: <FaHandshake />,
       title: 'Team Collaboration',
       description: 'Working together to achieve extraordinary results',
-      color: 'from-[#FAB045] to-orange-400'
+      color: 'from-[#E65100] to-[#FFD700]'
     },
     {
       icon: <FaCode />,
       title: 'Tech Forward',
       description: 'Leveraging technology to solve complex problems',
-      color: 'from-[#A0A1A2] to-gray-400'
+      color: 'from-[#FF8F00] to-[#FFD700]'
     }
   ];
 
@@ -205,28 +205,23 @@ export default function Careers() {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-24">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#FAB045] rounded-full mix-blend-overlay filter blur-3xl"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#A0A1A2] rounded-full mix-blend-overlay filter blur-3xl"></div>
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#E65100] rounded-full mix-blend-overlay filter blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#FFD700] rounded-full mix-blend-overlay filter blur-3xl"></div>
           </div>
         </div>
         
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-[#FAB045]/20 to-[#A0A1A2]/20 rounded-full backdrop-blur-sm mb-6">
-            <FaBriefcase className="mr-2 text-[#FAB045]" />
-            <span className="text-sm font-semibold">JOIN OUR TEAM</span>
-          </div>
-          
-     <h1 className="text-3xl md:text-5xl font-light mb-6 leading-snug tracking-wide text-white/70">
-  Build Your{" "}
-  <span className="relative bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-orange-300/70 bg-clip-text text-transparent animate-shine">
-    Career
-  </span>
-  <br />
-  <span className="text-white/60 font-light">
-    With Us
-  </span>
-</h1>
-          <p className="text-xl max-w-3xl mx-auto text-gray-300 mb-8 leading-relaxed">
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center -mt-15">
+          <h1 className="text-3xl md:text-5xl font-light mb-6 leading-snug tracking-wide text-white/70 font-medium">
+            Build Your{" "}
+            <span className="relative bg-gradient-to-r from-[#E65100] via-[#FFD700] to-[#FF8F00] bg-clip-text text-transparent animate-shine">
+              Career
+            </span>
+            <br />
+            <span className="text-white/60 font-light font-medium">
+              With Us
+            </span>
+          </h1>
+          <p className="text-xl max-w-3xl mx-auto text-gray-300 mb-8 leading-relaxed font-medium">
             Join a team that's revolutionizing global logistics through innovation,
             technology, and exceptional service delivery.
           </p>
@@ -234,25 +229,16 @@ export default function Careers() {
           {/* Stats */}
           <div className="flex justify-center gap-12 mt-16">
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045] mb-2">500+</div>
+              <div className="text-3xl font-bold text-[#FFD700] mb-2">500+</div>
               <div className="text-gray-400">Global Team Members</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045] mb-2">25+</div>
+              <div className="text-3xl font-bold text-[#FFD700] mb-2">25+</div>
               <div className="text-gray-400">Countries</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#FAB045] mb-2">98%</div>
+              <div className="text-3xl font-bold text-[#FFD700] mb-2">98%</div>
               <div className="text-gray-400">Employee Satisfaction</div>
-            </div>
-            <div className="text-center">
-            <div className="text-2xl font-light mb-1 tracking-wide bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-[#FAB045]/70 bg-clip-text text-transparent animate-shine">
-  15
-</div>
-
-  <div className="text-gray-400/80 font-light text-sm">
-    Open Positions
-  </div>
             </div>
           </div>
         </div>
@@ -261,28 +247,25 @@ export default function Careers() {
       {/* Why Join Us */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-         <div className="text-center mb-14">
-  
-  <h2 className="text-3xl md:text-4xl font-light text-gray-700/80 mb-4 tracking-wide">
-    Why{" "}
-    <span className="bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-orange-300/70 bg-clip-text text-transparent animate-shine">
-      SwiftLogistics
-    </span>
-    ?
-  </h2>
-
-  <p className="text-lg text-gray-500/80 max-w-2xl mx-auto font-light leading-relaxed">
-    We're building the future of logistics, and we need talented people to help us get there.
-  </p>
-
-</div>
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-light text-gray-700/80 mb-4 tracking-wide font-medium">
+              Why{" "}
+              <span className="bg-gradient-to-r from-[#E65100] via-[#FFD700] to-[#FF8F00] bg-clip-text text-transparent animate-shine font-medium">
+                InvictusLogistics
+              </span>
+              ?
+            </h2>
+            <p className="text-lg text-gray-500/80 max-w-2xl mx-auto font-light leading-relaxed">
+              We're building the future of logistics, and we need talented people to help us get there.
+            </p>
+          </div>
 
           {/* Values Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {values.map((value, index) => (
               <div key={index} className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-50 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-[#FAB045]/30 transition-all duration-300 hover:shadow-xl">
+                <div className="relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-[#E65100]/30 transition-all duration-300 hover:shadow-xl">
                   <div className={`w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <div className="text-white text-2xl">
                       {value.icon}
@@ -297,19 +280,16 @@ export default function Careers() {
 
           {/* Benefits Section */}
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 text-white">
-           <div className="text-center mb-10">
-
-  <h2 className="text-3xl md:text-4xl font-light mb-3 tracking-wide text-white/70">
-    <span className="bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-orange-300/70 bg-clip-text text-transparent animate-shine">
-      Employee Benefits
-    </span>
-  </h2>
-
-  <p className="text-gray-400/80 text-lg font-light max-w-2xl mx-auto leading-relaxed">
-    We take care of our team with comprehensive benefits
-  </p>
-
-</div>
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-light mb-3 tracking-wide text-white/70">
+                <span className="bg-gradient-to-r from-[#E65100] via-[#FFD700] to-[#FF8F00] bg-clip-text text-transparent animate-shine font-medium">
+                  Employee Benefits
+                </span>
+              </h2>
+              <p className="text-gray-400/80 text-lg font-light max-w-2xl mx-auto leading-relaxed font-medium">
+                We take care of our team with comprehensive benefits
+              </p>
+            </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
@@ -333,7 +313,7 @@ export default function Careers() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Open <span className="text-[#FAB045]">Positions</span>
+              Open <span className="text-[#E65100]">Positions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Find your perfect role and apply today. We're always looking for talented individuals.
@@ -346,17 +326,17 @@ export default function Careers() {
               <input
                 type="text"
                 placeholder="Search positions..."
-                className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 text-lg"
+                className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 text-lg"
               />
             </div>
-            <select className="px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20">
+            <select className="px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20">
               <option value="">All Departments</option>
               <option value="operations">Operations</option>
               <option value="technology">Technology</option>
               <option value="sales">Sales</option>
               <option value="analytics">Analytics</option>
             </select>
-            <select className="px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20">
+            <select className="px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20">
               <option value="">All Locations</option>
               <option value="remote">Remote</option>
               <option value="new-york">New York</option>
@@ -368,35 +348,33 @@ export default function Careers() {
           {/* Job Listings Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {jobOpenings.map((job) => (
-              <div key={job.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#FAB045]/30 transition-all duration-300 hover:-translate-y-2">
+              <div key={job.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#E65100]/30 transition-all duration-300 hover:-translate-y-2">
                 <div className="p-8">
-                 <div className="inline-block bg-gray-900 text-white/90 px-4 py-1 rounded-full text-xs font-light tracking-wide mb-4">
-    {job.department}
-  </div>
+                  <div className="inline-block bg-gray-900 text-white/90 px-4 py-1 rounded-full text-xs font-light tracking-wide mb-4">
+                    {job.department}
+                  </div>
                 
-  <h3 className="text-2xl font-light text-gray-800 mb-4 group-hover:text-[#FAB045] transition-colors">
-    {job.title}
-  </h3>
-
+                  <h3 className="text-2xl font-light text-gray-800 mb-4 group-hover:text-[#E65100] transition-colors">
+                    {job.title}
+                  </h3>
                   
-                 <p className="text-gray-600/80 font-light mb-6">{job.description}</p>
+                  <p className="text-gray-600/80 font-light mb-6">{job.description}</p>
 
-                  
                   <div className="space-y-4 mb-8">
                     <div className="flex items-center text-gray-700">
-                      <FaMapMarkerAlt className="text-[#FAB045] mr-3" />
+                      <FaMapMarkerAlt className="text-[#E65100] mr-3" />
                       <span>{job.location}</span>
                     </div>
                     <div className="flex items-center text-gray-700">
-                      <FaBriefcase className="text-[#FAB045] mr-3" />
+                      <FaBriefcase className="text-[#E65100] mr-3" />
                       <span>{job.type}</span>
                     </div>
                     <div className="flex items-center text-gray-700">
-                      <FaClock className="text-[#FAB045] mr-3" />
+                      <FaClock className="text-[#E65100] mr-3" />
                       <span>{job.experience}</span>
                     </div>
                     <div className="flex items-center text-gray-700">
-                      <FaDollarSign className="text-[#FAB045] mr-3" />
+                      <FaDollarSign className="text-[#E65100] mr-3" />
                       <span className="font-semibold">{job.salary}</span>
                     </div>
                   </div>
@@ -406,14 +384,14 @@ export default function Careers() {
                     <ul className="space-y-2">
                       {job.requirements.map((req, idx) => (
                         <li key={idx} className="flex items-center text-gray-600">
-                          <FaCheckCircle className="text-[#FAB045] mr-2 text-sm" />
+                          <FaCheckCircle className="text-[#FFD700] mr-2 text-sm" />
                           <span>{req}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   
-                  <button className="w-full py-3 bg-gradient-to-r from-gray-50 to-white border-2 border-[#FAB045] text-[#FAB045] font-semibold rounded-xl hover:bg-gradient-to-r hover:from-[#FAB045] hover:to-orange-400 hover:text-white transition-all duration-300 group">
+                  <button className="w-full py-3 bg-gradient-to-r from-gray-50 to-white border-2 border-[#E65100] text-[#E65100] font-semibold rounded-xl hover:bg-gradient-to-r hover:from-[#E65100] hover:to-[#FFD700] hover:text-white transition-all duration-300 group">
                     <span className="flex items-center justify-center">
                       Apply Now
                       <FaArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
@@ -425,7 +403,7 @@ export default function Careers() {
           </div>
 
           <div className="text-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#FAB045] to-orange-400 text-white font-bold rounded-2xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center mx-auto">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#E65100] to-[#FFD700] text-white font-bold rounded-2xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center mx-auto">
               <FaRegPaperPlane className="mr-3" />
               View All Positions
             </button>
@@ -440,7 +418,7 @@ export default function Careers() {
             <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                  Apply for a <span className="text-[#FAB045]">Position</span>
+                  Apply for a <span className="text-[#E65100]">Position</span>
                 </h2>
                 <p className="text-gray-600">Can't find your perfect role? Send us your details anyway!</p>
               </div>
@@ -457,7 +435,7 @@ export default function Careers() {
                       value={formData.firstName}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300"
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300"
                       placeholder="John"
                     />
                   </div>
@@ -471,7 +449,7 @@ export default function Careers() {
                       value={formData.lastName}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300"
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300"
                       placeholder="Doe"
                     />
                   </div>
@@ -488,7 +466,7 @@ export default function Careers() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300"
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -501,7 +479,7 @@ export default function Careers() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300"
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
@@ -517,7 +495,7 @@ export default function Careers() {
                       value={formData.position}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 appearance-none"
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 appearance-none"
                     >
                       <option value="">Select a position</option>
                       {jobOpenings.map(job => (
@@ -535,7 +513,7 @@ export default function Careers() {
                       value={formData.experience}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 appearance-none"
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 appearance-none"
                     >
                       <option value="">Select experience</option>
                       <option value="0-2">0-2 years</option>
@@ -555,7 +533,7 @@ export default function Careers() {
                     name="linkedin"
                     value={formData.linkedin}
                     onChange={handleChange}
-                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300"
+                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300"
                     placeholder="https://linkedin.com/in/yourprofile"
                   />
                 </div>
@@ -569,7 +547,7 @@ export default function Careers() {
                     value={formData.coverLetter}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FAB045] focus:ring-4 focus:ring-[#FAB045]/20 transition-all duration-300 resize-none"
+                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#E65100] focus:ring-4 focus:ring-[#E65100]/20 transition-all duration-300 resize-none"
                     placeholder="Tell us why you're interested in joining our team..."
                   />
                 </div>
@@ -578,12 +556,12 @@ export default function Careers() {
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
                     Resume/CV *
                   </label>
-                  <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center hover:border-[#FAB045] transition-colors">
-                    <FaRegPaperPlane className="text-[#A0A1A2] text-3xl mx-auto mb-4" />
+                  <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center hover:border-[#E65100] transition-colors">
+                    <FaRegPaperPlane className="text-[#FF8F00] text-3xl mx-auto mb-4" />
                     <p className="text-gray-600 mb-2">Drop your resume here or click to browse</p>
                     <p className="text-sm text-gray-500 mb-4">Supported formats: PDF, DOC, DOCX (Max 5MB)</p>
                     <label className="cursor-pointer">
-                      <span className="px-6 py-3 bg-gradient-to-r from-[#FAB045] to-orange-400 text-white font-semibold rounded-xl hover:shadow-lg transition-all inline-block">
+                      <span className="px-6 py-3 bg-gradient-to-r from-[#E65100] to-[#FFD700] text-white font-semibold rounded-xl hover:shadow-lg transition-all inline-block">
                         Choose File
                       </span>
                       <input
@@ -601,7 +579,7 @@ export default function Careers() {
                 <div className="pt-8 border-t border-gray-200">
                   <button
                     type="submit"
-                    className="w-full py-4 bg-gradient-to-r from-[#FAB045] to-orange-400 text-white font-bold rounded-2xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center group"
+                    className="w-full py-4 bg-gradient-to-r from-[#E65100] to-[#FFD700] text-white font-bold rounded-2xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center group"
                   >
                     <span className="flex items-center">
                       <FaRegPaperPlane className="mr-3" />
@@ -620,25 +598,23 @@ export default function Careers() {
       <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
-           <h2 className="text-3xl md:text-4xl font-light mb-5 tracking-wide text-white/70">
-  Ready to{" "}
-  <span className="bg-gradient-to-r from-[#FAB045]/70 via-[#FFD580]/90 to-[#FAB045]/70 bg-clip-text text-transparent">
-    Transform
-  </span>{" "}
-  Global Logistics?
-</h2>
-
-<p className="text-lg text-gray-300/80 mb-8 font-light leading-relaxed max-w-2xl mx-auto">
-  Join a team that's making shipping smarter, faster, and more reliable worldwide.
-</p>
+            <h2 className="text-3xl md:text-4xl font-light mb-5 tracking-wide text-white/70">
+              Ready to{" "}
+              <span className="bg-gradient-to-r from-[#E65100] via-[#FFD700] to-[#FF8F00] bg-clip-text text-transparent">
+                Transform
+              </span>{" "}
+              Global Logistics?
+            </h2>
+            <p className="text-lg text-gray-300/80 mb-8 font-light leading-relaxed max-w-2xl mx-auto">
+              Join a team that's making shipping smarter, faster, and more reliable worldwide.
+            </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-           <button className="px-7 py-3 bg-gradient-to-r from-[#FAB045]/90 to-orange-300/90 text-white/90 font-medium tracking-wide rounded-xl text-sm transition-all duration-300 hover:shadow-lg hover:scale-105">
-  Browse Open Positions
-</button>
-
-<button className="px-7 py-3 bg-white/80 backdrop-blur-md text-gray-700/80 font-light tracking-wide rounded-xl text-sm border border-gray-200/60 hover:bg-white/90 hover:shadow-md transition-all duration-300">
-  Schedule a Chat
-</button>
+              <button className="px-7 py-3 bg-gradient-to-r from-[#E65100] to-[#FFD700] text-white font-medium tracking-wide rounded-xl text-sm transition-all duration-300 hover:shadow-lg hover:scale-105">
+                Browse Open Positions
+              </button>
+              <button className="px-7 py-3 bg-white/80 backdrop-blur-md text-gray-700 font-light tracking-wide rounded-xl text-sm border border-gray-200/60 hover:bg-white/90 hover:shadow-md transition-all duration-300">
+                Schedule a Chat
+              </button>
             </div>
           </div>
         </div>

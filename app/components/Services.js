@@ -17,9 +17,9 @@ export default function Services() {
       icon: <FaPlane className="text-3xl" />,
       title: 'Air Freight',
       description:
-        'Express air cargo  with real-time tracking across 150+ countries.',
+        'Express air cargo with real-time tracking across 150+ countries.',
       features: ['Same Day Delivery', 'Global Coverage', 'Temperature Control'],
-      gradient: 'from-[#FAB045] to-[#f8c468]',
+      gradient: 'from-[#E65100] to-[#FF8F00]',
       details: {
         transitTime: '24–72 hours',
         coverage: '150+ countries',
@@ -38,7 +38,7 @@ export default function Services() {
       description:
         'Cost-effective sea freight with comprehensive FCL/LCL options.',
       features: ['Port to Port', 'Door to Door', 'Customs Clearance'],
-      gradient: 'from-[#A0A1A2] to-[#c0c1c2]',
+      gradient: 'from-[#FFD700] to-[#FF8F00]',
       details: {
         transitTime: '15–45 days',
         specialFeatures: [
@@ -56,7 +56,7 @@ export default function Services() {
       description:
         'Efficient nationwide land transportation network.',
       features: ['LTL & FTL', 'Temperature Control', 'Express Delivery'],
-      gradient: 'from-[#FAB045] to-[#f8c468]',
+      gradient: 'from-[#E65100] to-[#FFD700]',
       details: {
         transitTime: '1–7 days',
         specialFeatures: [
@@ -72,9 +72,9 @@ export default function Services() {
       icon: <FaWarehouse className="text-4xl" />,
       title: 'Warehousing',
       description:
-        'Secure storage  with advanced inventory management.',
+        'Secure storage with advanced inventory management.',
       features: ['Secure Storage', 'Inventory Management', 'Order Fulfillment'],
-      gradient: 'from-[#A0A1A2] to-[#c0c1c2]',
+      gradient: 'from-[#FFD700] to-[#E65100]',
       details: {
         specialFeatures: [
           '24/7 security systems',
@@ -93,78 +93,58 @@ export default function Services() {
 
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* HEADER */}
-    <div
-  style={{
-    textAlign: "center",
-    marginBottom: "80px",
-    padding: "40px 20px",
-    borderRadius: "16px",
-
-    // Transparent dark orange gradient
-    background: "linear-gradient(135deg, rgba(230,81,0,0.25), rgba(255,140,0,0.20), rgba(255,179,71,0.15))",
-
-    backdropFilter: "blur(12px)",
-    border: "1px solid rgba(255,140,0,0.3)",
-  }}
->
+      <div className="container mx-auto px-4 sm:px-6 lg:px-9">
+        {/* HEADER with gradient text effect */}
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: "80px",
+            padding: "40px 20px",
+            borderRadius: "16px",
+            background: "linear-gradient(135deg, rgba(230,81,0,0.25), #E65100, rgba(255,215,0,0.15))",
+            backdropFilter: "blur(12px)",
+          
+            border: "1px solid rgba(230,81,0,0.3)",
+          }}
+        >
 <h2
-  style={{
-    fontSize: "42px",
-    fontWeight: "300",
-    marginBottom: "16px",
-    color: "rgba(0,0,0,0.7)", // black with transparency
-  }}
+
 >
   Our Services
 </h2>
+        </div>
 
-<p
-  style={{
-    color: "rgba(0,0,0,0.7)", // softer black (transparent feel)
-    fontSize: "20px",
-    maxWidth: "700px",
-    margin: "0 auto",
-    fontWeight: "100", // lighter font
-  }}
->
-  Comprehensive logistics designed for modern business needs.
-</p>
-</div>
-
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+        {/* GRID - now properly responsive */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch curser-pointer">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-2xl shadow-2xl transition-all duration-300 ${
+              className={`relative bg-white rounded-2xl shadow-2xl transition-all duration-300 flex flex-col ${
                 expandedService === index
-                  ? 'ring-2 ring-[#FAB045] ring-opacity-50 z-10'
+                  ? 'ring-2 ring-[#E65100] ring-opacity-50 z-10'
                   : ''
               }`}
             >
               {/* TOP BAR */}
-              <div className={`h-2 bg-gradient-to-r ${service.gradient}`} />
+              <div className={`h-2 bg-gradient-to-r ${service.gradient} rounded-t-2xl`} />
 
               {/* CARD BODY */}
-              <div className="p-8">
+              <div className="p-8 flex-grow">
                 <div
                   className={`mb-6 ${
-                    service.gradient.includes('FAB045')
-                      ? 'text-[#FAB045]'
-                      : 'text-[#A0A1A2]'
+                    service.gradient.includes('E65100') || service.gradient.includes('FFD700')
+                      ? 'text-[#E65100]'
+                      : 'text-[#FF8F00]'
                   }`}
                 >
                   {service.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                <h3 className="text-2xl font-bold mb-4 text-gray-700">
                   {service.title}
                 </h3>
 
-                <p className="text-[#A0A1A2] mb-8 leading-relaxed">
+                <p className="text-gray-500 mb-8 leading-relaxed break-words whitespace-norma ">
                   {service.description}
                 </p>
 
@@ -173,9 +153,11 @@ export default function Services() {
                     <li key={i} className="flex items-center text-gray-700">
                       <span
                         className={`w-2 h-2 rounded-full mr-3 ${
-                          service.gradient.includes('FAB045')
-                            ? 'bg-[#FAB045]'
-                            : 'bg-[#A0A1A2]'
+                          service.gradient.includes('E65100')
+                            ? 'bg-[#E65100]'
+                            : service.gradient.includes('FFD700')
+                            ? 'bg-[#FFD700]'
+                            : 'bg-[#FF8F00]'
                         }`}
                       />
                       {feature}
@@ -184,62 +166,62 @@ export default function Services() {
                 </ul>
               </div>
 
-              {/* EXPANDED DETAILS (OVERLAY – NO BLANK SPACE) */}
-           {expandedService === index && (
-  <div
-    className="absolute left-0 top-full w-full shadow-2xl rounded-b-2xl border-t animate-fadeIn"
-    style={{
-      background: "linear-gradient(135deg, rgba(230,81,0,0.25), rgba(255,140,0,0.20), rgba(255,179,71,0.15))",
-      backdropFilter: "blur(12px)",
-      borderColor: "rgba(255,140,0,0.3)",
-    }}
-  >
-    <div className="p-8">
-      <h4
-        className="text-lg font-bold mb-4"
-        style={{ color: "#E65100" }}
-      >
-        Service Details
-      </h4>
+              {/* EXPANDED DETAILS */}
+              {expandedService === index && (
+                <div
+                  className="absolute left-0 top-full w-full  shadow-2xl rounded-b-2xl border-t animate-fadeIn "
+                  style={{
+                    background: "linear-gradient(135deg, rgba(230,81,0,0.25), rgba(255,143,0,0.20), rgba(255,215,0,0.15))",
+                    backdropFilter: "blur(12px)",
+                    borderColor: "rgba(230,81,0,0.3)",
+                  }}
+                >
+                  <div className="p-8">
+                    <h4
+                      className="text-lg font-bold mb-4"
+                      style={{ color: "#E65100" }}
+                    >
+                      Service Details
+                    </h4>
 
-      <ul className="space-y-2">
-        {service.details.specialFeatures.map((f, i) => (
-          <li key={i} className="flex items-start">
-            <FaChevronRight className="mt-1 mr-2 text-[#FF8C00]" />
-            <span style={{ color: "#5a5a5a" }}>{f}</span>
-          </li>
-        ))}
-      </ul>
+                    <ul className="space-y-2">
+                      {service.details.specialFeatures.map((f, i) => (
+                        <li key={i} className="flex items-start">
+                          <FaChevronRight className="mt-1 mr-2 text-[#FF8F00]" />
+                          <span style={{ color: "#4a4a4a" }}>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-      <button
-        onClick={() => setExpandedService(null)}
-        className="mt-6 w-full py-3 font-semibold rounded-lg transition-all duration-300"
-        style={{
-          background: "rgba(255,140,0,0.2)",
-          border: "1px solid rgba(255,140,0,0.4)",
-          color: "#E65100",
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.background = "rgba(255,140,0,0.35)";
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.background = "rgba(255,140,0,0.2)";
-        }}
-      >
-        Close Details
-      </button>
-    </div>
-  </div>
-)}
+                    <button
+                      onClick={() => setExpandedService(null)}
+                      className="mt-6 w-full py-3 font-semibold rounded-lg transition-all duration-300 cursor-pointer"
+                      style={{
+                        background: "rgba(230,81,0,0.2)",
+                        border: "1px solid rgba(230,81,0,0.4)",
+                        color: "#E65100",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.background = "rgba(230,81,0,0.35)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.background = "rgba(230,81,0,0.2)";
+                      }}
+                    >
+                      Close Details
+                    </button>
+                  </div>
+                </div>
+              )}
 
               {/* LEARN MORE */}
-              <div className="px-8 pb-8">
+              <div className="px-8 pb-8 mt-auto">
                 <button
                   onClick={() => toggleService(index)}
-                  className={`flex items-center justify-between w-full font-semibold transition-all ${
-                    service.gradient.includes('FAB045')
-                      ? 'text-[#FAB045] hover:text-[#e8a035]'
-                      : 'text-[#A0A1A2] hover:text-gray-800'
+                  className={`flex items-center justify-between w-full font-semibold transition-all cursor-pointer ${
+                    service.gradient.includes('E65100') || service.gradient.includes('FFD700')
+                      ? 'text-[#E65100] hover:text-[#FF8F00]'
+                      : 'text-[#FF8F00] hover:text-[#E65100]'
                   }`}
                 >
                   {expandedService === index ? 'Show Less' : 'Learn More'}
@@ -274,4 +256,3 @@ export default function Services() {
     </section>
   )
 }
-
