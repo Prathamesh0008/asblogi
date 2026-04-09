@@ -96,8 +96,8 @@ export default function Navbar() {
               {/* Quote button - always visible */}
               <button 
                 onClick={() => setIsQuoteModalOpen(true)}
-                className="bg-gradient-to-r from-[#FAB045] to-[#f8c468] hover:from-[#e8a035] hover:to-[#e8a035] text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-all duration-300 hover:shadow-md hover:scale-105 shadow-sm text-xs sm:text-sm whitespace-nowrap"
-              >
+                className="bg-gradient-to-r from-[#FFD700] to-[#f8c468] hover:from-[#FFC300] hover:to-[#FFF176] text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-all duration-300 hover:shadow-md hover:scale-105 shadow-sm text-xs sm:text-sm whitespace-nowrap"
+              > 
                 Get Quote
               </button>
 

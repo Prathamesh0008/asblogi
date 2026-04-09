@@ -183,7 +183,7 @@ export default function Hero() {
               <div className="lg:w-1/2 lg:pr-8">
                 <div className="mb-10 lg:mb-12">
                   <span className="relative inline-block bg-gradient-to-r from-[#E65100] to-[#f8c468] text-white px-8 py-3 rounded-full text-sm font-bold tracking-wide shadow-2xl overflow-hidden group">
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#FF8F00] to-[#E65100] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-[#FF8F00] to-[ #FFC300] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                     <span className="relative flex items-center">
                       <span className="mr-2 animate-pulse">⚡</span>
                       Elite Global Logistics
@@ -199,10 +199,9 @@ export default function Hero() {
   </span>
 
   {/* Logistics */}
-  <span className="block bg-gradient-to-r from-[#FF8F00]/80 via-[#FF8F00]/70 to-[#FF8F00]/80 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] font-medium">
-    Logistics
-  </span>
-
+<span className="block pb-1 leading-[1.2] bg-gradient-to-r from-[#FF8F00]/80 via-[#FF8F00]/70 to-[#FF8F00]/80 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] font-medium antialiased">
+  Logistics
+</span>
   {/* Sub text (optional) */}
   <span className="block text-white/60 mt-2 text-4xl lg:text-3xl font-light">
     
@@ -218,7 +217,7 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row gap-6 mb-12 lg:mb-0">
                   <button 
                     onClick={handleGetStarted}
-                    className="group relative bg-gradient-to-r from-[#E65100]/100 to-[#FFD700] hover:from-[Golden Orange] hover:to-[#FF8F00]/80 text-white font-bold py-5 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
+                    className="group relative bg-gradient-to-r from-[#E65100]/100 to-[#FFD700] hover:from-[Golden Yellow] hover:to-[golden Yellow]/80 text-white font-bold py-5 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     <span className="relative flex items-center justify-center">
@@ -271,10 +270,10 @@ export default function Hero() {
                 </div>
                 
                 {/* Stats overlay with animated counters */}
-                <div className="mt-8 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10">
-                  <div className="grid grid-cols-3 gap-6 text-center">
-                    <div className="group">
-                      <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
+                {/* <div className="mt-8 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10">
+                  <div className="grid grid-cols-3 gap-6 text-center"> */}
+                    {/* <div className="group"> */}
+                      {/* <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
                         <Counter 
                           end={99.8} 
                           duration={2500} 
@@ -311,10 +310,10 @@ export default function Hero() {
                       </div>
                       <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300 mt-2">
                         Support
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      </div> */}
+                    {/* </div> */}
+                  {/* </div>
+                </div> */}
               </div>
             </div>
           </div>

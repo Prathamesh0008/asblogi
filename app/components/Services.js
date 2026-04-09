@@ -92,30 +92,27 @@ export default function Services() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-4 bg-white ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-9">
-        {/* HEADER with gradient text effect */}
-        <div
-          style={{
-            textAlign: "center",
-            marginBottom: "80px",
-            padding: "40px 20px",
-            borderRadius: "16px",
-            background: "linear-gradient(135deg, rgba(230,81,0,0.25), #E65100, rgba(255,215,0,0.15))",
-            backdropFilter: "blur(12px)",
-          
-            border: "1px solid rgba(230,81,0,0.3)",
-          }}
-        >
-<h2
-
->
-  Our Services
-</h2>
+        {/* HEADER - White background with transparent golden yellow to orange gradient text */}
+     <div className="text-center mb-4 py-3 px-2">
+          <h2
+            style={{
+              fontSize: "3.5rem",
+              fontWeight: "bold",
+              background: "linear-gradient(135deg, #FFD700, #E65100)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              display: "inline-block",
+            }}
+          >
+            Our Services
+          </h2>
         </div>
 
         {/* GRID - now properly responsive */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch curser-pointer">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch cursor-pointer">
           {services.map((service, index) => (
             <div
               key={index}
@@ -144,7 +141,7 @@ export default function Services() {
                   {service.title}
                 </h3>
 
-                <p className="text-gray-500 mb-8 leading-relaxed break-words whitespace-norma ">
+                <p className="text-gray-500 mb-8 leading-relaxed break-words whitespace-normal">
                   {service.description}
                 </p>
 
@@ -169,7 +166,7 @@ export default function Services() {
               {/* EXPANDED DETAILS */}
               {expandedService === index && (
                 <div
-                  className="absolute left-0 top-full w-full  shadow-2xl rounded-b-2xl border-t animate-fadeIn "
+                  className="absolute left-0 top-full w-full shadow-2xl rounded-b-2xl border-t animate-fadeIn"
                   style={{
                     background: "linear-gradient(135deg, rgba(230,81,0,0.25), rgba(255,143,0,0.20), rgba(255,215,0,0.15))",
                     backdropFilter: "blur(12px)",

@@ -8,7 +8,7 @@ import Stats from './components/Stats'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
-
+import StatsOverlay from './components/StatsOverlay'
 export default function Home() {
   const [trackingId, setTrackingId] = useState('')
   
@@ -25,6 +25,8 @@ export default function Home() {
       
       
       <Hero />
+      <StatsOverlay/>
+
       
       <Services />
       
