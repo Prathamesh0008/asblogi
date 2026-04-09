@@ -14,7 +14,7 @@ export default function Services() {
 
   const services = [
     {
-      icon: <FaPlane className="text-3xl" />,
+      icon: <FaPlane className="text-2xl sm:text-3xl lg:text-4xl" />,
       title: 'Air Freight',
       description:
         'Express air cargo with real-time tracking across 150+ countries.',
@@ -33,7 +33,7 @@ export default function Services() {
       }
     },
     {
-      icon: <FaShip className="text-4xl" />,
+      icon: <FaShip className="text-2xl sm:text-3xl lg:text-4xl" />,
       title: 'Ocean Freight',
       description:
         'Cost-effective sea freight with comprehensive FCL/LCL options.',
@@ -51,7 +51,7 @@ export default function Services() {
       }
     },
     {
-      icon: <FaTruck className="text-4xl" />,
+      icon: <FaTruck className="text-2xl sm:text-3xl lg:text-4xl" />,
       title: 'Road Transport',
       description:
         'Efficient nationwide land transportation network.',
@@ -69,7 +69,7 @@ export default function Services() {
       }
     },
     {
-      icon: <FaWarehouse className="text-4xl" />,
+      icon: <FaWarehouse className="text-2xl sm:text-3xl lg:text-4xl" />,
       title: 'Warehousing',
       description:
         'Secure storage with advanced inventory management.',
@@ -92,27 +92,17 @@ export default function Services() {
   }
 
   return (
-    <section className="py-4 bg-white ">
+    <section className="pt-0 pb-4 sm:pb-6 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-9">
-        {/* HEADER - White background with transparent golden yellow to orange gradient text */}
-     <div className="text-center mb-4 py-3 px-2">
-          <h2
-            style={{
-              fontSize: "3.5rem",
-              fontWeight: "bold",
-              background: "linear-gradient(135deg, #FFD700, #E65100)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              display: "inline-block",
-            }}
-          >
+        {/* HEADER - responsive gradient text */}
+        <div className="text-center mb-6 sm:mb-8 lg:mb-10 py-0 px-2">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFD700] to-[#E65100] bg-clip-text text-transparent inline-block">
             Our Services
           </h2>
         </div>
 
-        {/* GRID - now properly responsive */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch cursor-pointer">
+        {/* GRID - responsive columns and gaps */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 items-stretch">
           {services.map((service, index) => (
             <div
               key={index}
@@ -125,10 +115,10 @@ export default function Services() {
               {/* TOP BAR */}
               <div className={`h-2 bg-gradient-to-r ${service.gradient} rounded-t-2xl`} />
 
-              {/* CARD BODY */}
-              <div className="p-8 flex-grow">
+              {/* CARD BODY - reduced padding on mobile */}
+              <div className="p-5 sm:p-6 lg:p-8 flex-grow">
                 <div
-                  className={`mb-6 ${
+                  className={`mb-4 sm:mb-6 ${
                     service.gradient.includes('E65100') || service.gradient.includes('FFD700')
                       ? 'text-[#E65100]'
                       : 'text-[#FF8F00]'
@@ -137,19 +127,19 @@ export default function Services() {
                   {service.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4 text-gray-700">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-700">
                   {service.title}
                 </h3>
 
-                <p className="text-gray-500 mb-8 leading-relaxed break-words whitespace-normal">
+                <p className="text-sm sm:text-base text-gray-500 mb-6 sm:mb-8 leading-relaxed break-words whitespace-normal">
                   {service.description}
                 </p>
 
-                <ul className="space-y-4">
+                <ul className="space-y-2 sm:space-y-3">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-gray-700">
+                    <li key={i} className="flex items-center text-sm sm:text-base text-gray-700">
                       <span
-                        className={`w-2 h-2 rounded-full mr-3 ${
+                        className={`w-2 h-2 rounded-full mr-3 flex-shrink-0 ${
                           service.gradient.includes('E65100')
                             ? 'bg-[#E65100]'
                             : service.gradient.includes('FFD700')
@@ -163,19 +153,38 @@ export default function Services() {
                 </ul>
               </div>
 
-              {/* EXPANDED DETAILS */}
+              {/* LEARN MORE BUTTON - reduced padding on mobile */}
+              <div className="px-5 pb-5 sm:px-6 sm:pb-6 lg:px-8 lg:pb-8 mt-auto">
+                <button
+                  onClick={() => toggleService(index)}
+                  className={`flex items-center justify-between w-full font-semibold transition-all text-sm sm:text-base cursor-pointer ${
+                    service.gradient.includes('E65100') || service.gradient.includes('FFD700')
+                      ? 'text-[#E65100] hover:text-[#FF8F00]'
+                      : 'text-[#FF8F00] hover:text-[#E65100]'
+                  }`}
+                >
+                  {expandedService === index ? 'Show Less' : 'Learn More'}
+                  {expandedService === index ? (
+                    <FaChevronDown className="text-xs sm:text-sm" />
+                  ) : (
+                    <FaChevronRight className="text-xs sm:text-sm" />
+                  )}
+                </button>
+              </div>
+
+              {/* EXPANDED DETAILS - now in normal flow (not absolute) for better mobile behavior */}
               {expandedService === index && (
                 <div
-                  className="absolute left-0 top-full w-full shadow-2xl rounded-b-2xl border-t animate-fadeIn"
+                  className="mt-2 mx-4 mb-4 sm:mx-5 sm:mb-5 lg:mx-6 lg:mb-6 rounded-xl animate-fadeIn"
                   style={{
                     background: "linear-gradient(135deg, rgba(230,81,0,0.25), rgba(255,143,0,0.20), rgba(255,215,0,0.15))",
                     backdropFilter: "blur(12px)",
-                    borderColor: "rgba(230,81,0,0.3)",
+                    border: "1px solid rgba(230,81,0,0.3)",
                   }}
                 >
-                  <div className="p-8">
+                  <div className="p-4 sm:p-5 lg:p-6">
                     <h4
-                      className="text-lg font-bold mb-4"
+                      className="text-base sm:text-lg font-bold mb-3 sm:mb-4"
                       style={{ color: "#E65100" }}
                     >
                       Service Details
@@ -183,16 +192,16 @@ export default function Services() {
 
                     <ul className="space-y-2">
                       {service.details.specialFeatures.map((f, i) => (
-                        <li key={i} className="flex items-start">
-                          <FaChevronRight className="mt-1 mr-2 text-[#FF8F00]" />
-                          <span style={{ color: "#4a4a4a" }}>{f}</span>
+                        <li key={i} className="flex items-start text-sm sm:text-base">
+                          <FaChevronRight className="mt-1 mr-2 text-[#FF8F00] flex-shrink-0 text-xs sm:text-sm" />
+                          <span style={{ color: "#4a4a4a" }} className="break-words">{f}</span>
                         </li>
                       ))}
                     </ul>
 
                     <button
                       onClick={() => setExpandedService(null)}
-                      className="mt-6 w-full py-3 font-semibold rounded-lg transition-all duration-300 cursor-pointer"
+                      className="mt-4 sm:mt-6 w-full py-2 sm:py-3 font-semibold rounded-lg transition-all duration-300 cursor-pointer text-sm sm:text-base"
                       style={{
                         background: "rgba(230,81,0,0.2)",
                         border: "1px solid rgba(230,81,0,0.4)",
@@ -210,25 +219,6 @@ export default function Services() {
                   </div>
                 </div>
               )}
-
-              {/* LEARN MORE */}
-              <div className="px-8 pb-8 mt-auto">
-                <button
-                  onClick={() => toggleService(index)}
-                  className={`flex items-center justify-between w-full font-semibold transition-all cursor-pointer ${
-                    service.gradient.includes('E65100') || service.gradient.includes('FFD700')
-                      ? 'text-[#E65100] hover:text-[#FF8F00]'
-                      : 'text-[#FF8F00] hover:text-[#E65100]'
-                  }`}
-                >
-                  {expandedService === index ? 'Show Less' : 'Learn More'}
-                  {expandedService === index ? (
-                    <FaChevronDown />
-                  ) : (
-                    <FaChevronRight />
-                  )}
-                </button>
-              </div>
             </div>
           ))}
         </div>

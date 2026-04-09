@@ -29,42 +29,36 @@ function Counter({ end = 100, duration = 2000, suffix = "", decimals = 0, classN
   );
 }
 
-// Main StatsOverlay Component - Wider Version
+// Main StatsOverlay Component - White background, gray + golden yellow
 export default function StatsOverlay() {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
-      {/* Animated background glow - slightly larger to match wider card */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-56 h-56 bg-[#ec671f]/20 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-[#d85f1d]/20 rounded-full blur-2xl animate-pulse delay-1000" />
-      </div>
-
-      {/* Main Card - wider, same compact padding */}
-      <div className="relative bg-gradient-to-br from-black/90 via-black/80 to-black/90 backdrop-blur-2xl rounded-2xl border border-white/15 shadow-xl transition-all duration-500 hover:shadow-[0_0_30px_rgba(236,103,31,0.3)] overflow-hidden">
+      {/* White background container – no dark blobs */}
+      <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 transition-all duration-500 hover:shadow-2xl overflow-hidden">
         
-        {/* Gradient Border Accents */}
-        <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#ec671f] to-transparent rounded-tl-2xl opacity-30" />
-        <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-[#d85f1d] to-transparent rounded-br-2xl opacity-30" />
+        {/* Golden gradient accents (soft) */}
+        <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-amber-400 to-transparent rounded-tl-2xl opacity-20" />
+        <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-amber-500 to-transparent rounded-br-2xl opacity-20" />
 
         {/* Inner Content */}
         <div className="p-6 md:p-8">
           
           {/* Header */}
-     <div className="text-center mb-4">
-            <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent">
+          <div className="text-center mb-4">
+            <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent">
               Performance Overview
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-[#ec671f] to-[#d85f1d] mx-auto mt-3 rounded-full" />
-            <p className="text-gray-400 mt-3 text-sm max-w-md mx-auto">
+            <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-amber-600 mx-auto mt-3 rounded-full" />
+            <p className="text-gray-500 mt-3 text-sm max-w-md mx-auto">
               Real‑time delivery & support metrics
             </p>
           </div>
 
-          {/* Stats Grid - wider spacing but still compact */}
+          {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             
             {/* Delivery Rate */}
-            <div className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-[#ec671f]/60 shadow-md hover:shadow-[0_0_20px_rgba(236,103,31,0.4)]">
+            <div className="group relative bg-gray-50 backdrop-blur-sm rounded-xl p-5 border border-gray-200 transition-all duration-500 hover:scale-105 hover:bg-white hover:border-amber-400 shadow-sm hover:shadow-lg">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-black transition-transform duration-300 group-hover:scale-110">
                   <Counter
@@ -72,44 +66,44 @@ export default function StatsOverlay() {
                     duration={2500}
                     suffix="%"
                     decimals={1}
-                    className="bg-gradient-to-r from-[#ec671f] to-[#d85f1d] bg-clip-text text-transparent"
+                    className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent"
                   />
                 </div>
-                <div className="text-gray-400 group-hover:text-white transition-colors duration-300 mt-2 text-xs uppercase tracking-wider font-semibold">
+                <div className="text-gray-500 group-hover:text-gray-800 transition-colors duration-300 mt-2 text-xs uppercase tracking-wider font-semibold">
                   Delivery Rate
                 </div>
               </div>
             </div>
 
             {/* Countries */}
-            <div className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-[#ec671f]/60 shadow-md hover:shadow-[0_0_20px_rgba(236,103,31,0.4)]">
+            <div className="group relative bg-gray-50 backdrop-blur-sm rounded-xl p-5 border border-gray-200 transition-all duration-500 hover:scale-105 hover:bg-white hover:border-amber-400 shadow-sm hover:shadow-lg">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-black transition-transform duration-300 group-hover:scale-110">
                   <Counter
                     end={180}
                     duration={1800}
                     suffix="+"
-                    className="bg-gradient-to-r from-[#ec671f] to-[#d85f1d] bg-clip-text text-transparent"
+                    className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent"
                   />
                 </div>
-                <div className="text-gray-400 group-hover:text-white transition-colors duration-300 mt-2 text-xs uppercase tracking-wider font-semibold">
+                <div className="text-gray-500 group-hover:text-gray-800 transition-colors duration-300 mt-2 text-xs uppercase tracking-wider font-semibold">
                   Countries
                 </div>
               </div>
             </div>
 
             {/* Support */}
-            <div className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-[#ec671f]/60 shadow-md hover:shadow-[0_0_20px_rgba(236,103,31,0.4)]">
+            <div className="group relative bg-gray-50 backdrop-blur-sm rounded-xl p-5 border border-gray-200 transition-all duration-500 hover:scale-105 hover:bg-white hover:border-amber-400 shadow-sm hover:shadow-lg">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-black transition-transform duration-300 group-hover:scale-110">
                   <Counter
                     end={24}
                     duration={1200}
                     suffix="/7"
-                    className="bg-gradient-to-r from-[#ec671f] to-[#d85f1d] bg-clip-text text-transparent"
+                    className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent"
                   />
                 </div>
-                <div className="text-gray-400 group-hover:text-white transition-colors duration-300 mt-2 text-xs uppercase tracking-wider font-semibold">
+                <div className="text-gray-500 group-hover:text-gray-800 transition-colors duration-300 mt-2 text-xs uppercase tracking-wider font-semibold">
                   24/7 Support
                 </div>
               </div>

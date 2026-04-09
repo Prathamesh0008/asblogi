@@ -74,12 +74,8 @@ export default function Hero() {
   const features = [
     {
       icon: (
-        <div className="w-25 h-25">
-          <Lottie
-            animationData={lightningLottie}
-            loop
-            autoplay
-          />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-25 md:h-25 mx-auto">
+          <Lottie animationData={lightningLottie} loop autoplay />
         </div>
       ),
       title: 'Lightning Fast',
@@ -89,12 +85,8 @@ export default function Hero() {
     },
     {
       icon: (
-        <div className="w-25 h-25">
-          <Lottie
-            animationData={DeliveryLottie}
-            loop
-            autoplay
-          />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-25 md:h-25 mx-auto">
+          <Lottie animationData={DeliveryLottie} loop autoplay />
         </div>
       ),
       title: 'Live Tracking',
@@ -104,12 +96,8 @@ export default function Hero() {
     },
     {
       icon: (
-        <div className="w-35 h-25">
-          <Lottie
-            animationData={SecuredLottie}
-            loop
-            autoplay
-          />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-25 md:h-25 mx-auto">
+          <Lottie animationData={SecuredLottie} loop autoplay />
         </div>
       ),
       title: 'Armored Security',
@@ -119,12 +107,8 @@ export default function Hero() {
     },
     {
       icon: (
-        <div className="w-35 h-25">
-          <Lottie
-            animationData={GlobalLottie}
-            loop
-            autoplay
-          />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-25 md:h-25 mx-auto">
+          <Lottie animationData={GlobalLottie} loop autoplay />
         </div>
       ),
       title: 'Global Network',
@@ -176,62 +160,52 @@ export default function Hero() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16 lg:py-24">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-16">
               {/* Left side - Text content */}
-              <div className="lg:w-1/2 lg:pr-8">
-                <div className="mb-10 lg:mb-12">
-                  <span className="relative inline-block bg-gradient-to-r from-[#E65100] to-[#f8c468] text-white px-8 py-3 rounded-full text-sm font-bold tracking-wide shadow-2xl overflow-hidden group">
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#FF8F00] to-[ #FFC300] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                    <span className="relative flex items-center">
+              <div className="lg:w-1/2 text-center lg:text-left">
+                <div className="mb-6 lg:mb-8">
+                  <span className="inline-block bg-gradient-to-r from-[#E65100] to-[#f8c468] text-white px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide shadow-2xl">
+                    <span className="flex items-center justify-center">
                       <span className="mr-2 animate-pulse">⚡</span>
                       Elite Global Logistics
                     </span>
                   </span> 
                 </div>
                 
-<h1 className="text-5xl sm:text-6xl md:text-xl lg:text-7xl mb-6 lg:mb-8 leading-tight tracking-tight font-medium">
-
-  {/* Precision */}
-  <span className="block bg-gradient-to-r from-white/40 via-white/60 to-[#E65100]/70 bg-clip-text text-transparent">
-    Precision
-  </span>
-
-  {/* Logistics */}
-<span className="block pb-1 leading-[1.2] bg-gradient-to-r from-[#FF8F00]/80 via-[#FF8F00]/70 to-[#FF8F00]/80 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] font-medium antialiased">
-  Logistics
-</span>
-  {/* Sub text (optional) */}
-  <span className="block text-white/60 mt-2 text-4xl lg:text-3xl font-light">
-    
-  </span>
-
-</h1>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 leading-tight tracking-tight font-medium">
+                  <span className="block bg-gradient-to-r from-white/40 via-white/60 to-[#E65100]/70 bg-clip-text text-transparent">
+                    Precision
+                  </span>
+                  <span className="block pb-1 leading-[1.2] bg-gradient-to-r from-[#ff7a00]/80 via-[#FF8F00]/70 to-[#ff7a00]/80 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] font-medium antialiased">
+                    Logistics
+                  </span>
+                </h1>
                 
-                <p className="text-xl text-gray-200 mb-10 lg:mb-12 max-w-2xl leading-relaxed font-light">
+                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
                   Revolutionizing global supply chains with cutting-edge technology, 
                   real-time visibility, and unparalleled security for your shipments.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-6 mb-12 lg:mb-0">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
                   <button 
                     onClick={handleGetStarted}
-                    className="group relative bg-gradient-to-r from-[#E65100]/100 to-[#FFD700] hover:from-[Golden Yellow] hover:to-[golden Yellow]/80 text-white font-bold py-5 px-10 rounded-xl text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
+                    className="group relative bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#FFC300] text-white font-bold py-3 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-xl text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     <span className="relative flex items-center justify-center">
-                      <FaTruck className="mr-3 text-xl group-hover:animate-bounce" />
+                      <FaTruck className="mr-2 sm:mr-3 text-lg sm:text-xl group-hover:animate-bounce" />
                       Launch Shipment
                     </span>
                   </button>
                   
                   <button 
                     onClick={handleTrackShipment}
-                    className="group relative border-2 border-white/30 hover:border-[#FAB045]/50 text-white font-semibold py-5 px-10 rounded-xl text-lg transition-all duration-300 backdrop-blur-xl bg-white/5 hover:bg-white/10"
+                    className="group relative border-2 border-white/30 hover:border-[#FAB045]/50 text-white font-semibold py-3 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-xl text-base sm:text-lg transition-all duration-300 backdrop-blur-xl bg-white/5 hover:bg-white/10"
                   >
                     <span className="relative flex items-center justify-center">
-                      <FaSearch className="mr-3 group-hover:rotate-90 transition-transform duration-300" />
+                      <FaSearch className="mr-2 sm:mr-3 group-hover:rotate-90 transition-transform duration-300" />
                       <span className="group-hover:text-[#FAB045] transition-colors duration-300">
                         Track Consignment
                       </span>
@@ -240,87 +214,38 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Right side - Feature boxes */}
-              <div className="lg:w-1/2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:mt-8">
+              {/* Right side - Feature boxes - now 2 columns on ALL screen sizes */}
+              <div className="lg:w-1/2 w-full mt-8 lg:mt-0">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                   {features.map((feature, index) => (
                     <div 
                       key={index} 
-                      className="group relative bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl rounded-2xl p-7 border border-white/20 hover:border-[#FAB045]/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden"
+                      className="group relative bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-7 border border-white/20 hover:border-[#FAB045]/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden"
                     >
-                      {/* Background gradient on hover */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                       
                       <div className="relative flex flex-col items-center text-center">
-                        <div className={`${feature.color} mb-5 text-4xl group-hover:scale-110 transition-transform duration-500`}>
+                        <div className={`${feature.color} mb-3 sm:mb-4 md:mb-5 text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-500`}>
                           {feature.icon}
                         </div>
-                        <h4 className="font-bold text-xl mb-3 group-hover:text-[#FAB045] transition-colors duration-300">
+                        <h4 className="font-bold text-base sm:text-lg md:text-xl mb-1 sm:mb-2 md:mb-3 group-hover:text-[#FAB045] transition-colors duration-300">
                           {feature.title}
                         </h4>
-                        <p className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">
+                        <p className="text-xs sm:text-sm text-gray-300 group-hover:text-white transition-colors duration-300">
                           {feature.desc}
                         </p>
                       </div>
                       
-                      {/* Animated underline */}
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#FAB045] to-[#4CC9F0] group-hover:w-16 transition-all duration-500"></div>
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#FAB045] to-[#4CC9F0] group-hover:w-12 sm:group-hover:w-16 transition-all duration-500"></div>
                     </div>
                   ))}
                 </div>
-                
-                {/* Stats overlay with animated counters */}
-                {/* <div className="mt-8 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10">
-                  <div className="grid grid-cols-3 gap-6 text-center"> */}
-                    {/* <div className="group"> */}
-                      {/* <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
-                        <Counter 
-                          end={99.8} 
-                          duration={2500} 
-                          suffix="%"
-                          decimals={1}
-                          className="bg-gradient-to-r from-[#FAB045] to-[#FFD700] bg-clip-text text-transparent"
-                        />
-                      </div>
-                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300 mt-2">
-                        Delivery Rate
-                      </div>
-                    </div>
-                    <div className="group">
-                      <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
-                        <Counter 
-                          end={180} 
-                          duration={1800} 
-                          suffix="+"
-                          className="bg-gradient-to-r from-[#00B4D8] to-[#0077B6] bg-clip-text text-transparent"
-                        />
-                      </div>
-                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300 mt-2">
-                        Countries
-                      </div>
-                    </div>
-                    <div className="group">
-                      <div className="text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
-                        <Counter 
-                          end={24} 
-                          duration={1200} 
-                          suffix="/7"
-                          className="bg-gradient-to-r from-[#4CC9F0] to-[#4361EE] bg-clip-text text-transparent"
-                        />
-                      </div>
-                      <div className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300 mt-2">
-                        Support
-                      </div> */}
-                    {/* </div> */}
-                  {/* </div>
-                </div> */}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Add global animations */}
       <style jsx global>{`
         @keyframes gradient {
           0%, 100% { background-position: 0% 50%; }
@@ -331,7 +256,6 @@ export default function Hero() {
           animation: gradient 3s ease infinite;
         }
         
-        /* Counter animation styles */
         @keyframes countUp {
           from {
             opacity: 0;
