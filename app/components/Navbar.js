@@ -89,7 +89,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-3 sm:space-x-4">
               {/* Contact info - hidden on small mobile, visible on sm+ */}
               <div className="hidden sm:block text-right">
-                <div className="text-base text-[#A0A1A2]">Need Help?</div>
+               <div className="text-[13px] text-[#A0A1A2]">Need Help?</div>
                 <div className="text-gray-1000 font-bold text-base">+31685865799</div>
               </div>
               
