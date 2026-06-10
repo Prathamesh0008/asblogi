@@ -267,10 +267,10 @@ export default function TrackingPage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="inline-flex h-12 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#F68B1F] to-[#FFD700] px-6 text-sm font-black text-white shadow-[0_14px_30px_rgba(246,139,31,0.28)] transition hover:from-[#E76F00] hover:to-[#F68B1F] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="inline-flex h-12 cursor-pointer items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#F68B1F] to-[#FFD700] px-6 text-sm font-black text-white shadow-[0_14px_30px_rgba(246,139,31,0.28)] transition hover:from-[#E76F00] hover:to-[#F68B1F] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isLoading ? (
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                    <span className="h-4 w-4 cursor-pointer animate-spin rounded-full border-2 border-white border-t-transparent" />
                   ) : (
                     <FaSearch />
                   )}

@@ -120,7 +120,7 @@ export default function Tracking({ trackingId, setTrackingId }) {
                 setStep(1);
                 setErrors({});
               }}
-              className="mt-8 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#E65100] to-[#FFD700] px-8 py-4 font-bold text-white shadow-lg transition hover:scale-[1.02]"
+              className="mt-8 inline-flex cursor-pointer items-center justify-center rounded-xl bg-gradient-to-r from-[#E65100] to-[#FFD700] px-8 py-4 font-bold text-white shadow-lg transition hover:scale-[1.02]"
             >
               Start Shipment
               <FaArrowRight className="ml-3" />

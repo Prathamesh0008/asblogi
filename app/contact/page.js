@@ -539,19 +539,19 @@ export default function Contact() {
                         <button
                           type="submit"
                           disabled={isLoading}
-                          className={`group relative overflow-hidden bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#E65100] text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-xl sm:rounded-2xl text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg w-full sm:w-auto justify-center ${
+                          className={`group relative cursor-pointer overflow-hidden bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#E65100] text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-xl sm:rounded-2xl text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center shadow-lg w-full sm:w-auto justify-center ${
                             isLoading ? 'opacity-80 cursor-not-allowed' : ''
                           }`}
                         >
                           <span className="relative z-10 flex items-center">
                             {isLoading ? (
                               <>
-                                <FaSpinner className="mr-2 animate-spin" />
+                                <FaSpinner cursor-pointer className="mr-2 animate-spin" />
                                 Sending...
                               </>
                             ) : (
                               <>
-                                <FaPaperPlane className="mr-2 group-hover:translate-x-1 transition-transform" />
+                                <FaPaperPlane cursor-pointer className="mr-2 group-hover:translate-x-1 transition-transform" />
                                 Send Message
                               </>
                             )}

@@ -201,7 +201,7 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center lg:justify-start">
                   <button
                     onClick={handleGetStarted}
-                    className="group relative bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#FFC300] text-white font-bold py-2.5 sm:py-3 md:py-4 px-5 sm:px-7 md:px-8 rounded-xl text-sm sm:text-base transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
+                    className="group relative cursor-pointer bg-gradient-to-r from-[#E65100] to-[#FFD700] hover:from-[#FF8F00] hover:to-[#FFC300] text-white font-bold py-2.5 sm:py-3 md:py-4 px-5 sm:px-7 md:px-8 rounded-xl text-sm sm:text-base transition-all duration-300 hover:shadow-2xl hover:scale-105 overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     <span className="relative flex items-center justify-center">
