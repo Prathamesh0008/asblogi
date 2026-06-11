@@ -252,6 +252,37 @@ export default function About() {
         </div>
       </section>
 
+      <section className="bg-white px-4 pb-12 sm:px-6 lg:px-8 lg:pb-20">
+        <div className="container mx-auto">
+          <div className="grid overflow-hidden bg-[#071120] shadow-[0_24px_70px_rgba(7,17,32,0.14)] lg:grid-cols-2">
+            <div className="flex min-h-[360px] flex-col justify-center px-7 py-12 sm:px-12 lg:min-h-[520px] lg:px-16">
+              <p className="mb-7 text-sm font-bold uppercase tracking-[0.34em] text-[#FFD700]">
+                Why Choose Us
+              </p>
+
+              <h2 className="max-w-xl text-4xl font-bold leading-tight text-white sm:text-5xl">
+                Reliable logistics built around your business.
+              </h2>
+
+              <p className="mt-8 max-w-xl text-base leading-8 text-white/72 sm:text-lg">
+                We combine freight planning, shipment visibility and careful
+                cargo handling so your supply chain keeps moving without
+                unnecessary delays.
+              </p>
+            </div>
+
+            <div className="relative min-h-[320px] lg:min-h-[520px]">
+              <img
+                src="/Warehouse.jpg"
+                alt="Warehouse storage and logistics racks"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#071120]/20 via-transparent to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="bg-gray-50 pt-12 pb-6 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

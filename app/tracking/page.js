@@ -231,7 +231,8 @@ export default function TrackingPage() {
     trackingInfo?.history?.filter((item) => item.completed).length || 0;
 
   const totalSteps = trackingInfo?.history?.length || 1;
-  const progress = Math.round((completedSteps / totalSteps) * 100);
+  const progress = Math.round(
+    (completedSteps / totalSteps) * 100);
   const nextRouteEvent = trackingInfo?.history?.find((item) => !item.completed);
   const liveRouteLabel =
     trackingInfo?.status === "Delivered"
@@ -260,7 +261,7 @@ export default function TrackingPage() {
               Invictus Live Tracking
             </p>
 
-            <h1 className="text-4xl font-extrabold leading-tight text-[#2F343A] sm:text-5xl lg:text-[56px]">
+            <h1 className="text-2xl font-bold leading-tight text-[#2F343A] sm:text-4xl lg:text-[56px]">
               Track your shipment with{" "}
               <span className="text-[#F68B1F]">speed, clarity</span> and
               confidence.

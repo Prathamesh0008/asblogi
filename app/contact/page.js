@@ -50,12 +50,12 @@ export default function Contact() {
 
     ⚠️ Do not add private key inside client component.
   */
-  const EMAILJS_CONFIG = {
-    SERVICE_ID: "service_mcpdje4",
-    TEAM_TEMPLATE_ID: "template_rxfkmfm",
-    AUTO_REPLY_TEMPLATE_ID: "template_yxv7zne",
-    PUBLIC_KEY: "u7xiyzEAFzoY1nPfR",
-  };
+const EMAILJS_CONFIG = {
+  SERVICE_ID: "service_w8f4cwo",
+  TEAM_TEMPLATE_ID: "template_yxv7zne",
+  AUTO_REPLY_TEMPLATE_ID: "template_bq4scyi",
+  PUBLIC_KEY: "olGXjuLp7G7NKZfcg",
+};
 
   useEffect(() => {
     const updateTime = () => {
@@ -193,6 +193,7 @@ export default function Contact() {
         EMAILJS_CONFIG.TEAM_TEMPLATE_ID,
         teamParams
       );
+
 
       const autoReplyParams = {
         to_email: formData.email,
@@ -377,13 +378,12 @@ export default function Contact() {
 
             {/* Form Section */}
             <div className="lg:col-span-2">
-              <div className="relative overflow-hidden rounded-[28px] border border-orange-100 bg-white shadow-[0_30px_90px_rgba(230,81,0,0.10)]">
-                <div className="absolute -right-32 -top-32 h-72 w-72 rounded-full bg-[#FFD700]/25 blur-3xl" />
-                <div className="absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-[#E65100]/10 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[24px] border border-[#071120]/10 bg-white shadow-[0_24px_70px_rgba(7,17,32,0.10)]">
+                <div className="absolute -right-32 -top-32 h-72 w-72 rounded-full bg-[#071120]/5 blur-3xl" />
 
-                <div className="relative grid lg:grid-cols-[0.9fr_1.6fr]">
+                <div className="relative">
                   {/* Form Left Panel - Light */}
-                  <div className="relative overflow-hidden bg-gradient-to-br from-[#FFF7ED] via-[#FFFBEB] to-white p-6 text-gray-900 sm:p-8 md:p-10">
+                  <div className="hidden">
                     <div className="absolute inset-0 opacity-60">
                       <div className="absolute left-8 top-10 h-24 w-24 rounded-full bg-[#FFD700]/30 blur-3xl" />
                       <div className="absolute bottom-10 right-8 h-28 w-28 rounded-full bg-[#E65100]/15 blur-3xl" />
@@ -459,12 +459,12 @@ export default function Contact() {
 
                   {/* Actual Form */}
                   <div className="bg-white p-5 sm:p-8 md:p-10">
-                    <div className="mb-8">
-                      <p className="mb-2 text-sm font-bold uppercase tracking-[0.22em] text-[#E65100]">
+                    <div className="mb-8 border-b border-[#071120]/10 pb-6">
+                      <p className="mb-2 text-sm font-bold uppercase tracking-[0.22em] text-[#071120]">
                         Send Message
                       </p>
 
-                      <h3 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+                      <h3 className="text-2xl font-bold text-[#071120] sm:text-3xl">
                         Tell us how we can help
                       </h3>
 
@@ -483,7 +483,7 @@ export default function Contact() {
                         {/* Name */}
                         <div>
                           <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-800">
-                            <FaUser className="text-[#E65100]" />
+                            <FaUser className="text-[#071120]" />
                             Full Name *
                           </label>
 
@@ -493,10 +493,10 @@ export default function Contact() {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Enter your full name"
-                            className={`w-full rounded-2xl border bg-[#FFFDF8] px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#E65100]/10 ${
+                            className={`w-full rounded-xl border bg-white px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#071120]/10 ${
                               validationErrors.name
                                 ? "border-red-500 focus:border-red-500"
-                                : "border-orange-100 focus:border-[#E65100]"
+                                : "border-gray-200 focus:border-[#071120]"
                             }`}
                           />
 
@@ -510,7 +510,7 @@ export default function Contact() {
                         {/* Email */}
                         <div>
                           <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-800">
-                            <FaEnvelope className="text-[#E65100]" />
+                            <FaEnvelope className="text-[#071120]" />
                             Email Address *
                           </label>
 
@@ -520,10 +520,10 @@ export default function Contact() {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Enter your email address"
-                            className={`w-full rounded-2xl border bg-[#FFFDF8] px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#E65100]/10 ${
+                            className={`w-full rounded-xl border bg-white px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#071120]/10 ${
                               validationErrors.email
                                 ? "border-red-500 focus:border-red-500"
-                                : "border-orange-100 focus:border-[#E65100]"
+                                : "border-gray-200 focus:border-[#071120]"
                             }`}
                           />
 
@@ -539,7 +539,7 @@ export default function Contact() {
                         {/* Phone */}
                         <div>
                           <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-800">
-                            <FaPhone className="text-[#FF8F00]" />
+                            <FaPhone className="text-[#071120]" />
                             Phone Number
                           </label>
 
@@ -549,10 +549,10 @@ export default function Contact() {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+31 6 85865799"
-                            className={`w-full rounded-2xl border bg-[#FFFDF8] px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#E65100]/10 ${
+                            className={`w-full rounded-xl border bg-white px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#071120]/10 ${
                               validationErrors.phone
                                 ? "border-red-500 focus:border-red-500"
-                                : "border-orange-100 focus:border-[#E65100]"
+                                : "border-gray-200 focus:border-[#071120]"
                             }`}
                           />
 
@@ -566,7 +566,7 @@ export default function Contact() {
                         {/* Company */}
                         <div>
                           <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-800">
-                            <FaBuilding className="text-[#FF8F00]" />
+                            <FaBuilding className="text-[#071120]" />
                             Company
                           </label>
 
@@ -576,7 +576,7 @@ export default function Contact() {
                             value={formData.company}
                             onChange={handleChange}
                             placeholder="Your company name"
-                            className="w-full rounded-2xl border border-orange-100 bg-[#FFFDF8] px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-[#E65100] focus:bg-white focus:ring-4 focus:ring-[#E65100]/10"
+                            className="w-full rounded-xl border border-gray-200 bg-white px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-[#071120] focus:bg-white focus:ring-4 focus:ring-[#071120]/10"
                           />
                         </div>
                       </div>
@@ -584,7 +584,7 @@ export default function Contact() {
                       {/* Subject */}
                       <div>
                         <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-800">
-                          <FaClipboard className="text-[#E65100]" />
+                          <FaClipboard className="text-[#071120]" />
                           Subject
                         </label>
 
@@ -592,7 +592,7 @@ export default function Contact() {
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
-                          className="w-full cursor-pointer rounded-2xl border border-orange-100 bg-[#FFFDF8] px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 focus:border-[#E65100] focus:bg-white focus:ring-4 focus:ring-[#E65100]/10"
+                          className="w-full cursor-pointer rounded-xl border border-gray-200 bg-white px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 focus:border-[#071120] focus:bg-white focus:ring-4 focus:ring-[#071120]/10"
                         >
                           <option value="">Select inquiry type</option>
                           <option value="Get a Quote">Get a Quote</option>
@@ -611,7 +611,7 @@ export default function Contact() {
                       {/* Message */}
                       <div>
                         <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-800">
-                          <FaPaperPlane className="text-[#E65100]" />
+                          <FaPaperPlane className="text-[#071120]" />
                           Message *
                         </label>
 
@@ -621,10 +621,10 @@ export default function Contact() {
                           onChange={handleChange}
                           rows={6}
                           placeholder="Tell us about your logistics needs, shipment details, tracking issue, or business inquiry..."
-                          className={`w-full resize-none rounded-2xl border bg-[#FFFDF8] px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#E65100]/10 ${
+                          className={`w-full resize-none rounded-xl border bg-white px-4 py-4 text-sm text-gray-800 outline-none transition-all duration-300 placeholder:text-gray-400 focus:bg-white focus:ring-4 focus:ring-[#071120]/10 ${
                             validationErrors.message
                               ? "border-red-500 focus:border-red-500"
-                              : "border-orange-100 focus:border-[#E65100]"
+                              : "border-gray-200 focus:border-[#071120]"
                           }`}
                         />
 
@@ -685,10 +685,10 @@ export default function Contact() {
                       )}
 
                       {/* Submit Area */}
-                      <div className="flex flex-col gap-5 border-t border-orange-100 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex flex-col gap-5 border-t border-[#071120]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-r from-[#E65100]/10 to-[#FFD700]/20">
-                            <FaShieldAlt className="text-[#E65100]" />
+                          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#071120]/5">
+                            <FaShieldAlt className="text-[#071120]" />
                           </div>
 
                           <div>
@@ -704,7 +704,7 @@ export default function Contact() {
                         <button
                           type="submit"
                           disabled={isLoading}
-                          className={`group inline-flex w-full cursor-pointer items-center justify-center rounded-2xl bg-gradient-to-r from-[#FF8F00] to-[#FFD700] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-[#E65100]/15 transition-all duration-300 hover:-translate-y-0.5 hover:from-[#E65100] hover:to-[#FFD700] hover:shadow-xl hover:shadow-[#E65100]/20 sm:w-auto ${
+                          className={`group inline-flex w-full cursor-pointer items-center justify-center rounded-xl bg-[#071120] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-[#071120]/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#12333B] hover:shadow-xl hover:shadow-[#071120]/20 sm:w-auto ${
                             isLoading ? "cursor-not-allowed opacity-80" : ""
                           }`}
                         >
@@ -1012,7 +1012,7 @@ export default function Contact() {
 //         EMAILJS_CONFIG.SERVICE_ID,
 //         EMAILJS_CONFIG.AUTO_REPLY_TEMPLATE_ID,
 //         autoReplyParams
-//       );
+//       ); 
 
 //       setIsSuccess(true);
 //       setFormData({
