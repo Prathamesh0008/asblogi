@@ -74,14 +74,17 @@ export default function About() {
   return (
     <main className="bg-white text-[#2F343A]">
       <section className="relative overflow-hidden bg-[#12333B]">
-        <img
-          src="/Ship2.jpg"
-          alt="Container ship moving through ocean at sunset"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+        <Image
+          src="/ship_1.jpg"
+          alt="Container ship at sunset on the ocean"
+          fill
+          priority
+          quality={100}
+          sizes="100vw"
+          className="object-cover object-center brightness-[1.06] contrast-[1.08] saturate-[1.06]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071F29]/62 via-[#12333B]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/6 via-transparent to-[#E65100]/8" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071120]/64 via-[#071120]/18 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071120]/4 via-transparent to-[#071120]/10" />
 
         <div className="relative mx-auto flex min-h-[390px] max-w-7xl items-center px-5 pb-20 pt-14 sm:px-8 lg:min-h-[440px]">
           <div className="max-w-2xl">
@@ -358,7 +361,7 @@ export default function About() {
             <div className="grid w-full gap-4 sm:grid-cols-2">
               <div className="relative overflow-hidden rounded-lg shadow-[0_18px_45px_rgba(47,52,58,0.14)]">
                 <img
-                  src="/ship@1.jpg"
+                  src="/Top_Banner.jpg" 
                   alt="Fast freight vessel"
                   className="h-80 w-full object-cover sm:h-[420px]"
                 />

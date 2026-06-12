@@ -233,23 +233,26 @@ export default function Contact() {
           src="/client.jpg"
           alt="Logistics support team"
           fill
+          quality={100}
           sizes="100vw"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center brightness-[1.08] contrast-[1.1] saturate-[1.05]"
           priority
         />
-        <div className="absolute inset-0 bg-[#071120]/78" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071120] via-[#071120]/75 to-[#12333B]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071120]/88 via-[#0B3D5A]/58 to-[#1E88E5]/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071120]/18 via-transparent to-[#071120]/26" />
+        <div className="absolute inset-0 bg-[#1E88E5]/10 mix-blend-soft-light" />
 
-        <div className="relative mx-auto flex min-h-[430px] max-w-7xl items-center justify-center px-5 py-20 text-center sm:px-8">
-          <div>
-            <p className="mb-5 text-sm font-bold uppercase tracking-[0.22em] text-[#FFD700]">
+        <div className="relative mx-auto flex min-h-[430px] max-w-7xl items-center px-5 py-20 sm:px-8">
+          <div className="max-w-xl text-left">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-[#FFD700]">
               Invictus Logistics
             </p>
             <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
               Contact Us
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/75">
-              We would love to hear what you need to move
+            <p className="mt-5 max-w-lg text-base leading-8 text-white/82 sm:text-lg">
+              Speak with our logistics team for shipment support, freight
+              quotes, documentation help, and delivery coordination.
             </p>
           </div>
         </div>
