@@ -8,11 +8,11 @@ import { services } from "./servicesData";
 export default function ServicesPage() {
   return (
     <main className="bg-white text-black">
-      <section className="mx-auto max-w-[1700px] px-5 pt-20 sm:px-8 lg:px-12">
+      <section className="mx-auto max-w-[1700px] px-5 pt-12 sm:px-8 lg:px-12">
         <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#E65100]">
+          {/* <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#E65100]">
             Our Services
-          </p>
+          </p> */}
 
           <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
             Complete logistics solutions for every shipment.

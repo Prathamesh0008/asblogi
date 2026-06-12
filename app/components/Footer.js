@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+
 import { FaEnvelope, FaHeadset, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
 
 export default function Footer() {
@@ -15,12 +16,12 @@ export default function Footer() {
   ]
 
   const serviceLinks = [
-    { title: 'Air Freight', href: '/services' },
-    { title: 'Ocean Freight', href: '/services' },
-    { title: 'Road Freight', href: '/services' },
-    { title: 'Warehousing', href: '/services' },
-    { title: 'Supply Chain', href: '/services' },
-    { title: 'Cold Chain', href: '/services' },
+    { title: 'Air Freight', href: '/services/air-freight' },
+    { title: 'Ocean Freight', href: '/services/ocean-freight' },
+    { title: 'Road Freight', href: '/services/road-freight' },
+    { title: 'Warehousing', href: '/services/warehousing' },
+    { title: 'Supply Chain', href: '/services/supply-chain' },
+    { title: 'Cold Chain', href: '/services/cold-chain' },
   ]
 
   const contacts = [
@@ -43,12 +44,11 @@ export default function Footer() {
       href: 'mailto:info@invictuslogi.com',
     },
   ]
-
   const legalLinks = [
     { title: 'Privacy Policy', href: '/privacy-policy' },
     { title: 'Terms of Service', href: '/terms-and-conditions' },
-    { title: 'Cookie Policy', href: '#' },
-    { title: 'Sitemap', href: '/sitemap.xml' },
+    // { title: 'Cookie Policy', href: '#' },
+    // { title: 'Sitemap', href: '/sitemap.xml' },
   ]
 
   return (

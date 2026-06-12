@@ -224,24 +224,33 @@ const handleNext = () => {
             </p>
           </div>
 
-         <button
-  type="button"
-  onClick={step === 5 ? handleSubmit : handleNext}
-  disabled={step !== 5 && !canGoNext}
-  className={`
-    px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center
-    ${
-      step === 5
-        ? "bg-gradient-to-r from-green-500 to-green-600 text-white cursor-pointer"
-        : canGoNext
-        ? "bg-gradient-to-r from-[#FAB045] to-[#f8c468] text-white cursor-pointer"
-        : "bg-gray-300 text-gray-500 cursor-not-allowed"
-    }
-  `}
->
-  {step === 5 ? "Confirm" : step === 4 ? "Submit" : "Next"}
-  {step < 5 && <FaChevronRight className="ml-1" />}
-</button>
+  <button
+    type="button"
+    onClick={onClose}
+    className="flex items-center gap-2 rounded-lg bg-white/20 px-3 py-2 text-sm font-medium text-white transition hover:bg-white/30 sm:px-4"
+  >
+    <FaTimes className="text-xs" />
+    <span className="hidden sm:inline">Cancel</span>
+  </button>
+
+  <button
+    type="button"
+    onClick={step === 5 ? handleSubmit : handleNext}
+    disabled={step !== 5 && !canGoNext}
+    className={`
+      flex items-center rounded-lg px-4 py-2 text-sm font-medium transition-colors
+      ${
+        step === 5
+          ? "bg-gradient-to-r from-green-500 to-green-600 text-white cursor-pointer"
+          : canGoNext
+          ? "bg-white text-gray-700 cursor-pointer hover:bg-gray-100"
+          : "bg-gray-300 text-gray-500 cursor-not-allowed"
+      }
+    `}
+  >
+    {step === 5 ? "Confirm" : step === 4 ? "Submit" : "Next"}
+    {step < 5 && <FaChevronRight className="ml-1" />}
+  </button>
         </div>
 
         <div className="sm:hidden px-4 pt-4">

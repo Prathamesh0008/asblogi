@@ -11,7 +11,7 @@ export default function RelatedInformation({ details }) {
   };
 
   return (
-    <div className="mt-8 grid gap-4 md:grid-cols-2">
+    <div className="mt-8 md:columns-2 md:gap-5">
       {details.map((detail, index) => {
         const isOpen = openIndex === index;
 
@@ -20,7 +20,7 @@ export default function RelatedInformation({ details }) {
             key={detail.title}
             type="button"
             onClick={() => toggleDetail(index)}
-            className={`cursor-pointer rounded-2xl bg-gray-50 p-5 text-left transition hover:bg-[#E65100]/5 ${
+            className={`mb-4 block w-full break-inside-avoid cursor-pointer rounded-2xl bg-gray-50 p-5 text-left transition hover:bg-[#E65100]/5 ${
               isOpen ? "ring-2 ring-[#E65100]/25" : ""
             }`}
           >

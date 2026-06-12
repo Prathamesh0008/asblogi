@@ -98,8 +98,8 @@ export default function Tracking({ trackingId, setTrackingId }) {
   };
 
   return (
-    <section className="relative bg-white pt-3 pb-12 sm:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+<section className="relative bg-white py-0">
+        {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {!submitted ? (
           <div className="mx-auto max-w-4xl rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-2xl">
             <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-[#E65100] to-[#FFD700] text-3xl text-white">
@@ -150,7 +150,7 @@ export default function Tracking({ trackingId, setTrackingId }) {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
 
       {open && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 px-4">

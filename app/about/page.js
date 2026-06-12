@@ -149,15 +149,31 @@ export default function About() {
       </section>
 
       <section className="py-16">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
+        <div className="mx-auto max-w-[1700px] px-5 sm:px-8 lg:px-12">
+          <div className="grid items-center gap-12 rounded-3xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8 lg:grid-cols-2 lg:p-10">
+            <div className="relative h-[360px] overflow-hidden rounded-2xl bg-gray-100 sm:h-[500px] lg:h-[560px]">
+              <img
+                src="/ship@1.jpg"
+                alt="Container ship"
+                className="h-full w-full object-cover object-center transition duration-700 hover:scale-105"
+              />
+              <div className="absolute bottom-6 right-6 hidden w-48 overflow-hidden rounded-xl border-4 border-white shadow-2xl sm:block">
+                <img
+                  src="/Warehouse.jpg"
+                  alt="Warehouse operation"
+                  className="h-36 w-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="lg:px-10">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-[#E65100]">
               Trusted Freight Partner
             </p>
-            <h2 className="max-w-xl text-4xl font-bold leading-tight text-[#12333B] md:text-4xl">
+            <h2 className="max-w-xl text-3xl font-bold leading-tight text-[#12333B] sm:text-4xl lg:text-5xl">
               Providing full range of transportation solutions
             </h2>
-            <p className="mt-5 max-w-2xl leading-8 text-gray-600">
+            <p className="mt-6 max-w-2xl text-lg leading-9 text-gray-600">
               Invictus Logistics simplifies cargo movement with reliable air,
               sea, road, warehousing and customs support. We help businesses
               move shipments with better planning, clear communication and
@@ -181,26 +197,15 @@ export default function About() {
               </a>
             </div>
           </div>
-
-          <div className="relative mx-auto w-full max-w-xl">
-            <img
-              src="/ship@1.jpg"
-              alt="Container ship"
-              className="h-[350px] w-[78%] rounded-md object-cover shadow-xl"
-            />
-            <div className="absolute bottom-0 right-0 w-[48%] overflow-hidden rounded-md shadow-2xl">
-              <img
-                src="/Warehouse.jpg"
-                alt="Warehouse operation"
-                className="h-40 w-full object-cover"
-              />
-            </div>
           </div>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-7xl gap-8 px-5 sm:px-8 md:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-[1700px] gap-8 px-5 sm:px-8 md:grid-cols-3 lg:px-12">
           {strengths.map((item) => (
-            <div key={item.title} className="flex gap-5">
+            <div
+              key={item.title}
+              className="flex gap-5 rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_14px_35px_rgba(47,52,58,0.07)]"
+            >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#E65100]/20 text-xl text-[#E65100]">
                 {item.icon}
               </div>
@@ -215,22 +220,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#F6F8FA] py-20">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="relative">
-            <div className="absolute -left-4 -top-4 hidden h-28 w-28 border-l-4 border-t-4 border-[#FFD700] lg:block" />
-            <img
-              src="/inovation.jpg"
-              alt="Logistics team reviewing operational plans"
-              className="relative h-[420px] w-full rounded-lg object-cover shadow-[0_22px_60px_rgba(47,52,58,0.16)]"
-            />
-          </div>
-
-          <div>
+      <section className="bg-white pb-16">
+        <div className="mx-auto max-w-[1700px] px-5 sm:px-8 lg:px-12">
+          <div className="grid items-center gap-12 rounded-3xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8 lg:grid-cols-2 lg:p-10">
+          <div className="lg:px-10">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#E65100]">
               Our Capability
             </p>
-            <h2 className="max-w-xl text-3xl font-bold leading-tight text-[#12333B] md:text-4xl">
+            <h2 className="max-w-xl text-3xl font-bold leading-tight text-[#12333B] sm:text-4xl lg:text-5xl">
               Our industry-explicit competence
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-9 text-gray-600">
@@ -260,32 +257,43 @@ export default function About() {
               Get Help Now
             </Link>
           </div>
+
+          <div className="relative h-[360px] overflow-hidden rounded-2xl bg-gray-100 sm:h-[500px] lg:h-[560px]">
+            <img
+              src="/inovation.jpg"
+              alt="Logistics team reviewing operational plans"
+              className="h-full w-full object-cover object-center transition duration-700 hover:scale-105"
+            />
+          </div>
+          </div>
         </div>
       </section>
 
-      <section className="bg-white py-8">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid overflow-hidden bg-[#F6F8FA] shadow-[0_18px_50px_rgba(47,52,58,0.06)] lg:grid-cols-2">
-            <img
-              src="/l3.jpg"
-              alt="Port logistics operation with cargo ship and dock handling"
-              className="h-[360px] w-full object-cover object-center sm:h-[420px] lg:h-full lg:min-h-[430px]"
-            />
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-[1700px] px-5 sm:px-8 lg:px-12">
+          <div className="grid items-center gap-12 rounded-3xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8 lg:grid-cols-2 lg:p-10">
+            <div className="relative h-[360px] overflow-hidden rounded-2xl bg-gray-100 sm:h-[500px] lg:h-[560px]">
+              <img
+                src="/l3.jpg"
+                alt="Port logistics operation with cargo ship and dock handling"
+                className="h-full w-full object-cover object-center transition duration-700 hover:scale-105"
+              />
+            </div>
 
-            <div className="flex flex-col justify-center px-6 py-8 sm:px-10 lg:px-12 lg:py-10">
+            <div className="lg:px-10">
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#E65100]">
                 Efficient Process
               </p>
-              <h2 className="max-w-xl text-3xl font-bold leading-tight text-[#12333B] md:text-4xl">
+              <h2 className="max-w-xl text-3xl font-bold leading-tight text-[#12333B] sm:text-4xl lg:text-5xl">
                 Faster decisions, fewer shipment delays.
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-gray-600">
+              <p className="mt-6 max-w-2xl text-lg leading-9 text-gray-600">
                 Our operations team checks shipment requirements early, confirms
                 the right transport mode and keeps documents aligned before
                 cargo reaches the next step.
               </p>
 
-              <div className="mt-7 border-l-4 border-[#FFD700] bg-white p-5 shadow-[0_12px_35px_rgba(47,52,58,0.08)] sm:p-6">
+              <div className="mt-8 border-l-4 border-[#FFD700] bg-[#F6F8FA] p-5 shadow-[0_12px_35px_rgba(47,52,58,0.08)] sm:p-6">
                 {[
                   "Shipment planning and carrier coordination",
                   "Warehouse, pickup and delivery scheduling",
@@ -305,40 +313,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid items-start gap-12 lg:grid-cols-2">
-            <div className="grid w-full gap-4 sm:grid-cols-2">
-              <div className="relative overflow-hidden rounded-lg shadow-[0_18px_45px_rgba(47,52,58,0.14)]">
-                <img
-                  src="/ship@1.jpg"
-                  alt="Fast freight vessel"
-                  className="h-80 w-full object-cover sm:h-[420px]"
-                />
-              </div>
-
-              <div className="relative overflow-hidden rounded-lg shadow-[0_18px_45px_rgba(47,52,58,0.14)]">
-                <img
-                  src="/contener.jpg"
-                  alt="Container logistics operation"
-                  className="h-80 w-full object-cover sm:h-[420px]"
-                />
-              </div>
-
-              <div className="relative overflow-hidden rounded-lg shadow-[0_18px_45px_rgba(47,52,58,0.14)] sm:col-span-2">
-                <img
-                  src="/Ocean_Freight.jpg"
-                  alt="Ocean freight cargo vessel"
-                  className="h-64 w-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-center">
+      <section className="bg-white pb-16">
+        <div className="mx-auto max-w-[1700px] px-5 sm:px-8 lg:px-12">
+          <div className="grid items-center gap-12 rounded-3xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8 lg:grid-cols-2 lg:p-10">
+            <div className="flex flex-col justify-center lg:px-10">
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.32em] text-[#E65100]">
                 Integrated Transport
               </p>
-              <h2 className="max-w-2xl text-4xl font-bold leading-tight text-[#12333B] md:text-4xl">
+              <h2 className="max-w-2xl text-3xl font-bold leading-tight text-[#12333B] sm:text-4xl lg:text-5xl">
                 Plan, coordinate and move cargo with one trusted logistics team.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-9 text-gray-600">
@@ -367,10 +349,36 @@ export default function About() {
 
               <Link
                 href="/contact"
-                className="mt-9 inline-flex rounded-md bg-[#12333B] px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#E65100]"
+                className="mt-9 inline-flex w-fit rounded-md bg-[#12333B] px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#E65100]"
               >
                 Start A Shipment
               </Link>
+            </div>
+
+            <div className="grid w-full gap-4 sm:grid-cols-2">
+              <div className="relative overflow-hidden rounded-lg shadow-[0_18px_45px_rgba(47,52,58,0.14)]">
+                <img
+                  src="/ship@1.jpg"
+                  alt="Fast freight vessel"
+                  className="h-80 w-full object-cover sm:h-[420px]"
+                />
+              </div>
+
+              <div className="relative overflow-hidden rounded-lg shadow-[0_18px_45px_rgba(47,52,58,0.14)]">
+                <img
+                  src="/contener.jpg"
+                  alt="Container logistics operation"
+                  className="h-80 w-full object-cover sm:h-[420px]"
+                />
+              </div>
+
+              <div className="relative overflow-hidden rounded-lg shadow-[0_18px_45px_rgba(47,52,58,0.14)] sm:col-span-2">
+                <img
+                  src="/Ocean_Freight.jpg"
+                  alt="Ocean freight cargo vessel"
+                  className="h-64 w-full object-cover"
+                />
+              </div>
             </div>
           </div>
 
@@ -417,13 +425,22 @@ export default function About() {
       </section>
 
       <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-            <div>
+        <div className="mx-auto max-w-[1700px] px-5 sm:px-8 lg:px-12">
+          <div className="grid items-center gap-12 rounded-3xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8 lg:grid-cols-2 lg:p-10">
+            <div className="relative order-1 h-[360px] overflow-hidden rounded-2xl bg-gray-100 sm:h-[500px] lg:h-[560px]">
+              <img
+                src="/Logistic_Vision.jpg"
+                alt="Logistics team reviewing warehouse dashboard"
+                className="h-full w-full object-cover object-center transition duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071F29]/18 via-transparent to-transparent" />
+            </div>
+
+            <div className="order-2 lg:px-10">
               <p className="mb-5 text-sm font-bold uppercase tracking-[0.32em] text-[#E65100]">
                 Our Vision
               </p>
-              <h2 className="max-w-2xl text-4xl font-bold leading-tight text-[#111827] md:text-5xl">
+              <h2 className="max-w-2xl text-3xl font-bold leading-tight text-[#111827] sm:text-4xl lg:text-5xl">
                 Moving your cargo faster, safer and smarter.
               </h2>
               <p className="mt-7 max-w-2xl text-lg leading-9 text-gray-600">
@@ -457,15 +474,6 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-[28px] shadow-[0_22px_60px_rgba(18,51,59,0.16)]">
-              <img
-                src="/Logistic_Vision.jpg"
-                alt="Logistics team reviewing warehouse dashboard"
-                className="h-[360px] w-full object-cover md:h-[430px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071F29]/18 via-transparent to-transparent" />
             </div>
           </div>
         </div>
@@ -510,7 +518,7 @@ export default function About() {
       <section className="bg-white pb-16 pt-6">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="border-y border-gray-200 py-10">
-            <div className="mb-10 flex items-center justify-between text-xs font-bold uppercase tracking-[0.32em] text-gray-400">
+            <div className="mb-10 flex items-center justify-between text-xs font-bold uppercase tracking-[0.28em] text-gray-400">
               <span>AS</span>
               <span className="text-[#E65100]">Logistics</span>
               <span>Studio</span>
@@ -526,7 +534,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-[#E65100]/20 mix-blend-color" />
               </div>
 
-              <h2 className="max-w-5xl text-3xl font-semibold leading-tight text-[#111827] md:text-4xl lg:text-5xl">
+              <h2 className="max-w-5xl text-3xl font-bold leading-tight text-[#12333B] md:text-4xl lg:text-5xl">
                 We believe that good logistics is powerful, clear planning is
                 essential, and every shipment deserves confident handling.
               </h2>
@@ -535,10 +543,10 @@ export default function About() {
 
           <div className="grid gap-10 border-b border-gray-200 py-12 md:grid-cols-2">
             <div>
-              <p className="mb-5 text-base font-bold uppercase tracking-[0.28em] text-[#E65100]">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.28em] text-[#E65100]">
                 Smart Freight Planning
               </p>
-              <p className="max-w-xl text-lg leading-9 text-gray-600 md:text-xl">
+              <p className="max-w-xl text-base leading-8 text-gray-600 md:text-lg">
                 We study shipment needs, timelines and routes before cargo
                 moves, so each delivery has the right mode and the right
                 schedule.
@@ -546,10 +554,10 @@ export default function About() {
             </div>
 
             <div>
-              <p className="mb-5 text-base font-bold uppercase tracking-[0.28em] text-[#E65100]">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.28em] text-[#E65100]">
                 Reliable Work Design
               </p>
-              <p className="max-w-xl text-lg leading-9 text-gray-600 md:text-xl">
+              <p className="max-w-xl text-base leading-8 text-gray-600 md:text-lg">
                 Our process connects pickup, warehousing, documentation and
                 delivery updates into one dependable operating flow.
               </p>
@@ -557,10 +565,10 @@ export default function About() {
           </div>
 
           <div className="border-b border-gray-200 py-12">
-            <p className="mb-5 text-base font-bold uppercase tracking-[0.28em] text-[#E65100]">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.28em] text-[#E65100]">
               Less Risk, More Control
             </p>
-            <p className="max-w-4xl text-lg leading-9 text-gray-600 md:text-xl">
+            <p className="max-w-4xl text-base leading-8 text-gray-600 md:text-lg">
               We coordinate with carriers, customers and operations teams to
               reduce delays, avoid document gaps and keep every shipment visible
               from start to finish.
